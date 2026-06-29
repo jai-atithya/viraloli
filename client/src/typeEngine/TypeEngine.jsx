@@ -33,6 +33,7 @@ export const TypeEngine = () => {
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
+  
   useEffect(() => {
     if (pressedKey) {
       console.log("Pressed Key:", pressedKey);
