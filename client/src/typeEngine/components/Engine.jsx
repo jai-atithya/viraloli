@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from "react";
 
-export const Engine = ({ lesson, allowNext, pressedKey, setPressedKey }) => {
+export const Engine = ({ 
+    lesson, 
+    allowNext, 
+    pressedKey, 
+    setPressedKey,
+    currentUnit,
+    setCurrentUnit,
+    currentKey,
+    setCurrentKey,
+    unitsState,
+    setUnitsState
+}) => {
 
-    const [currentUnit, setCurrentUnit] = useState(0);
-    const [currentKey, setCurrentKey] = useState(0);
 
-    const [unitsState, setUnitsState] = useState(
-        lesson.units.map(() => ({
-            status: "pending",
-            progress: 0,
-        }))
-    );
-    useEffect(() => {
-        console.log("Units State:", unitsState);
-    }, [unitsState]);  
     useEffect(() => {
         if (!pressedKey) return;
         if (currentUnit >= lesson.units.length) return;

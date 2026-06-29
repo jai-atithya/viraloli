@@ -16,6 +16,15 @@ const lesson = {
 export const TypeEngine = () => {
   const [allowNext] = useState(true);
   const [pressedKey, setPressedKey] = useState(null);
+  const [currentUnit, setCurrentUnit] = useState(0);
+  const [currentKey, setCurrentKey] = useState(0);
+
+  const [unitsState, setUnitsState] = useState(
+    lesson.units.map(() => ({
+      status: "pending",
+      progress: 0,
+    }))
+  );
   useEffect(() => {
     const handleKeyDown = (e) => {
       e.preventDefault();
@@ -23,7 +32,7 @@ export const TypeEngine = () => {
     }
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  },[]);
+  }, []);
   useEffect(() => {
     if (pressedKey) {
       console.log("Pressed Key:", pressedKey);
@@ -34,8 +43,28 @@ export const TypeEngine = () => {
     <>
       <div className='h-screen w-screen flex justify-center items-center'>
         <div className='h-[80%] w-[80%] flex flex-col justify-center items-center p-[1rem]'>
-          <Engine lesson={lesson} allowNext={allowNext} pressedKey={pressedKey} setPressedKey={setPressedKey} />
-          <Keyboard />
+          <Engine
+            lesson={lesson}
+            allowNext={allowNext}
+            pressedKey={pressedKey} 
+            setPressedKey={setPressedKey} 
+            currentUnit={currentUnit} 
+            setCurrentUnit={setCurrentUnit} 
+            currentKey={currentKey} 
+            setCurrentKey={setCurrentKey} 
+            unitsState={unitsState} 
+            setUnitsState={setUnitsState} 
+          />
+          <Keyboard 
+            lesson={lesson} 
+            allowNext={allowNext} 
+            pressedKey={pressedKey} 
+            setPressedKey={setPressedKey} 
+            currentUnit={currentUnit} 
+            setCurrentUnit={setCurrentUnit} 
+            currentKey={currentKey} 
+            setCurrentKey={setCurrentKey} 
+          />
         </div>
 
       </div>
