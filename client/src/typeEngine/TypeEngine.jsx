@@ -19,11 +19,17 @@ export const TypeEngine = () => {
   useEffect(() => {
     const handleKeyDown = (e) => {
       e.preventDefault();
-      setPressedKey(e.code);
+      setPressedKey(e);
     }
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   },[]);
+  useEffect(() => {
+    if (pressedKey) {
+      console.log("Pressed Key:", pressedKey);
+
+    }
+  }, [pressedKey]);
   return (
     <>
       <div className='h-screen w-screen flex justify-center items-center'>

@@ -11,16 +11,14 @@ export const Engine = ({ lesson, allowNext, pressedKey, setPressedKey }) => {
             progress: 0,
         }))
     );
-    // useEffect(() => {
-    //     console.log("Current Unit changed:", currentUnit);
-    // }, [currentUnit]);
-    // useEffect(() => {
-    //     console.log("Units State changed:", unitsState);
-    // }, [unitsState]);
+    useEffect(() => {
+        console.log("Units State:", unitsState);
+    }, [unitsState]);  
     useEffect(() => {
         if (!pressedKey) return;
         if (currentUnit >= lesson.units.length) return;
-        if (pressedKey === "Backspace") {
+
+        if (pressedKey.code === "Backspace") {
             if (!allowNext) return;
 
             let newCurrentUnit = currentUnit;
@@ -46,11 +44,8 @@ export const Engine = ({ lesson, allowNext, pressedKey, setPressedKey }) => {
         const unit = lesson.units[currentUnit];
         const expectedKey = unit.keys[currentKey];
 
-        // console.log("Pressed :", e.code);
-        // console.log("key: ", e.key);
-        // console.log("Expected:", expectedKey);
 
-        if (pressedKey === expectedKey) {
+        if (pressedKey.code === expectedKey) {
             const updated = [...unitsState];
 
             updated[currentUnit] = {
@@ -76,6 +71,7 @@ export const Engine = ({ lesson, allowNext, pressedKey, setPressedKey }) => {
             updated[currentUnit] = {
                 ...updated[currentUnit],
                 status: "wrong",
+                progress: currentKey + 1,
             };
 
             setUnitsState(updated);
