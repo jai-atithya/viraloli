@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-export const Engine = ({lesson, allowNext}) => {
+export const Engine = ({ lesson, allowNext, pressedKey, setPressedKey }) => {
 
     const [currentUnit, setCurrentUnit] = useState(0);
     const [currentKey, setCurrentKey] = useState(0);
@@ -18,82 +18,77 @@ export const Engine = ({lesson, allowNext}) => {
     //     console.log("Units State changed:", unitsState);
     // }, [unitsState]);
     useEffect(() => {
-        const handleKeyDown = (e) => {
-            e.preventDefault();
+        if (!pressedKey) return;
+        if (currentUnit >= lesson.units.length) return;
+        if (pressedKey === "Backspace") {
+            if (!allowNext) return;
 
-            if (e.code === "Backspace") {
-                if (!allowNext) return;
+            let newCurrentUnit = currentUnit;
+            if (unitsState[currentUnit].progress === 0) {
+                newCurrentUnit = Math.max(0, currentUnit - 1);
+                setCurrentUnit(newCurrentUnit);
+            }
 
-                let newCurrentUnit = currentUnit;
-                if (unitsState[currentUnit].progress === 0) {
-                    newCurrentUnit = Math.max(0, currentUnit - 1);
-                    setCurrentUnit(newCurrentUnit);
-                }
+            const updated = [...unitsState];
+            updated[newCurrentUnit] = {
+                ...updated[newCurrentUnit],
+                status: "pending",
+                progress: updated[newCurrentUnit].progress === 0 ? 0 : updated[newCurrentUnit].progress - 1,
+            };
 
-                const updated = [...unitsState];
-                updated[newCurrentUnit] = {
-                    ...updated[newCurrentUnit],
-                    status: "pending",
-                    progress: updated[newCurrentUnit].progress === 0 ? 0 : updated[newCurrentUnit].progress - 1,
-                };
+            setUnitsState(updated);
+            setCurrentKey(updated[newCurrentUnit].progress);
+            setPressedKey(null);
+            return;
+        }
+
+
+        const unit = lesson.units[currentUnit];
+        const expectedKey = unit.keys[currentKey];
+
+        // console.log("Pressed :", e.code);
+        // console.log("key: ", e.key);
+        // console.log("Expected:", expectedKey);
+
+        if (pressedKey === expectedKey) {
+            const updated = [...unitsState];
+
+            updated[currentUnit] = {
+                ...updated[currentUnit],
+                progress: currentKey + 1,
+            };
+
+            if (currentKey + 1 === unit.keys.length) {
+                updated[currentUnit].status = "correct";
 
                 setUnitsState(updated);
-                setCurrentKey(updated[newCurrentUnit].progress);
-                return;
-            }
-
-            if (currentUnit >= lesson.units.length) return;
-
-            const unit = lesson.units[currentUnit];
-            const expectedKey = unit.keys[currentKey];
-
-            // console.log("Pressed :", e.code);
-            // console.log("key: ", e.key);
-            // console.log("Expected:", expectedKey);
-
-            if (e.code === expectedKey) {
-                const updated = [...unitsState];
-
-                updated[currentUnit] = {
-                    ...updated[currentUnit],
-                    progress: currentKey + 1,
-                };
-
-                if (currentKey + 1 === unit.keys.length) {
-                    updated[currentUnit].status = "correct";
-
-                    setUnitsState(updated);
-                    setCurrentUnit((prev) => prev + 1);
-                    setCurrentKey(0);
-                } else {
-                    setUnitsState(updated);
-                    setCurrentKey((prev) => prev + 1);
-                }
-            }
-
-            else {
-                const updated = [...unitsState];
-
-                updated[currentUnit] = {
-                    ...updated[currentUnit],
-                    status: "wrong",
-                };
-
+                setCurrentUnit((prev) => prev + 1);
+                setCurrentKey(0);
+            } else {
                 setUnitsState(updated);
-
-                if (allowNext) {
-                    setCurrentUnit((prev) => prev + 1);
-                    setCurrentKey(0);
-                } else {
-                    setCurrentKey(updated[currentUnit].progress);
-                }
+                setCurrentKey((prev) => prev + 1);
             }
-        };
+        }
 
-        window.addEventListener("keydown", handleKeyDown);
+        else {
+            const updated = [...unitsState];
 
-        return () => window.removeEventListener("keydown", handleKeyDown);
-    }, [currentUnit, currentKey, unitsState, allowNext]);
+            updated[currentUnit] = {
+                ...updated[currentUnit],
+                status: "wrong",
+            };
+
+            setUnitsState(updated);
+
+            if (allowNext) {
+                setCurrentUnit((prev) => prev + 1);
+                setCurrentKey(0);
+            } else {
+                setCurrentKey(updated[currentUnit].progress);
+            }
+        }
+        setPressedKey(null);
+    }, [pressedKey]);
 
     const getColor = (index) => {
         if (unitsState[index].status === "correct") return "#d9ffd9";
@@ -110,7 +105,7 @@ export const Engine = ({lesson, allowNext}) => {
     }
 
     return (
-        <div style={{ userSelect: "none"}} className="w-full h-full bg-yellow-200">
+        <div style={{ userSelect: "none" }} className="w-full bg-yellow-200">
             <div className="flex flex-wrap">
                 {lesson.units.map((unit, index) => (
                     <div key={index} className={`p-[0.2rem] text-[3rem] min-w-[2rem]`} style={{ backgroundColor: getColor(index), color: getTextColor(index) }}>
