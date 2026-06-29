@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from "react";
 
-export const Engine = ({lesson}) => {
+export const Engine = ({lesson, allowNext}) => {
 
     const [currentUnit, setCurrentUnit] = useState(0);
     const [currentKey, setCurrentKey] = useState(0);
-
-
-    const [allowNext] = useState(false);
 
     const [unitsState, setUnitsState] = useState(
         lesson.units.map(() => ({
@@ -99,33 +96,37 @@ export const Engine = ({lesson}) => {
     }, [currentUnit, currentKey, unitsState, allowNext]);
 
     const getColor = (index) => {
-        if (unitsState[index].status === "correct") return "green";
-        if (unitsState[index].status === "wrong") return "red";
-        if (index === currentUnit) return "orange";
-        return "#444";
+        if (unitsState[index].status === "correct") return "#d9ffd9";
+        if (unitsState[index].status === "wrong") return "#ffd4d4";
+        if (index === currentUnit) return "#ffa500";
+        return "#ffffff";
     };
 
-    return (
-        <div
-            style={{
-                padding: 40,
-                userSelect: "none",
-                fontSize: 22,
-            }}
-        >
-            {lesson.units.map((unit, index) => (
-                <span
-                    key={index}
-                    style={{
-                        color: getColor(index),
-                        marginRight: 4,
-                    }}
-                >
-                    {unit.text}
-                </span>
-            ))}
+    const getTextColor = (index) => {
+        if (unitsState[index].status === "correct") return "#3ed000";
+        if (unitsState[index].status === "wrong") return "#950000";
+        if (index === currentUnit) return "#000000";
+        return "#000000";
+    }
 
-            <hr />
+    return (
+        <div style={{ userSelect: "none"}} className="w-full h-full bg-yellow-200">
+            <div className="flex flex-wrap">
+                {lesson.units.map((unit, index) => (
+                    <div key={index} className={`p-[0.2rem] text-[3rem] min-w-[2rem]`} style={{ backgroundColor: getColor(index), color: getTextColor(index) }}>
+                        {unit.text}
+                    </div>
+                    // <span
+                    //     key={index}
+                    //     style={{
+                    //         color: getColor(index),
+                    //         marginRight: 4,
+                    //     }}
+                    // >
+                    //     {unit.text}
+                    // </span>
+                ))}
+            </div>
 
             <p>
                 <b>Current Character:</b>{" "}
