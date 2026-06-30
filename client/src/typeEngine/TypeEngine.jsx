@@ -15,6 +15,7 @@ const lesson = {
 };
 export const TypeEngine = () => {
   const [allowNext] = useState(true);
+  const [showKeyboard, setShowKeyboard] = useState(true);
   const [pressedKey, setPressedKey] = useState(null);
   const [currentUnit, setCurrentUnit] = useState(0);
   const [currentKey, setCurrentKey] = useState(0);
@@ -33,7 +34,7 @@ export const TypeEngine = () => {
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
-  
+
   useEffect(() => {
     if (pressedKey) {
       console.log("Pressed Key:", pressedKey);
@@ -47,25 +48,27 @@ export const TypeEngine = () => {
           <Engine
             lesson={lesson}
             allowNext={allowNext}
-            pressedKey={pressedKey} 
-            setPressedKey={setPressedKey} 
-            currentUnit={currentUnit} 
-            setCurrentUnit={setCurrentUnit} 
-            currentKey={currentKey} 
-            setCurrentKey={setCurrentKey} 
-            unitsState={unitsState} 
-            setUnitsState={setUnitsState} 
+            pressedKey={pressedKey}
+            setPressedKey={setPressedKey}
+            currentUnit={currentUnit}
+            setCurrentUnit={setCurrentUnit}
+            currentKey={currentKey}
+            setCurrentKey={setCurrentKey}
+            unitsState={unitsState}
+            setUnitsState={setUnitsState}
           />
-          <Keyboard 
-            lesson={lesson} 
-            allowNext={allowNext} 
-            pressedKey={pressedKey} 
-            setPressedKey={setPressedKey} 
-            currentUnit={currentUnit} 
-            setCurrentUnit={setCurrentUnit} 
-            currentKey={currentKey} 
-            setCurrentKey={setCurrentKey} 
-          />
+          {showKeyboard && (
+            <Keyboard
+              lesson={lesson}
+              allowNext={allowNext}
+              pressedKey={pressedKey}
+              setPressedKey={setPressedKey}
+              currentUnit={currentUnit}
+              setCurrentUnit={setCurrentUnit}
+              currentKey={currentKey}
+              setCurrentKey={setCurrentKey}
+            />
+          )}
         </div>
 
       </div>

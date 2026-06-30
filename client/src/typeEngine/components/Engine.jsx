@@ -99,8 +99,8 @@ export const Engine = ({
     }
 
     return (
-        <div style={{ userSelect: "none" }} className="w-full bg-yellow-200">
-            <div className="flex flex-wrap">
+        <div style={{ userSelect: "none" }} className="w-full">
+            <div className="flex flex-wrap ">
                 {lesson.units.map((unit, index) => (
                     <div key={index} className={`p-[0.2rem] text-[3rem] min-w-[2rem]`} style={{ backgroundColor: getColor(index), color: getTextColor(index) }}>
                         {unit.text}
@@ -124,10 +124,10 @@ export const Engine = ({
                     : lesson.units[currentUnit]?.text ?? "Finished"}
             </p>
 
-            <p>
+            {/* <p>
                 <b>Expected Key:</b>{" "}
                 {lesson.units[currentUnit]?.keys?.[currentKey] ?? "-"}
-            </p>
+            </p> */}
 
         </div>
     );
