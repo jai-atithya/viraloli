@@ -79,9 +79,7 @@ export const Engine = ({
             if (allowNext) {
                 setCurrentUnit((prev) => prev + 1);
                 setCurrentKey(0);
-            } else {
-                setCurrentKey(updated[currentUnit].progress);
-            }
+            } 
         }
         setPressedKey(null);
     }, [pressedKey]);
