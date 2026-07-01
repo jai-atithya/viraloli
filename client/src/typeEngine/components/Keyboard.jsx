@@ -59,9 +59,9 @@ export const Keyboard = ({
                 <div className='col-span-2 flex justify-center items-center' style={{ backgroundColor: getColor("KeyJ") }}>j</div>
                 <div className='col-span-2 flex justify-center items-center' style={{ backgroundColor: getColor("KeyK") }}>k</div>
                 <div className='col-span-2 flex justify-center items-center' style={{ backgroundColor: getColor("KeyL") }}>l</div>
-                <div className='col-span-2 flex justify-center items-center' style={{ backgroundColor: getColor("KeySemicolon") }}>; </div>
+                <div className='col-span-2 flex justify-center items-center' style={{ backgroundColor: getColor("Semicolon") }}>; </div>
                 <div className='col-span-2 flex justify-center items-center' style={{ backgroundColor: getColor("KeyQuote") }}>'</div>
-                <div className='col-span-4 flex justify-center items-center' style={{ backgroundColor: getColor("KeyEnter") }}>enter</div>
+                <div className='col-span-4 flex justify-center items-center' style={{ backgroundColor: getColor("Enter") }}>enter</div>
 
                 <div className='col-span-5 flex justify-center items-center' style={{ backgroundColor: getColor("KeyShift") }}>shift</div>
                 <div className='col-span-2 flex justify-center items-center' style={{ backgroundColor: getColor("KeyZ") }}>z</div>

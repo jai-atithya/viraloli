@@ -1,7 +1,6 @@
 import React from 'react'
 const fingers = {
     Rest: {
-        activeFinger: "R-index",
         fingersL: {
             pinky: { isActive: false, x1: 90, y1: 140, x2: 90, y2: 180 },
             ring: { isActive: false, x1: 135, y1: 120, x2: 135, y2: 180 },
@@ -18,7 +17,6 @@ const fingers = {
         }
     },
     Space: {
-        activeFinger: "R-index",
         fingersL: {
             pinky: { isActive: false, x1: 90, y1: 140, x2: 90, y2: 180 },
             ring: { isActive: false, x1: 135, y1: 120, x2: 135, y2: 180 },
@@ -34,8 +32,23 @@ const fingers = {
             pinky: { isActive: false, x1: 165, y1: 140, x2: 165, y2: 180 }
         }
     },
+    Enter: {
+        fingersL: {
+            pinky: { isActive: false, x1: 90, y1: 140, x2: 90, y2: 180 },
+            ring: { isActive: false, x1: 135, y1: 120, x2: 135, y2: 180 },
+            middle: { isActive: false, x1: 185, y1: 110, x2: 185, y2: 180 },
+            index: { isActive: false, x1: 235, y1: 130, x2: 235, y2: 180 },
+            thumb: { isActive: false, x1: 280, y1: 220, x2: 250, y2: 250 },
+        },
+        fingersR: {
+            thumb: { isActive: false, x1: -30, y1: 220, x2: 0, y2: 250 },
+            index: { isActive: false, x1: 20, y1: 130, x2: 20, y2: 180 },
+            middle: { isActive: false, x1: 65, y1: 110, x2: 65, y2: 180 },
+            ring: { isActive: false, x1: 115, y1: 120, x2: 115, y2: 180 },
+            pinky: { isActive: true, x1: 250, y1: 120, x2: 165, y2: 180 }
+        }
+    },
     KeyA: {
-        activeFinger: "R-index",
         fingersL: {
             pinky: { isActive: true, x1: 90, y1: 140, x2: 90, y2: 180 },
             ring: { isActive: false, x1: 135, y1: 120, x2: 135, y2: 180 },
@@ -52,7 +65,6 @@ const fingers = {
         }
     },
     KeyS: {
-        activeFinger: "R-index",
         fingersL: {
             pinky: { isActive: false, x1: 90, y1: 140, x2: 90, y2: 180 },
             ring: { isActive: true, x1: 135, y1: 120, x2: 135, y2: 180 },
@@ -69,7 +81,6 @@ const fingers = {
         }
     },
     KeyD: {
-        activeFinger: "R-index",
         fingersL: {
             pinky: { isActive: false, x1: 90, y1: 140, x2: 90, y2: 180 },
             ring: { isActive: false, x1: 135, y1: 120, x2: 135, y2: 180 },
@@ -86,7 +97,6 @@ const fingers = {
         }
     },
     KeyF: {
-        activeFinger: "R-index",
         fingersL: {
             pinky: { isActive: false, x1: 90, y1: 140, x2: 90, y2: 180 },
             ring: { isActive: false, x1: 135, y1: 120, x2: 135, y2: 180 },
@@ -103,7 +113,6 @@ const fingers = {
         }
     },
     KeyG: {
-        activeFinger: "R-index",
         fingersL: {
             pinky: { isActive: false, x1: 90, y1: 140, x2: 90, y2: 180 },
             ring: { isActive: false, x1: 135, y1: 120, x2: 135, y2: 180 },
@@ -120,7 +129,6 @@ const fingers = {
         }
     },
     KeyH: {
-        activeFinger: "R-index",
         fingersL: {
             pinky: { isActive: false, x1: 90, y1: 140, x2: 90, y2: 180 },
             ring: { isActive: false, x1: 135, y1: 120, x2: 135, y2: 180 },
@@ -137,7 +145,6 @@ const fingers = {
         }
     },
     KeyJ: {
-        activeFinger: "R-index",
         fingersL: {
             pinky: { isActive: false, x1: 90, y1: 140, x2: 90, y2: 180 },
             ring: { isActive: false, x1: 135, y1: 120, x2: 135, y2: 180 },
@@ -154,7 +161,6 @@ const fingers = {
         }
     },
     KeyK: {
-        activeFinger: "R-index",
         fingersL: {
             pinky: { isActive: false, x1: 90, y1: 140, x2: 90, y2: 180 },
             ring: { isActive: false, x1: 135, y1: 120, x2: 135, y2: 180 },
@@ -171,7 +177,6 @@ const fingers = {
         }
     },
     KeyL: {
-        activeFinger: "R-index",
         fingersL: {
             pinky: { isActive: false, x1: 90, y1: 140, x2: 90, y2: 180 },
             ring: { isActive: false, x1: 135, y1: 120, x2: 135, y2: 180 },
@@ -188,7 +193,6 @@ const fingers = {
         }
     },
     Semicolon: {
-        activeFinger: "R-index",
         fingersL: {
             pinky: { isActive: false, x1: 90, y1: 140, x2: 90, y2: 180 },
             ring: { isActive: false, x1: 135, y1: 120, x2: 135, y2: 180 },

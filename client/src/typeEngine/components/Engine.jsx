@@ -105,15 +105,6 @@ export const Engine = ({
                     <div key={index} className={`p-[0.2rem] text-[3rem] min-w-[2rem]`} style={{ backgroundColor: getColor(index), color: getTextColor(index) }}>
                         {unit.text}
                     </div>
-                    // <span
-                    //     key={index}
-                    //     style={{
-                    //         color: getColor(index),
-                    //         marginRight: 4,
-                    //     }}
-                    // >
-                    //     {unit.text}
-                    // </span>
                 ))}
             </div>
 
@@ -124,11 +115,10 @@ export const Engine = ({
                     : lesson.units[currentUnit]?.text ?? "Finished"}
             </p>
 
-            {/* <p>
+            <p>
                 <b>Expected Key:</b>{" "}
                 {lesson.units[currentUnit]?.keys?.[currentKey] ?? "-"}
-            </p> */}
-
+            </p>
         </div>
     );
 };

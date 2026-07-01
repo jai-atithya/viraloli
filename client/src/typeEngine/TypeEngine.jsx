@@ -10,7 +10,8 @@ const lesson = {
     { text: " ", keys: ["Space"] },
     { text: "த", keys: ["KeyL"] },
     { text: "மி", keys: ["KeyK", "KeyS"] },
-    { text: "ழ்", keys: ["Slash", "KeyF"] },
+    { text: "ழ்", keys: ["Slash", "KeyF"] }, 
+    { text: "", keys: ["Enter"] }, 
   ],
 };
 export const TypeEngine = () => {
