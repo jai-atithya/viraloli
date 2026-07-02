@@ -11,12 +11,11 @@ const lesson = {
     { text: "த", keys: ["KeyL"] },
     { text: "மி", keys: ["KeyK", "KeyS"] },
     { text: "ழ்", keys: ["Slash", "KeyF"] }, 
-    { text: "", keys: ["Enter"] }, 
   ],
 };
 export const TypeEngine = () => {
-  const [allowNext] = useState(true);
-  const [showKeyboard, setShowKeyboard] = useState(true);
+  const [allowNext] = useState(false);
+  const [showKeyboard, setShowKeyboard] = useState(true); 
   const [pressedKey, setPressedKey] = useState(null);
   const [currentUnit, setCurrentUnit] = useState(0);
   const [currentKey, setCurrentKey] = useState(0);

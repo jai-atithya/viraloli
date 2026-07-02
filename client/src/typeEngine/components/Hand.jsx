@@ -208,6 +208,24 @@ const fingers = {
             pinky: { isActive: true, x1: 165, y1: 140, x2: 165, y2: 180 }
         }
     },
+    Quote: {
+        fingersL: {
+            pinky: { isActive: false, x1: 90, y1: 140, x2: 90, y2: 180 },
+            ring: { isActive: false, x1: 135, y1: 120, x2: 135, y2: 180 },
+            middle: { isActive: false, x1: 185, y1: 110, x2: 185, y2: 180 },
+            index: { isActive: false, x1: 235, y1: 130, x2: 235, y2: 180 },
+            thumb: { isActive: false, x1: 280, y1: 220, x2: 250, y2: 250 },
+        },
+        fingersR: {
+            thumb: { isActive: false, x1: -30, y1: 220, x2: 0, y2: 250 },
+            index: { isActive: false, x1: 20, y1: 130, x2: 20, y2: 180 },
+            middle: { isActive: false, x1: 65, y1: 110, x2: 65, y2: 180 },
+            ring: { isActive: false, x1: 115, y1: 120, x2: 115, y2: 180 },
+            pinky: { isActive: true, x1: 205, y1: 135, x2: 165, y2: 180 }
+        }
+    },
+
+
     KeyQ: {
         fingersL: {
             pinky: { isActive: true, x1: 70, y1: 90, x2: 90, y2: 180 },
@@ -366,6 +384,200 @@ const fingers = {
             middle: { isActive: false, x1: 65, y1: 110, x2: 65, y2: 180 },
             ring: { isActive: false, x1: 115, y1: 120, x2: 115, y2: 180 },
             pinky: { isActive: true, x1: 140, y1: 90, x2: 165, y2: 180 }
+        }
+    },
+    BracketLeft: {
+        fingersL: {
+            pinky: { isActive: false, x1: 90, y1: 140, x2: 90, y2: 180 },
+            ring: { isActive: false, x1: 135, y1: 120, x2: 135, y2: 180 },
+            middle: { isActive: false, x1: 185, y1: 110, x2: 185, y2: 180 },
+            index: { isActive: false, x1: 235, y1: 130, x2: 235, y2: 180 },
+            thumb: { isActive: false, x1: 280, y1: 220, x2: 250, y2: 250 },
+        },
+        fingersR: {
+            thumb: { isActive: false, x1: -30, y1: 220, x2: 0, y2: 250 },
+            index: { isActive: false, x1: 20, y1: 130, x2: 20, y2: 180 },
+            middle: { isActive: false, x1: 65, y1: 110, x2: 65, y2: 180 },
+            ring: { isActive: false, x1: 115, y1: 120, x2: 115, y2: 180 },
+            pinky: { isActive: true, x1: 190, y1: 90, x2: 165, y2: 180 }
+        }
+    },
+    BracketRight: {
+        fingersL: {
+            pinky: { isActive: false, x1: 90, y1: 140, x2: 90, y2: 180 },
+            ring: { isActive: false, x1: 135, y1: 120, x2: 135, y2: 180 },
+            middle: { isActive: false, x1: 185, y1: 110, x2: 185, y2: 180 },
+            index: { isActive: false, x1: 235, y1: 130, x2: 235, y2: 180 },
+            thumb: { isActive: false, x1: 280, y1: 220, x2: 250, y2: 250 },
+        },
+        fingersR: {
+            thumb: { isActive: false, x1: -30, y1: 220, x2: 0, y2: 250 },
+            index: { isActive: false, x1: 20, y1: 130, x2: 20, y2: 180 },
+            middle: { isActive: false, x1: 65, y1: 110, x2: 65, y2: 180 },
+            ring: { isActive: false, x1: 115, y1: 120, x2: 115, y2: 180 },
+            pinky: { isActive: true, x1: 230, y1: 90, x2: 165, y2: 180 }
+        }
+    },
+
+
+    KeyZ: {
+        fingersL: {
+            pinky: { isActive: true, x1: 110, y1: 180, x2: 110, y2: 220 },
+            ring: { isActive: false, x1: 135, y1: 120, x2: 135, y2: 180 },
+            middle: { isActive: false, x1: 185, y1: 110, x2: 185, y2: 180 },
+            index: { isActive: false, x1: 235, y1: 130, x2: 235, y2: 180 },
+            thumb: { isActive: false, x1: 280, y1: 220, x2: 250, y2: 250 },
+        },
+        fingersR: {
+            thumb: { isActive: false, x1: -30, y1: 220, x2: 0, y2: 250 },
+            index: { isActive: false, x1: 20, y1: 130, x2: 20, y2: 180 },
+            middle: { isActive: false, x1: 65, y1: 110, x2: 65, y2: 180 },
+            ring: { isActive: false, x1: 115, y1: 120, x2: 115, y2: 180 },
+            pinky: { isActive: false, x1: 165, y1: 140, x2: 165, y2: 180 }
+        }
+    },
+    KeyX: {
+        fingersL: {
+            pinky: { isActive: false, x1: 110, y1: 180, x2: 110, y2: 220 },
+            ring: { isActive: true, x1: 155, y1: 160, x2: 155, y2: 220 },
+            middle: { isActive: false, x1: 185, y1: 110, x2: 185, y2: 180 },
+            index: { isActive: false, x1: 235, y1: 130, x2: 235, y2: 180 },
+            thumb: { isActive: false, x1: 280, y1: 220, x2: 250, y2: 250 },
+        },
+        fingersR: {
+            thumb: { isActive: false, x1: -30, y1: 220, x2: 0, y2: 250 },
+            index: { isActive: false, x1: 20, y1: 130, x2: 20, y2: 180 },
+            middle: { isActive: false, x1: 65, y1: 110, x2: 65, y2: 180 },
+            ring: { isActive: false, x1: 115, y1: 120, x2: 115, y2: 180 },
+            pinky: { isActive: false, x1: 165, y1: 140, x2: 165, y2: 180 }
+        }
+    },
+    KeyC: {
+        fingersL: {
+            pinky: { isActive: false, x1: 90, y1: 140, x2: 90, y2: 180 },
+            ring: { isActive: false, x1: 135, y1: 120, x2: 135, y2: 180 },
+            middle: { isActive: true, x1: 210, y1: 160, x2: 195, y2: 230 },
+            index: { isActive: false, x1: 250, y1: 180, x2: 235, y2: 230 },
+            thumb: { isActive: false, x1: 280, y1: 270, x2: 250, y2: 300 },
+        },
+        fingersR: {
+            thumb: { isActive: false, x1: -30, y1: 220, x2: 0, y2: 250 },
+            index: { isActive: false, x1: 20, y1: 130, x2: 20, y2: 180 },
+            middle: { isActive: false, x1: 65, y1: 110, x2: 65, y2: 180 },
+            ring: { isActive: false, x1: 115, y1: 120, x2: 115, y2: 180 },
+            pinky: { isActive: false, x1: 165, y1: 140, x2: 165, y2: 180 }
+        }
+    },
+    KeyV: {
+        fingersL: {
+            pinky: { isActive: false, x1: 90, y1: 140, x2: 90, y2: 180 },
+            ring: { isActive: false, x1: 135, y1: 120, x2: 135, y2: 180 },
+            middle: { isActive: false, x1: 185, y1: 110, x2: 185, y2: 180 },
+            index: { isActive: true, x1: 250, y1: 180, x2: 235, y2: 230 },
+            thumb: { isActive: false, x1: 280, y1: 270, x2: 250, y2: 300 },
+        },
+        fingersR: {
+            thumb: { isActive: false, x1: -30, y1: 220, x2: 0, y2: 250 },
+            index: { isActive: false, x1: 20, y1: 130, x2: 20, y2: 180 },
+            middle: { isActive: false, x1: 65, y1: 110, x2: 65, y2: 180 },
+            ring: { isActive: false, x1: 115, y1: 120, x2: 115, y2: 180 },
+            pinky: { isActive: false, x1: 165, y1: 140, x2: 165, y2: 180 }
+        }
+    },
+    KeyB: {
+        fingersL: {
+            pinky: { isActive: false, x1: 90, y1: 140, x2: 90, y2: 180 },
+            ring: { isActive: false, x1: 135, y1: 120, x2: 135, y2: 180 },
+            middle: { isActive: false, x1: 185, y1: 110, x2: 185, y2: 180 },
+            index: { isActive: true, x1: 300, y1: 180, x2: 235, y2: 230 },
+            thumb: { isActive: false, x1: 280, y1: 270, x2: 250, y2: 300 },
+        },
+        fingersR: {
+            thumb: { isActive: false, x1: -30, y1: 220, x2: 0, y2: 250 },
+            index: { isActive: false, x1: 20, y1: 130, x2: 20, y2: 180 },
+            middle: { isActive: false, x1: 65, y1: 110, x2: 65, y2: 180 },
+            ring: { isActive: false, x1: 115, y1: 120, x2: 115, y2: 180 },
+            pinky: { isActive: false, x1: 165, y1: 140, x2: 165, y2: 180 }
+        }
+    },
+    KeyN: {
+        fingersL: {
+            pinky: { isActive: false, x1: 90, y1: 140, x2: 90, y2: 180 },
+            ring: { isActive: false, x1: 135, y1: 120, x2: 135, y2: 180 },
+            middle: { isActive: false, x1: 185, y1: 110, x2: 185, y2: 180 },
+            index: { isActive: false, x1: 235, y1: 130, x2: 235, y2: 180 },
+            thumb: { isActive: false, x1: 280, y1: 220, x2: 250, y2: 250 },
+        },
+        fingersR: {
+            thumb: { isActive: false, x1: -30, y1: 220, x2: 0, y2: 250 },
+            index: { isActive: true, x1: 0, y1: 170, x2: 20, y2: 220 },
+            middle: { isActive: false, x1: 65, y1: 110, x2: 65, y2: 180 },
+            ring: { isActive: false, x1: 115, y1: 120, x2: 115, y2: 180 },
+            pinky: { isActive: false, x1: 165, y1: 140, x2: 165, y2: 180 }
+        }
+    },
+    KeyM: {
+        fingersL: {
+            pinky: { isActive: false, x1: 90, y1: 140, x2: 90, y2: 180 },
+            ring: { isActive: false, x1: 135, y1: 120, x2: 135, y2: 180 },
+            middle: { isActive: false, x1: 185, y1: 110, x2: 185, y2: 180 },
+            index: { isActive: false, x1: 235, y1: 130, x2: 235, y2: 180 },
+            thumb: { isActive: false, x1: 280, y1: 220, x2: 250, y2: 250 },
+        },
+        fingersR: {
+            thumb: { isActive: false, x1: -30, y1: 250, x2: 0, y2: 280 },
+            index: { isActive: true, x1: 35, y1: 180, x2: 45, y2: 220 },
+            middle: { isActive: false, x1: 65, y1: 110, x2: 65, y2: 180 },
+            ring: { isActive: false, x1: 115, y1: 120, x2: 115, y2: 180 },
+            pinky: { isActive: false, x1: 165, y1: 140, x2: 165, y2: 180 }
+        }
+    },
+    Comma: {
+        fingersL: {
+            pinky: { isActive: false, x1: 90, y1: 140, x2: 90, y2: 180 },
+            ring: { isActive: false, x1: 135, y1: 120, x2: 135, y2: 180 },
+            middle: { isActive: false, x1: 185, y1: 110, x2: 185, y2: 180 },
+            index: { isActive: false, x1: 235, y1: 130, x2: 235, y2: 180 },
+            thumb: { isActive: false, x1: 280, y1: 220, x2: 250, y2: 250 },
+        },
+        fingersR: {
+            thumb: { isActive: false, x1: -30, y1: 250, x2: 0, y2: 280 },
+            index: { isActive: false, x1: 35, y1: 180, x2: 45, y2: 220 },
+            middle: { isActive: true, x1: 85, y1: 160, x2: 85, y2: 220 },
+            ring: { isActive: false, x1: 115, y1: 120, x2: 115, y2: 180 },
+            pinky: { isActive: false, x1: 165, y1: 140, x2: 165, y2: 180 }
+        }
+    },
+    Period: {
+        fingersL: {
+            pinky: { isActive: false, x1: 90, y1: 140, x2: 90, y2: 180 },
+            ring: { isActive: false, x1: 135, y1: 120, x2: 135, y2: 180 },
+            middle: { isActive: false, x1: 185, y1: 110, x2: 185, y2: 180 },
+            index: { isActive: false, x1: 235, y1: 130, x2: 235, y2: 180 },
+            thumb: { isActive: false, x1: 280, y1: 220, x2: 250, y2: 250 },
+        },
+        fingersR: {
+            thumb: { isActive: false, x1: -30, y1: 220, x2: 0, y2: 250 },
+            index: { isActive: false, x1: 20, y1: 130, x2: 20, y2: 180 },
+            middle: { isActive: false, x1: 65, y1: 110, x2: 65, y2: 180 },
+            ring: { isActive: true, x1: 135, y1: 160, x2: 145, y2: 220 },
+            pinky: { isActive: false, x1: 185, y1: 185, x2: 195, y2: 220 }
+        }
+    },
+    Slash: {
+        fingersL: {
+            pinky: { isActive: false, x1: 90, y1: 140, x2: 90, y2: 180 },
+            ring: { isActive: false, x1: 135, y1: 120, x2: 135, y2: 180 },
+            middle: { isActive: false, x1: 185, y1: 110, x2: 185, y2: 180 },
+            index: { isActive: false, x1: 235, y1: 130, x2: 235, y2: 180 },
+            thumb: { isActive: false, x1: 280, y1: 220, x2: 250, y2: 250 },
+        },
+        fingersR: {
+            thumb: { isActive: false, x1: -30, y1: 220, x2: 0, y2: 250 },
+            index: { isActive: false, x1: 20, y1: 130, x2: 20, y2: 180 },
+            middle: { isActive: false, x1: 65, y1: 110, x2: 65, y2: 180 },
+            ring: { isActive: false, x1: 135, y1: 160, x2: 145, y2: 220 },
+            pinky: { isActive: true, x1: 185, y1: 185, x2: 195, y2: 220 }
         }
     },
     // KeyE: {
