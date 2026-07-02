@@ -10,15 +10,23 @@ export const Engine = ({
     currentKey,
     setCurrentKey,
     unitsState,
-    setUnitsState
+    setUnitsState,
+    startTime,
+    setStartTime,
+    setCorrectKeyStrokes,
+    setIncorrectKeyStrokes
 }) => {
 
 
     useEffect(() => {
         if (!pressedKey) return;
         if (currentUnit >= lesson.units.length) return;
+        if(!startTime){
+            setStartTime(Date.now());
+        }
 
         if (pressedKey.code === "Backspace") {
+
             if (!allowNext) return;
 
             let newCurrentUnit = currentUnit;
@@ -46,6 +54,7 @@ export const Engine = ({
 
 
         if (pressedKey.code === expectedKey) {
+            setCorrectKeyStrokes(prev=>prev+1);
             const updated = [...unitsState];
 
             updated[currentUnit] = {
@@ -67,7 +76,7 @@ export const Engine = ({
 
         else {
             const updated = [...unitsState];
-
+            setIncorrectKeyStrokes(prev=>prev+1);
             updated[currentUnit] = {
                 ...updated[currentUnit],
                 status: "wrong",
