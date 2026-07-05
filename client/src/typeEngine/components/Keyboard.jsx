@@ -1,5 +1,17 @@
 import React from 'react'
 import { Hand } from './Hand'
+const shiftLeft = [
+  'KeyY', 'KeyU', 'KeyI', 'KeyO', 'KeyP', 
+  'KeyH', 'KeyJ', 'KeyK', 'KeyL', 
+  'KeyN', 'KeyM', 
+  'Digit9', 'Digit0', 'BracketLeft', 'BracketRight', 'Backslash', 'Semicolon', 'Quote', 'Comma', 'Period', 'Slash', 'Equal', 'Minus', 'Digit8',"Digit7","Digit6"
+];   
+const shiftRight = [
+  'KeyQ', 'KeyW', 'KeyE', 'KeyR', 'KeyT', 
+  'KeyA', 'KeyS', 'KeyD', 'KeyF', 'KeyG', 
+  'KeyZ', 'KeyX', 'KeyC', 'KeyV', 'KeyB', 
+  'Digit1', 'Digit2', 'Digit3', 'Digit4', 'Digit5', 'BackQuote',
+];      
 export const Keyboard = ({
     lesson,
     allowNext,
@@ -11,7 +23,13 @@ export const Keyboard = ({
     setCurrentKey
 }) => {
     const getColor = (key) => {
-        if (currentUnit < lesson.units.length && lesson.units[currentUnit].keys[currentKey] === key) {
+        if(currentUnit < lesson.units.length && lesson.units[currentUnit].keys[currentKey].shiftKey && shiftLeft.includes(lesson.units[currentUnit].keys[currentKey].code) && (key === "ShiftLeft")){
+            return "#2b93fb";
+        }
+        if(currentUnit < lesson.units.length && lesson.units[currentUnit].keys[currentKey].shiftKey && shiftRight.includes(lesson.units[currentUnit].keys[currentKey].code) && (key === "ShiftRight")){
+            return "#2b93fb";
+        }
+        if (currentUnit < lesson.units.length && lesson.units[currentUnit].keys[currentKey].code === key) {
             return "#2b93fb";
         }
         return "#e5e7eb";
@@ -74,9 +92,6 @@ export const Keyboard = ({
                 </div>
                 <div className='col-span-4 flex justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("Backspace") }}>backspace</div>
 
-
-
-
                 <div className='col-span-3 flex justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("Tab") }}>tab</div>
                 <div className='col-span-2 flex justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("KeyQ") }}>
                     <div className='flex justify-center items-center flex-1 opacity-[0.6]'>Q</div>
@@ -105,7 +120,7 @@ export const Keyboard = ({
                         <div className='flex justify-center items-center flex-1'>ஹ</div>
                         <div className='flex justify-center items-center flex-1'>ஐ</div>
                     </div>
-                </div>
+            </div>
                 <div className='col-span-2 flex justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("KeyT") }}>
                     <div className='flex justify-center items-center flex-1 opacity-[0.6]'>T</div>
                     <div className='flex flex-col justify-between items-center w-full h-full flex-1'>
@@ -336,10 +351,10 @@ export const Keyboard = ({
             </div>
             <div className='absolute inset-0 grid grid-cols-30 grid-rows-5 pointer-events-none'>
                 <div style={{ gridColumn: '1 / 16', gridRow: '1 / 6' }} className="">
-                    <Hand side="L" currentKey={currentUnit < lesson.units.length && lesson.units[currentUnit].keys[currentKey]} />
+                    <Hand side="L" currentKey={currentUnit < lesson.units.length && lesson.units[currentUnit].keys[currentKey].code} leftShift={currentUnit < lesson.units.length && lesson.units[currentUnit].keys[currentKey].shiftKey && shiftLeft.includes(lesson.units[currentUnit].keys[currentKey].code)} rightShift={currentUnit < lesson.units.length && lesson.units[currentUnit].keys[currentKey].shiftKey && shiftRight.includes(lesson.units[currentUnit].keys[currentKey].code)} />
                 </div>
                 <div style={{ gridColumn: '16 / 31', gridRow: '1 / 6' }} className="">
-                    <Hand side="R" currentKey={currentUnit < lesson.units.length && lesson.units[currentUnit].keys[currentKey]} />
+                    <Hand side="R" currentKey={currentUnit < lesson.units.length && lesson.units[currentUnit].keys[currentKey].code} leftShift={currentUnit < lesson.units.length && lesson.units[currentUnit].keys[currentKey].shiftKey && shiftLeft.includes(lesson.units[currentUnit].keys[currentKey].code)} rightShift={currentUnit < lesson.units.length && lesson.units[currentUnit].keys[currentKey].shiftKey && shiftRight.includes(lesson.units[currentUnit].keys[currentKey].code)} />
                 </div>
             </div>
         </div>

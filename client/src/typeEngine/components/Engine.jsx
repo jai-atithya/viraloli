@@ -53,7 +53,7 @@ export const Engine = ({
         const expectedKey = unit.keys[currentKey];
 
 
-        if (pressedKey.code === expectedKey) {
+        if (pressedKey.code === expectedKey.code && pressedKey.altKey === expectedKey.altKey && pressedKey.ctrlKey === expectedKey.ctrlKey && pressedKey.metaKey === expectedKey.metaKey && pressedKey.shiftKey === expectedKey.shiftKey) {
             setCorrectKeyStrokes(prev=>prev+1);
             const updated = [...unitsState];
 
@@ -122,11 +122,6 @@ export const Engine = ({
                 {lesson.units[currentUnit]?.text === " "
                     ? "Space"
                     : lesson.units[currentUnit]?.text ?? "Finished"}
-            </p>
-
-            <p>
-                <b>Expected Key:</b>{" "}
-                {lesson.units[currentUnit]?.keys?.[currentKey] ?? "-"}
             </p>
         </div>
     );
