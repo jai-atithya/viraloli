@@ -15,6 +15,7 @@ const lesson = {
                          {code:"KeyS", altKey: false, ctrlKey: false, metaKey: false, shiftKey:false}]},
     { text: "ழ்", keys: [{code:"Slash", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false}, 
                          {code:"KeyF", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false}]}, 
+    { text: "ஃ", keys: [{code:"KeyF", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true}]}, 
   ],
 };
 const MODIFIER_CODES = ["ShiftLeft", "ShiftRight", "ControlLeft", "ControlRight", "AltLeft", "AltRight", "MetaLeft", "MetaRight"];
