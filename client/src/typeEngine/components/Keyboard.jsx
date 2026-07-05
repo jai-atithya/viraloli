@@ -20,64 +20,64 @@ export const Keyboard = ({
         <div className='relative w-full aspect-[30/10] flex justify-center items-center'>
             <div className='w-full aspect-[30/10] grid grid-cols-30 grid-rows-5 gap-[0.2rem]'>
 
-                <div className='col-span-2 flex flex-col justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("Key`") }}>
+                <div className='col-span-2 flex flex-col justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("Backquote") }}>
                     <div className='flex justify-center items-center w-full flex-1'>~</div>
                     <div className='flex justify-center items-center w-full flex-1'>`</div>
                 </div>
-                <div className='col-span-2 flex flex-col justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("Key1") }}>
+                <div className='col-span-2 flex flex-col justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("Digit1") }}>
                     <div className='flex justify-center items-center w-full flex-1'>!</div>
                     <div className='flex justify-center items-center w-full flex-1'>1</div>
                 </div>
-                <div className='col-span-2 flex flex-col justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("Key2") }}>
+                <div className='col-span-2 flex flex-col justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("Digit2") }}>
                     <div className='flex justify-center items-center w-full flex-1'>@</div>
                     <div className='flex justify-center items-center w-full flex-1'>2</div>
                 </div>
-                <div className='col-span-2 flex flex-col justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("Key3") }}>
+                <div className='col-span-2 flex flex-col justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("Digit3") }}>
                     <div className='flex justify-center items-center w-full flex-1'>#</div>
                     <div className='flex justify-center items-center w-full flex-1'>3</div>
                 </div>
-                <div className='col-span-2 flex flex-col justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("Key4") }}>
+                <div className='col-span-2 flex flex-col justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("Digit4") }}>
                     <div className='flex justify-center items-center w-full flex-1'>$</div>
                     <div className='flex justify-center items-center w-full flex-1'>4</div>
                 </div>
-                <div className='col-span-2 flex flex-col justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("Key5") }}>
+                <div className='col-span-2 flex flex-col justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("Digit5") }}>
                     <div className='flex justify-center items-center w-full flex-1'>%</div>
                     <div className='flex justify-center items-center w-full flex-1'>5</div>
                 </div>
-                <div className='col-span-2 flex flex-col justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("Key6") }}>
+                <div className='col-span-2 flex flex-col justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("Digit6") }}>
                     <div className='flex justify-center items-center w-full flex-1'>^</div>
                     <div className='flex justify-center items-center w-full flex-1'>6</div>
                 </div>
-                <div className='col-span-2 flex flex-col justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("Key7") }}>
+                <div className='col-span-2 flex flex-col justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("Digit7") }}>
                     <div className='flex justify-center items-center w-full flex-1'>&</div>
                     <div className='flex justify-center items-center w-full flex-1'>7</div>
                 </div>
-                <div className='col-span-2 flex flex-col justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("Key8") }}>
+                <div className='col-span-2 flex flex-col justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("Digit8") }}>
                     <div className='flex justify-center items-center w-full flex-1'>*</div>
                     <div className='flex justify-center items-center w-full flex-1'>8</div>
                 </div>
-                <div className='col-span-2 flex flex-col justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("Key9") }}>
+                <div className='col-span-2 flex flex-col justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("Digit9") }}>
                     <div className='flex justify-center items-center w-full flex-1'>(</div>
                     <div className='flex justify-center items-center w-full flex-1'>9</div>
                 </div>
-                <div className='col-span-2 flex flex-col justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("Key0") }}>
+                <div className='col-span-2 flex flex-col justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("Digit0") }}>
                     <div className='flex justify-center items-center w-full flex-1'>)</div>
                     <div className='flex justify-center items-center w-full flex-1'>0</div>
                 </div>
-                <div className='col-span-2 flex flex-col justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("KeyMinus") }}>
+                <div className='col-span-2 flex flex-col justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("Minus") }}>
                     <div className='flex justify-center items-center w-full flex-1'>_</div>
                     <div className='flex justify-center items-center w-full flex-1'>-</div>
                 </div>
-                <div className='col-span-2 flex flex-col justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("KeyEqual") }}>
+                <div className='col-span-2 flex flex-col justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("Equal") }}>
                     <div className='flex justify-center items-center w-full flex-1'>+</div>
                     <div className='flex justify-center items-center w-full flex-1'>=</div>
                 </div>
-                <div className='col-span-4 flex justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("KeyBackspace") }}>backspace</div>
+                <div className='col-span-4 flex justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("Backspace") }}>backspace</div>
 
 
 
 
-                <div className='col-span-3 flex justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("KeyTab") }}>tab</div>
+                <div className='col-span-3 flex justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("Tab") }}>tab</div>
                 <div className='col-span-2 flex justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("KeyQ") }}>
                     <div className='flex justify-center items-center flex-1 opacity-[0.6]'>Q</div>
                     <div className='flex flex-col justify-between items-center w-full h-full flex-1'>
@@ -148,21 +148,21 @@ export const Keyboard = ({
                         <div className='flex justify-center items-center flex-1'>ண</div>
                     </div>
                 </div>
-                <div className='col-span-2 flex justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("LeftBracket") }}>
+                <div className='col-span-2 flex justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("BracketLeft") }}>
                     <div className='flex justify-center items-center flex-1 opacity-[0.6]'>[</div>
                     <div className='flex flex-col justify-between items-center w-full h-full flex-1'>
                         <div className='flex justify-center items-center flex-1'>{'{'}</div>
                         <div className='flex justify-center items-center flex-1'>ச</div>
                     </div>
                 </div>
-                <div className='col-span-2 flex justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("RightBracket") }}>
+                <div className='col-span-2 flex justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("BracketRight") }}>
                     <div className='flex justify-center items-center flex-1 opacity-[0.6]'>]</div>
                     <div className='flex flex-col justify-between items-center w-full h-full flex-1'>
                         <div className='flex justify-center items-center flex-1'>{'}'}</div>
                         <div className='flex justify-center items-center flex-1'>ஞ</div>
                     </div>
                 </div>
-                <div className='col-span-3 flex flex-col justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("KeyBackslash") }}>
+                <div className='col-span-3 flex flex-col justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("Backslash") }}>
                     <div className='flex justify-center items-center w-full flex-1'>|</div>
                     <div className='flex justify-center items-center w-full flex-1'>\</div>
                 </div>
@@ -170,7 +170,7 @@ export const Keyboard = ({
 
 
 
-                <div className='col-span-4 flex justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("KeyCapsLock") }}>caps lock</div>
+                <div className='col-span-4 flex justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("CapsLock") }}>caps lock</div>
                 <div className='col-span-2 flex justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("KeyA") }}>
                     <div className='flex justify-center items-center flex-1 opacity-[0.6]'>A</div>
                     <div className='flex flex-col justify-between items-center w-full h-full flex-1'>
@@ -241,7 +241,7 @@ export const Keyboard = ({
                         <div className='flex justify-center items-center flex-1'>ந</div>
                     </div>
                 </div>
-                <div className='col-span-2 flex justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("KeyQuote") }}>
+                <div className='col-span-2 flex justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("Quote") }}>
                     <div className='flex justify-center items-center flex-1 opacity-[0.6]'>'</div>
                     <div className='flex flex-col justify-between items-center w-full h-full flex-1'>
                         <div className='flex justify-center items-center flex-1'>'</div>
@@ -253,7 +253,7 @@ export const Keyboard = ({
 
 
 
-                <div className='col-span-5 flex justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("KeyShift") }}>shift</div>
+                <div className='col-span-5 flex justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("ShiftLeft") }}>shift</div>
                 <div className='col-span-2 flex justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("KeyZ") }}>
                     <div className='flex justify-center items-center flex-1 opacity-[0.6]'>Z</div>
                     <div className='flex flex-col justify-between items-center w-full h-full flex-1'>
@@ -303,11 +303,11 @@ export const Keyboard = ({
                         <div className='flex justify-center items-center flex-1'>ர</div>
                     </div>
                 </div>
-                <div className='col-span-2 flex flex-col justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("KeyComma") }}>
+                <div className='col-span-2 flex flex-col justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("Comma") }}>
                     <div className='flex justify-center items-center w-full flex-1'>{'<'}</div>
                     <div className='flex justify-center items-center w-full flex-1'>,</div>
                 </div>
-                <div className='col-span-2 flex flex-col justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("KeyPeriod") }}>
+                <div className='col-span-2 flex flex-col justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("Period") }}>
                     <div className='flex justify-center items-center w-full flex-1'>{'>'}</div>
                     <div className='flex justify-center items-center w-full flex-1'>.</div>
                 </div>
@@ -318,20 +318,20 @@ export const Keyboard = ({
                         <div className='flex justify-center items-center flex-1'>ழ</div>
                     </div>
                 </div>
-                <div className='col-span-5 flex justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("KeyShift") }}>shift</div>
+                <div className='col-span-5 flex justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("ShiftRight") }}>shift</div>
 
 
 
 
-                <div className='col-span-2 flex justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("KeyCtrl") }}>ctrl</div>
-                <div className='col-span-2 flex justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("KeyFn") }}>fn</div>
-                <div className='col-span-2 flex justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("KeyWin") }}>win</div>
-                <div className='col-span-2 flex justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("KeyAlt") }}>alt</div>
+                <div className='col-span-2 flex justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("ControlLeft") }}>ctrl</div>
+                <div className='col-span-2 flex justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("Keyfn") }}>fn</div>
+                <div className='col-span-2 flex justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("MetaLeft") }}>win</div>
+                <div className='col-span-2 flex justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("AltLeft") }}>alt</div>
                 <div className='col-span-14 flex justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("Space") }}>space</div>
-                <div className='col-span-2 flex justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("KeyAlt") }}>alt</div>
-                <div className='col-span-2 flex justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("KeyFn") }}>fn</div>
-                <div className='col-span-2 flex justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("KeyWin") }}>win</div>
-                <div className='col-span-2 flex justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("KeyCtrl") }}>ctrl</div>
+                <div className='col-span-2 flex justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("AltRight") }}>alt</div>
+                <div className='col-span-2 flex justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("Keyfn") }}>fn</div>
+                <div className='col-span-2 flex justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("MetaRight") }}>win</div>
+                <div className='col-span-2 flex justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("ControlRight") }}>ctrl</div>
 
             </div>
             <div className='absolute inset-0 grid grid-cols-30 grid-rows-5 pointer-events-none'>
