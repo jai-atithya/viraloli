@@ -334,14 +334,14 @@ export const Keyboard = ({
                 <div className='col-span-2 flex justify-center items-center text-[1vw]' style={{ backgroundColor: getColor("ControlRight") }}>ctrl</div>
 
             </div>
-            <div className='absolute inset-0 grid grid-cols-30 grid-rows-5 pointer-events-none'>
+            {/* <div className='absolute inset-0 grid grid-cols-30 grid-rows-5 pointer-events-none'>
                 <div style={{ gridColumn: '1 / 16', gridRow: '1 / 6' }} className="">
                     <Hand side="L" currentKey={currentUnit < lesson.units.length && lesson.units[currentUnit].keys[currentKey]} />
                 </div>
                 <div style={{ gridColumn: '16 / 31', gridRow: '1 / 6' }} className="">
                     <Hand side="R" currentKey={currentUnit < lesson.units.length && lesson.units[currentUnit].keys[currentKey]} />
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 }

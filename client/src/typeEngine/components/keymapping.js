@@ -1478,7 +1478,108 @@ const mapping = {
     "ௐ": [
         [{ code: "KeyN", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true }]
     ],
+
+
     
+    " ": [
+        [{ code: "Space", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }]
+    ],
+
+
+
+    "`": [
+        [{ code: "Backquote", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }]
+    ],
+    "1": [
+        [{ code: "Digit1", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }]
+    ],
+    "2": [
+        [{ code: "Digit2", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }]
+    ],
+    "3": [
+        [{ code: "Digit3", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }]
+    ],
+    "4": [
+        [{ code: "Digit4", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }]
+    ],
+    "5": [
+        [{ code: "Digit5", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }]
+    ],
+    "6": [
+        [{ code: "Digit6", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }]
+    ],
+    "7": [
+        [{ code: "Digit7", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }]
+    ],
+    "8": [
+        [{ code: "Digit8", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }]
+    ],
+    "9": [
+        [{ code: "Digit9", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }]
+    ],
+    "0": [
+        [{ code: "Digit0", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }]
+    ],
+    "-": [
+        [{ code: "Minus", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }]
+    ],
+    "=": [
+        [{ code: "Equal", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }]
+    ],
+
+
+
+    "~": [
+        [{ code: "Backquote", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true }]
+    ],
+    "!": [
+        [{ code: "Digit1", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true }]
+    ],
+    "@": [
+        [{ code: "Digit2", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true }]
+    ],
+    "#": [
+        [{ code: "Digit3", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true }]
+    ],
+    "$": [
+        [{ code: "Digit4", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true }]
+    ],
+    "%": [
+        [{ code: "Digit5", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true }]
+    ],
+    "^": [
+        [{ code: "Digit6", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true }]
+    ],
+    "&": [
+        [{ code: "Digit7", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true }]
+    ],
+    "*": [
+        [{ code: "Digit8", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true }]
+    ],
+    "(": [
+        [{ code: "Digit9", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true }]
+    ],
+    ")": [
+        [{ code: "Digit0", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true }]
+    ],
+    "_": [
+        [{ code: "Minus", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true }]
+    ],
+    "+": [
+        [{ code: "Equal", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true }]
+    ],
+    
+
+
+    "\\": [
+        [{ code: "Backslash", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }]
+    ],
+    ",": [
+        [{ code: "Comma", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }]
+    ],
+    ".": [
+        [{ code: "Period", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }]
+    ],
     
     
     "[": [
@@ -1492,6 +1593,9 @@ const mapping = {
     ],
     "}": [
         [{ code: "BracketRight", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true }]
+    ],
+    "|": [
+        [{ code: "Backslash", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true }]
     ],
     "\"": [
         [{ code: "KeyK", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true }]
