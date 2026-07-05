@@ -4,15 +4,20 @@ import { Keyboard } from './components/Keyboard'
 const lesson = {
   sentence: "பாகம் தமிழ்",
   units: [
-    { text: "பா", keys: ["KeyJ", "KeyQ"] },
-    { text: "க", keys: ["KeyH"] },
-    { text: "ம்", keys: ["KeyK", "KeyF"] },
-    { text: " ", keys: ["Space"] },
-    { text: "த", keys: ["KeyL"] },
-    { text: "மி", keys: ["KeyK", "KeyS"] },
-    { text: "ழ்", keys: ["Slash", "KeyF"] }, 
+    { text: "பா", keys: [{code:"KeyJ", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false}, 
+                          {code:"KeyQ", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false}]},
+    { text: "க", keys: [{code:"KeyH", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false}]},
+    { text: "ம்", keys: [{code:"KeyK", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false}, 
+                         {code:"KeyF", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false}]},
+    { text: " ", keys: [{code:"Space", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false}]},
+    { text: "த", keys: [{code:"KeyL", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false}]},
+    { text: "மி", keys: [{code:"KeyK", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false}, 
+                         {code:"KeyS", altKey: false, ctrlKey: false, metaKey: false, shiftKey:false}]},
+    { text: "ழ்", keys: [{code:"Slash", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false}, 
+                         {code:"KeyF", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false}]}, 
   ],
 };
+const MODIFIER_CODES = ["ShiftLeft", "ShiftRight", "ControlLeft", "ControlRight", "AltLeft", "AltRight", "MetaLeft", "MetaRight"];
 export const TypeEngine = () => {
   const [allowNext] = useState(true);
   const [showKeyboard, setShowKeyboard] = useState(true); 
@@ -50,8 +55,15 @@ export const TypeEngine = () => {
   useEffect(() => {
     if(currentUnit >= lesson.units.length) return; 
     const handleKeyDown = (e) => {
+      if (MODIFIER_CODES.includes(e.code)) return;
       e.preventDefault();
-      setPressedKey(e);
+      setPressedKey({
+        code: e.code,
+        altKey: e.altKey,
+        ctrlKey: e.ctrlKey,
+        metaKey: e.metaKey,
+        shiftKey: e.shiftKey,
+      });
     }
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
