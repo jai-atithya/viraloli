@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 
 import { TypeEngine } from "./typeEngine/TypeEngine";
-import { TypingTest } from "./pages/typingTest/components/TypingTest";
+import { TypingTest } from "./pages/typingTest/TypingTest";
 
 function App() {
   return (
