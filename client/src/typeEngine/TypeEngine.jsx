@@ -39,9 +39,9 @@ export const TypeEngine = ({ lesson }) => {
     return () => clearInterval(interval);
   }, [startTime, currentUnit]);
 
- useEffect(() => {
-    if(currentUnit >= lesson.units.length) return;
-    if(!isActive) return; // NEW: don't attach listener until active
+  useEffect(() => {
+    if (currentUnit >= lesson.units.length) return;
+    if (!isActive) return;
 
     const handleKeyDown = (e) => {
       if (MODIFIER_CODES.includes(e.code)) return;
@@ -56,7 +56,7 @@ export const TypeEngine = ({ lesson }) => {
     }
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [startTime, currentUnit, isActive]); 
+  }, [startTime, currentUnit, isActive]);
 
   useEffect(() => {
     if (pressedKey) {
@@ -64,7 +64,7 @@ export const TypeEngine = ({ lesson }) => {
 
     }
   }, [pressedKey]);
-    useEffect(() => {
+  useEffect(() => {
     const handleBlur = () => setIsActive(false);
     window.addEventListener("blur", handleBlur);
     return () => window.removeEventListener("blur", handleBlur);
@@ -75,40 +75,18 @@ export const TypeEngine = ({ lesson }) => {
 
         <div className='w-[70vw] flex flex-col justify-center items-center p-[1rem]'>
           <div className='relative w-full h-full'>
-          {!isActive && (
+            {!isActive && (
 
-            <div
-              onClick={() => setIsActive(true)}
-              className='absolute w-full h-full inset-0 z-10 flex items-center justify-center
+              <div
+                onClick={() => setIsActive(true)}
+                className='absolute w-full h-full inset-0 z-10 flex items-center justify-center
                          backdrop-blur-sm bg-black/10 cursor-pointer
                          transition-opacity duration-300'
-            >
-              <span className='text-lg font-medium'>Click to start typing</span>
-            </div>
-          )}
-          <Engine
-            lesson={lesson}
-            allowNext={allowNext}
-            pressedKey={pressedKey}
-            setPressedKey={setPressedKey}
-            currentUnit={currentUnit}
-            setCurrentUnit={setCurrentUnit}
-            currentKey={currentKey}
-            setCurrentKey={setCurrentKey}
-            unitsState={unitsState}
-            setUnitsState={setUnitsState}
-            startTime={startTime}
-            setStartTime={setStartTime}
-            setCorrectKeyStrokes={setCorrectKeyStrokes}
-            setIncorrectKeyStrokes={setIncorrectKeyStrokes}
-          />
-          <div className='flex w-full justify-between'>
-            <div>WPM:  {wpm}</div>
-            <div>CPM:  {cpm}</div>
-            <div>Accuracy:  {accuracy}</div>
-          </div>
-          {showKeyboard && (
-            <Keyboard
+              >
+                <span className='text-lg font-medium'>Click to start typing</span>
+              </div>
+            )}
+            <Engine
               lesson={lesson}
               allowNext={allowNext}
               pressedKey={pressedKey}
@@ -117,10 +95,32 @@ export const TypeEngine = ({ lesson }) => {
               setCurrentUnit={setCurrentUnit}
               currentKey={currentKey}
               setCurrentKey={setCurrentKey}
+              unitsState={unitsState}
+              setUnitsState={setUnitsState}
+              startTime={startTime}
+              setStartTime={setStartTime}
+              setCorrectKeyStrokes={setCorrectKeyStrokes}
+              setIncorrectKeyStrokes={setIncorrectKeyStrokes}
             />
-          )}
-        </div>
+            <div className='flex w-full justify-between'>
+              <div>WPM:  {wpm}</div>
+              <div>CPM:  {cpm}</div>
+              <div>Accuracy:  {accuracy}</div>
             </div>
+            {showKeyboard && (
+              <Keyboard
+                lesson={lesson}
+                allowNext={allowNext}
+                pressedKey={pressedKey}
+                setPressedKey={setPressedKey}
+                currentUnit={currentUnit}
+                setCurrentUnit={setCurrentUnit}
+                currentKey={currentKey}
+                setCurrentKey={setCurrentKey}
+              />
+            )}
+          </div>
+        </div>
       </div>
     </>
   )
