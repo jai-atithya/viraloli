@@ -2051,7 +2051,7 @@ const mappings = {
     ],
     "?": [
         [{ code: "Slash", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true }]
-    ],
+    ]
 };
 
 export default mappings;
