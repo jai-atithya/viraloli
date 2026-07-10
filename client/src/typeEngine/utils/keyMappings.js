@@ -149,6 +149,42 @@ const mappings = {
             { code: "KeyF", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
         ]
     ],
+    "ஸ்": [
+        [
+            { code: "KeyQ", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyF", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "ஷ்": [
+        [
+            { code: "KeyW", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyF", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "ஜ்": [
+        [
+            { code: "KeyE", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyF", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "ஹ்": [
+        [
+            { code: "KeyR", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyF", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "க்ஷ்": [
+        [
+            { code: "KeyT", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyF", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "ஶ்": [
+        [
+            { code: "KeyU", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyF", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
 
 
 
@@ -317,6 +353,42 @@ const mappings = {
             { code: "KeyQ", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
         ]
     ],
+    "ஸா": [
+        [
+            { code: "KeyQ", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyQ", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "ஷா": [
+        [
+            { code: "KeyW", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyQ", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "ஜா": [
+        [
+            { code: "KeyE", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyQ", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "ஹா": [
+        [
+            { code: "KeyR", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyQ", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "க்ஷா": [
+        [
+            { code: "KeyT", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyQ", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "ஶா": [
+        [
+            { code: "KeyU", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyQ", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
 
 
 
@@ -425,6 +497,42 @@ const mappings = {
     "னி": [
         [
             { code: "KeyI", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false },
+            { code: "KeyS", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "ஸி": [
+        [
+            { code: "KeyQ", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyS", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "ஷி": [
+        [
+            { code: "KeyW", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyS", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "ஜி": [
+        [
+            { code: "KeyE", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyS", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "ஹி": [
+        [
+            { code: "KeyR", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyS", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "க்ஷி": [
+        [
+            { code: "KeyT", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyS", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "ஶி": [
+        [
+            { code: "KeyU", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
             { code: "KeyS", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
         ]
     ],
@@ -539,6 +647,42 @@ const mappings = {
             { code: "KeyW", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
         ]
     ],
+    "ஸீ": [
+        [
+            { code: "KeyQ", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyW", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "ஷீ": [
+        [
+            { code: "KeyW", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyW", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "ஜீ": [
+        [
+            { code: "KeyE", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyW", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "ஹீ": [
+        [
+            { code: "KeyR", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyW", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "க்ஷீ": [
+        [
+            { code: "KeyT", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyW", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "ஶீ": [
+        [
+            { code: "KeyU", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyW", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
 
 
 
@@ -647,6 +791,42 @@ const mappings = {
     "னு": [
         [
             { code: "KeyI", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false },
+            { code: "KeyD", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "ஸு": [
+        [
+            { code: "KeyQ", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyD", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "ஷு": [
+        [
+            { code: "KeyW", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyD", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "ஜு": [
+        [
+            { code: "KeyE", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyD", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "ஹு": [
+        [
+            { code: "KeyR", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyD", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "க்ஷு": [
+        [
+            { code: "KeyT", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyD", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "ஶு": [
+        [
+            { code: "KeyU", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
             { code: "KeyD", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
         ]
     ],
@@ -761,6 +941,42 @@ const mappings = {
             { code: "KeyE", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
         ]
     ],
+    "ஸூ": [
+        [
+            { code: "KeyQ", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyE", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "ஷூ": [
+        [
+            { code: "KeyW", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyE", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "ஜூ": [
+        [
+            { code: "KeyE", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyE", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "ஹூ": [
+        [
+            { code: "KeyR", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyE", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "க்ஷூ": [
+        [
+            { code: "KeyT", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyE", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "ஶூ": [
+        [
+            { code: "KeyU", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyE", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
 
 
 
@@ -869,6 +1085,42 @@ const mappings = {
     "னெ": [
         [
             { code: "KeyI", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false },
+            { code: "KeyG", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "ஸெ": [
+        [
+            { code: "KeyQ", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyG", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "ஷெ": [
+        [
+            { code: "KeyW", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyG", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "ஜெ": [
+        [
+            { code: "KeyE", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyG", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "ஹெ": [
+        [
+            { code: "KeyR", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyG", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "க்ஷெ": [
+        [
+            { code: "KeyT", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyG", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "ஶெ": [
+        [
+            { code: "KeyU", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
             { code: "KeyG", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
         ]
     ],
@@ -983,6 +1235,42 @@ const mappings = {
             { code: "KeyT", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
         ]
     ],
+    "ஸே": [
+        [
+            { code: "KeyQ", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyT", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "ஷே": [
+        [
+            { code: "KeyW", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyT", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "ஜே": [
+        [
+            { code: "KeyE", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyT", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "ஹே": [
+        [
+            { code: "KeyR", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyT", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "க்ஷே": [
+        [
+            { code: "KeyT", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyT", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "ஶே": [
+        [
+            { code: "KeyU", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyT", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
 
 
 
@@ -1091,6 +1379,42 @@ const mappings = {
     "னை": [
         [
             { code: "KeyI", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false },
+            { code: "KeyR", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "ஸை": [
+        [
+            { code: "KeyQ", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyR", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "ஷை": [
+        [
+            { code: "KeyW", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyR", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "ஜை": [
+        [
+            { code: "KeyE", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyR", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "ஹை": [
+        [
+            { code: "KeyR", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyR", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "க்ஷை": [
+        [
+            { code: "KeyT", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyR", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "ஶை": [
+        [
+            { code: "KeyU", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
             { code: "KeyR", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
         ]
     ],
@@ -1205,6 +1529,42 @@ const mappings = {
             { code: "KeyC", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
         ]
     ],
+    "ஸொ": [
+        [
+            { code: "KeyQ", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyC", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "ஷொ": [
+        [
+            { code: "KeyW", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyC", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "ஜொ": [
+        [
+            { code: "KeyE", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyC", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "ஹொ": [
+        [
+            { code: "KeyR", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyC", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "க்ஷொ": [
+        [
+            { code: "KeyT", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyC", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "ஶொ": [
+        [
+            { code: "KeyU", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyC", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
 
 
 
@@ -1316,7 +1676,42 @@ const mappings = {
             { code: "KeyX", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
         ]
     ],
-
+    "ஸோ": [
+        [
+            { code: "KeyQ", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyX", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "ஷோ": [
+        [
+            { code: "KeyW", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyX", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "ஜோ": [
+        [
+            { code: "KeyE", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyX", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "ஹோ": [
+        [
+            { code: "KeyR", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyX", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "க்ஷோ": [
+        [
+            { code: "KeyT", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyX", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "ஶோ": [
+        [
+            { code: "KeyU", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyX", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
 
 
     "கௌ": [
@@ -1427,6 +1822,42 @@ const mappings = {
             { code: "KeyZ", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
         ]
     ],
+    "ஸௌ": [
+        [
+            { code: "KeyQ", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyZ", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "ஷௌ": [
+        [
+            { code: "KeyW", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyZ", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "ஜௌ": [
+        [
+            { code: "KeyE", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyZ", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "ஹௌ": [
+        [
+            { code: "KeyR", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyZ", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "க்ஷௌ": [
+        [
+            { code: "KeyT", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyZ", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
+    "ஶௌ": [
+        [
+            { code: "KeyU", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true },
+            { code: "KeyZ", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }
+        ]
+    ],
 
 
 
@@ -1480,7 +1911,7 @@ const mappings = {
     ],
 
 
-    
+
     " ": [
         [{ code: "Space", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }]
     ],
@@ -1568,7 +1999,7 @@ const mappings = {
     "+": [
         [{ code: "Equal", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true }]
     ],
-    
+
 
 
     "\\": [
@@ -1580,8 +2011,8 @@ const mappings = {
     ".": [
         [{ code: "Period", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }]
     ],
-    
-    
+
+
     "[": [
         [{ code: "KeyO", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true }]
     ],
