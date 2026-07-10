@@ -1,35 +1,21 @@
 import React, { useState, useEffect } from 'react'
 import { Engine } from './components/Engine'
 import { Keyboard } from './components/Keyboard'
-const lesson = {
-  sentence: "பாகம் தமிழ்",
-  units: [
-    { text: "பா", keys: [{code:"KeyJ", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false}, 
-                          {code:"KeyQ", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false}]},
-    { text: "க", keys: [{code:"KeyH", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false}]},
-    { text: "ம்", keys: [{code:"KeyK", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false}, 
-                         {code:"KeyF", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false}]},
-    { text: " ", keys: [{code:"Space", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false}]},
-    { text: "த", keys: [{code:"KeyL", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false}]},
-    { text: "மி", keys: [{code:"KeyK", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false}, 
-                         {code:"KeyS", altKey: false, ctrlKey: false, metaKey: false, shiftKey:false}]},
-    { text: "ழ்", keys: [{code:"Slash", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false}, 
-                         {code:"KeyF", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false}]}, 
-    { text: "ஃ", keys: [{code:"KeyF", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true}]}, 
-  ],
-};
+
 const MODIFIER_CODES = ["ShiftLeft", "ShiftRight", "ControlLeft", "ControlRight", "AltLeft", "AltRight", "MetaLeft", "MetaRight"];
-export const TypeEngine = () => {
+export const TypeEngine = ({ lesson }) => {
   const [allowNext] = useState(true);
-  const [showKeyboard, setShowKeyboard] = useState(true); 
+  const [showKeyboard, setShowKeyboard] = useState(true);
   const [pressedKey, setPressedKey] = useState(null);
   const [currentUnit, setCurrentUnit] = useState(0);
   const [currentKey, setCurrentKey] = useState(0);
-  
+
   const [startTime, setStartTime] = useState(null);
   const [correctKeyStrokes, setCorrectKeyStrokes] = useState(0);
   const [incorrectKeyStrokes, setIncorrectKeyStrokes] = useState(0);
-  const [ , setReRender] = useState(0);
+  const [, setReRender] = useState(0);
+
+  const [isActive, setIsActive] = useState(false);
 
   const [unitsState, setUnitsState] = useState(
     lesson.units.map(() => ({
@@ -39,22 +25,24 @@ export const TypeEngine = () => {
   );
 
   const totalKeyStrokes = correctKeyStrokes + incorrectKeyStrokes;
-  const minutes = startTime ? (Date.now() - startTime) / 60000: 0;
-  const cpm = minutes>0?Math.round(correctKeyStrokes/minutes):0;
-  const wpm = minutes>0?Math.round((correctKeyStrokes/5)/minutes):0;
-  const accuracy = totalKeyStrokes>0?Math.round((correctKeyStrokes/totalKeyStrokes)*100):100;
-  
-  useEffect(()=>{
-    if(!startTime) return;
-    if(currentUnit >= lesson.units.length) return; 
-    const interval=setInterval(()=>{
-      setReRender(prev=>prev+1);
-    },1000);
-    return()=> clearInterval(interval);
-  },[startTime, currentUnit]);
+  const minutes = startTime ? (Date.now() - startTime) / 60000 : 0;
+  const cpm = minutes > 0 ? Math.round(correctKeyStrokes / minutes) : 0;
+  const wpm = minutes > 0 ? Math.round((correctKeyStrokes / 5) / minutes) : 0;
+  const accuracy = totalKeyStrokes > 0 ? Math.round((correctKeyStrokes / totalKeyStrokes) * 100) : 100;
 
   useEffect(() => {
-    if(currentUnit >= lesson.units.length) return; 
+    if (!startTime) return;
+    if (currentUnit >= lesson.units.length) return;
+    const interval = setInterval(() => {
+      setReRender(prev => prev + 1);
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [startTime, currentUnit]);
+
+  useEffect(() => {
+    if (currentUnit >= lesson.units.length) return;
+    if (!isActive) return;
+
     const handleKeyDown = (e) => {
       if (MODIFIER_CODES.includes(e.code)) return;
       e.preventDefault();
@@ -68,7 +56,7 @@ export const TypeEngine = () => {
     }
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [startTime, currentUnit]);
+  }, [startTime, currentUnit, isActive]);
 
   useEffect(() => {
     if (pressedKey) {
@@ -76,33 +64,29 @@ export const TypeEngine = () => {
 
     }
   }, [pressedKey]);
+  useEffect(() => {
+    const handleBlur = () => setIsActive(false);
+    window.addEventListener("blur", handleBlur);
+    return () => window.removeEventListener("blur", handleBlur);
+  }, []);
   return (
     <>
-      <div className='h-screen w-screen flex justify-center items-center'>
-        <div className='h-[80%] w-[80%] flex flex-col justify-center items-center p-[1rem]'>
-          <Engine
-            lesson={lesson}
-            allowNext={allowNext}
-            pressedKey={pressedKey}
-            setPressedKey={setPressedKey}
-            currentUnit={currentUnit}
-            setCurrentUnit={setCurrentUnit}
-            currentKey={currentKey}
-            setCurrentKey={setCurrentKey}
-            unitsState={unitsState}
-            setUnitsState={setUnitsState}
-            startTime={startTime}
-            setStartTime={setStartTime}
-            setCorrectKeyStrokes={setCorrectKeyStrokes}
-            setIncorrectKeyStrokes={setIncorrectKeyStrokes}
-          />
-          <div className='flex w-full justify-between'>
-            <div>WPM:  {wpm}</div>
-            <div>CPM:  {cpm}</div>
-            <div>Accuracy:  {accuracy}</div>
-          </div>
-          {showKeyboard && (
-            <Keyboard
+      <div className='flex justify-center items-center'>
+
+        <div className='w-[70vw] flex flex-col justify-center items-center p-[1rem]'>
+          <div className='relative w-full h-full'>
+            {!isActive && (
+
+              <div
+                onClick={() => setIsActive(true)}
+                className='absolute w-full h-full inset-0 z-10 flex items-center justify-center
+                         backdrop-blur-sm bg-black/10 cursor-pointer
+                         transition-opacity duration-300'
+              >
+                <span className='text-lg font-medium'>Click to start typing</span>
+              </div>
+            )}
+            <Engine
               lesson={lesson}
               allowNext={allowNext}
               pressedKey={pressedKey}
@@ -111,10 +95,32 @@ export const TypeEngine = () => {
               setCurrentUnit={setCurrentUnit}
               currentKey={currentKey}
               setCurrentKey={setCurrentKey}
+              unitsState={unitsState}
+              setUnitsState={setUnitsState}
+              startTime={startTime}
+              setStartTime={setStartTime}
+              setCorrectKeyStrokes={setCorrectKeyStrokes}
+              setIncorrectKeyStrokes={setIncorrectKeyStrokes}
             />
-          )}
+            <div className='flex w-full justify-between'>
+              <div>WPM:  {wpm}</div>
+              <div>CPM:  {cpm}</div>
+              <div>Accuracy:  {accuracy}</div>
+            </div>
+            {showKeyboard && (
+              <Keyboard
+                lesson={lesson}
+                allowNext={allowNext}
+                pressedKey={pressedKey}
+                setPressedKey={setPressedKey}
+                currentUnit={currentUnit}
+                setCurrentUnit={setCurrentUnit}
+                currentKey={currentKey}
+                setCurrentKey={setCurrentKey}
+              />
+            )}
+          </div>
         </div>
-
       </div>
     </>
   )

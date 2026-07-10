@@ -23,7 +23,10 @@ const getMappings = (sentence) => {
             keys: mappings[cur][0]
         });
     }
-    return units;
+    return {
+        sentence: sentence,
+        units: units
+    };
 };
 
-export default getMappings;
+export { getMappings };
