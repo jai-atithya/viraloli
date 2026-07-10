@@ -1,4 +1,4 @@
-const mapping = {
+const mappings = {
     "அ": [
         [{ code: "KeyA", altKey: false, ctrlKey: false, metaKey: false, shiftKey: false }]
     ],
@@ -1622,3 +1622,5 @@ const mapping = {
         [{ code: "Slash", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true }]
     ],
 };
+
+export default mappings;
