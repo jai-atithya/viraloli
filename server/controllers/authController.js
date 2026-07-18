@@ -144,8 +144,110 @@ const refreshToken = asyncHandler(async (req, res) => {
   });
 });
 
+// @Desc Google OAuth Callback
+// @Router GET /api/auth/google/callback
+const googleCallback = asyncHandler(async (req, res) => {
+  const googleUser = req.user;
+
+  if (!googleUser || !googleUser.email || !googleUser.flow) {
+    return res.redirect(
+      `${process.env.FRONTEND_URL}/auth?error=GOOGLE_AUTH_FAILED`
+    );
+  }
+
+  const { email, flow, googleId } = googleUser;
+  const ip = req.ip;
+  const userAgent = req.headers["user-agent"];
+
+  // ================= LOGIN FLOW =================
+  if (flow === "login") {
+    const existingUser = await userService.getUserbyEmail(email);
+    if (!existingUser) {
+      return res.redirect(
+        `${process.env.FRONTEND_URL}/auth?error=EMAIL_IS_NOT_REGISTERED`
+      );
+    }
+    const { user, accessToken, refreshToken } =
+      await authService.googleLoginUser({ googleId, email }, ip, userAgent, res);
+    if (!accessToken || !refreshToken) {
+      return res.redirect(
+        `${process.env.FRONTEND_URL}/login?error=SERVER_ERROR`
+      );
+    }
+    res.cookie("access_token", accessToken, {
+      httpOnly: true,
+      maxAge: 15 * 24 * 60 * 60 * 1000,
+      sameSite: "strict",
+      secure: process.env.NODE_ENV !== "development",
+    });
+
+    res.cookie("refresh_token", refreshToken, {
+      httpOnly: true,
+      maxAge: 15 * 24 * 60 * 60 * 1000,
+      sameSite: "strict",
+      secure: process.env.NODE_ENV !== "development",
+    });
+
+    return res.redirect(`${process.env.FRONTEND_URL}/`);
+  }
+
+  // ================= SIGNUP FLOW =================
+  if (flow === "signup") {
+    const existingUser = await userService.getUserbyEmail(email);
+
+    if (existingUser) {
+      return res.redirect(
+        `${process.env.FRONTEND_URL}/auth?error=EMAIL_ALREADY_EXISTS`
+      );
+    }
+
+    const tempToken = authService.generateTempGoogleToken({
+      email,
+      googleId,
+    });
+    if (!tempToken) {
+      return res.redirect(
+        `${process.env.FRONTEND_URL}/auth?error=SERVER_ERROR`
+      );
+    }
+    return res.redirect(
+      `${process.env.FRONTEND_URL}/auth?token=${tempToken}`
+    );
+  }
+
+  // ================= FALLBACK =================
+  return res.redirect(`${process.env.FRONTEND_URL}/auth?error=SERVER_ERROR`);
+});
+
+// @Desc Verify Temp Google Token
+// @Router POST /api/auth/google/verify
+const verifyTempGoogleToken = asyncHandler(async (req, res) => {
+  const { token } = req.body;
+  if (!token) {
+    throw Object.assign(new Error("Temp token is required"), {
+      statusCode: 400,
+    });
+  }
+  const payload = authService.verifyTempGoogleToken(token);
+  if (!payload || !payload.email || !payload.googleId) {
+    throw Object.assign(new Error("Invalid or Expired Token"), {
+      statusCode: 401,
+    });
+  }
+  res.status(200).json({
+    success: true,
+    data: {
+      email: payload.email,
+      googleId: payload.googleId,
+      flow: payload.flow,
+    },
+  });
+});
+
 module.exports = {
     signup,
     login,
     refreshToken,
+    googleCallback,
+    verifyTempGoogleToken
 };

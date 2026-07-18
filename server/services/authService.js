@@ -1,5 +1,5 @@
 const User = require('../models/userModel');
-const { generateAccessToken, generateRefreshToken } = require("../utils/generateToken");
+const { generateGoogleTempToken, generateAccessToken, generateRefreshToken } = require("../utils/generateToken");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
@@ -59,9 +59,42 @@ const refreshAccessToken = async(
   return accessToken;
 };
 
+// ==== GOOGLE LOGIN ===
+const googleLoginUser=async({googleId, email}, ip, userAgent, res)=>{
+  const user=await User.findOne({email});
+  if(!user){
+    throw Object.assign(new Error("User not found"), { statusCode: 404 });
+  }
+  if (user.googleId !== googleId) {
+    return res.redirect(
+      `${process.env.FRONTEND_URL}/auth?error=GOOGLE_ACCOUNT_MISMATCH`
+    );              
+  }
+
+  const accessToken = generateAccessToken({ userId: user._id });
+  const refreshToken = generateRefreshToken({ userId: user._id, ip, userAgent });
+
+  return { user, accessToken, refreshToken };
+}
+
+// ==== TEMP GOOGLE TOKEN ====
+const generateTempGoogleToken = ({ email, googleId}) => {
+  const payload = { email, googleId};
+  const tempToken = generateGoogleTempToken(payload);
+  return tempToken;
+};
+
+// ==== VERIFY GOOGLE TOKEN ====
+const verifyTempGoogleToken = (tempToken) => {
+  const payload = jwt.verify(tempToken, process.env.JWT_ACCESS_KEY);
+  return payload;
+}
+
 
 module.exports = {
     signupUser,
     loginUser,
-    refreshAccessToken
+    refreshAccessToken,
+    googleLoginUser,
+    verifyTempGoogleToken
 };

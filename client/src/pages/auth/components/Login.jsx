@@ -4,7 +4,7 @@ import api from "../../../api/axios";
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError]=useState("");
+  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleLogin = async () => {
@@ -23,6 +23,10 @@ export const Login = () => {
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleGoogleLogin = () => {
+    window.location.href = `${import.meta.env.VITE_BASE_URL}/auth/google?flow=login`;
   };
 
   return (
@@ -58,7 +62,7 @@ export const Login = () => {
           <div className="h-px flex-1 bg-slate-300"></div>
         </div>
 
-        <button className="w-full flex items-center justify-center gap-3 rounded-md border border-slate-300 bg-white py-3 font-medium hover:bg-slate-100 transition">
+        <button onClick={handleGoogleLogin} className="w-full flex items-center justify-center gap-3 rounded-md border border-slate-300 bg-white py-3 font-medium hover:bg-slate-100 transition">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 48 48"

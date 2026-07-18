@@ -4,7 +4,7 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 require("dotenv").config();
 const dbConnect = require('./config/dbConnect');
-// const passport = require('passport');
+const passport = require('passport');
 
 const errorHandler=require('./middleware/errorHandler')
 const { app } = require('./socket/socket');
@@ -17,8 +17,8 @@ app.use(cors({
 }));
 app.use(express.json());
 app.use(cookieParser());
-// require('./config/passport');
-// app.use(passport.initialize());
+require('./config/passport');
+app.use(passport.initialize());
 
 app.use("/api/auth", require('./routes/authRoutes'));
 
