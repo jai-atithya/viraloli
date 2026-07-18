@@ -1,24 +1,53 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import api from "../../../api/axios";
 
 export const Login = () => {
-  
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleLogin = async () => {
+    try {
+      setLoading(true);
+
+      const response = await api.post("/auth/login", {
+        email,
+        password,
+      });
+
+      console.log(response.data);
+    } catch (error) {
+      console.error("Login failed:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="w-full h-full flex items-center justify-center">
       <div className="w-full max-w-sm flex flex-col gap-[1rem]">
         <input
           type="text"
-          placeholder="Email or Username"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           className="w-full rounded-md border border-slate-300 px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500"
         />
 
         <input
           type="password"
           placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
           className="w-full rounded-md border border-slate-300 px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500"
         />
 
-        <button className="w-full rounded-md bg-blue-600 py-3 text-white font-medium hover:bg-blue-700 transition">
-          Login
+        <button
+          onClick={handleLogin}
+          disabled={loading}
+          className="w-full rounded-md bg-blue-600 py-3 text-white font-medium hover:bg-blue-700 transition disabled:opacity-50"
+        >
+          {loading ? "Logging in..." : "Login"}
         </button>
 
         <div className="flex items-center gap-3">
