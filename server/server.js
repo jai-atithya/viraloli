@@ -20,7 +20,7 @@ app.use(cookieParser());
 // require('./config/passport');
 // app.use(passport.initialize());
 
-// app.use("/api/auth", require('./routes/authRoutes'));
+app.use("/api/auth", require('./routes/authRoutes'));
 
 app.use(errorHandler);
 app.listen(PORT, () => {
