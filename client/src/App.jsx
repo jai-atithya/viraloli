@@ -4,6 +4,7 @@ import "./App.css";
 
 import { TypeEngine } from "./typeEngine/TypeEngine";
 import { TypingTest } from "./pages/typingTest/TypingTest";
+import { Auth } from "./pages/auth/Auth";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           {/* <Route path="/url" element={<element />} /> */}
           <Route path="*" element={<h1>404 Not Found</h1>} />
           <Route path="/" element={<TypingTest />} />
+          <Route path="/auth" element={<Auth />} />
           <Route path="/engine" element={<TypeEngine />} />
         </Routes>
       </BrowserRouter>

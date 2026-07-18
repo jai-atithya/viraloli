@@ -52,7 +52,7 @@ const rightNavItems = [
     },
     {
         label: "Profile",
-        link: "",
+        link: "/auth",
         icon: (
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="22" fill="none" viewBox="0 0 20 22">
                 <path fill="#474F5C" d="M10 11c2.762 0 5-2.461 5-5.5S12.762 0 10 0C7.237 0 5 2.461 5 5.5S7.237 11 10 11Zm0 2.75c-3.338 0-10 1.842-10 5.5V22h20v-2.75c0-3.658-6.662-5.5-10-5.5Z" opacity=".8" />
