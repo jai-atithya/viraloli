@@ -4,6 +4,7 @@ import api from "../../../api/axios";
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError]=useState("");
   const [loading, setLoading] = useState(false);
 
   const handleLogin = async () => {
@@ -17,6 +18,7 @@ export const Login = () => {
 
       console.log(response.data);
     } catch (error) {
+      setError(error.response.data.data.message);
       console.error("Login failed:", error);
     } finally {
       setLoading(false);
@@ -41,7 +43,7 @@ export const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
           className="w-full rounded-md border border-slate-300 px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500"
         />
-
+        {error && <div>{error}</div>}
         <button
           onClick={handleLogin}
           disabled={loading}
