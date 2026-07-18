@@ -111,9 +111,41 @@ const login = asyncHandler(async (req, res) => {
     });
 });
 
+// @Desc Refresh access token
+// @Route POST /api/auth/refresh-token
+const refreshToken = asyncHandler(async (req, res) => {
+  const refreshToken = req.cookies.refresh_token;
+  if (!refreshToken) {
+    throw Object.assign(new Error("Refresh token missing"), {
+      statusCode: 401,
+    });
+  }
 
+  const ip = req.ip;
+  const userAgent = req.headers["user-agent"];
+
+  const accessToken = await authService.refreshAccessToken(
+    refreshToken,
+    ip,
+    userAgent
+  );
+
+  res.cookie("access_token", accessToken, {
+    httpOnly: true,
+    // maxAge: 60 * 1000,
+    maxAge: 15 * 24 * 60 * 60 * 1000, //15 days development
+    sameSite: "strict",
+    secure: process.env.NODE_ENV !== "development",
+  });
+
+  res.status(200).json({
+    success: true,
+    accessToken,
+  });
+});
 
 module.exports = {
     signup,
     login,
+    refreshToken,
 };

@@ -47,7 +47,21 @@ const loginUser = async ({ email, password }, ip, userAgent) => {
   return { user, accessToken, refreshToken };
 };
 
+// ==== REFRESH ACCESS TOKEN ===
+const refreshAccessToken = async(
+  refreshToken, ip, userAgent
+)=>{
+  const decoded = jwt.verify(refreshToken, process.env.JWT_REFRESH_KEY);
+  if(decoded.ip!==ip && decoded.userAgent!==userAgent){
+    throw Object.assign(new Error("Token IP and UserAgent mismatch"), { statusCode: 401 });
+  }
+  const accessToken = generateAccessToken({ userId: decoded.userId });
+  return accessToken;
+};
+
+
 module.exports = {
     signupUser,
     loginUser,
+    refreshAccessToken
 };

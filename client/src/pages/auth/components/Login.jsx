@@ -1,6 +1,7 @@
 import React from "react";
 
 export const Login = () => {
+  
   return (
     <div className="w-full h-full flex items-center justify-center">
       <div className="w-full max-w-sm flex flex-col gap-[1rem]">

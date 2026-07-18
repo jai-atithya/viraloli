@@ -6,7 +6,7 @@ const passport = require('passport');
 
 router.post('/signup', authController.signup);
 router.post('/login', authController.login);
-// router.post('/refresh-token', authController.refreshToken);
+router.post('/refresh-token', authController.refreshToken);
 // router.post('/logout', authController.logout);
 
 // router.get('/google', (req, res, next) => passport.authenticate('google', { scope: ['profile', 'email'],prompt: 'select_account', session: false, state: req.query.flow })(req, res, next));
