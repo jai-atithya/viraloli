@@ -21,6 +21,7 @@ passport.use(
         email,
         googleId: profile.id,
         flow: req.query.state,
+        fullName: profile.displayName,
       });
     }
   )
