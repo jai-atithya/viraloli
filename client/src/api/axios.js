@@ -31,7 +31,7 @@ api.interceptors.response.use(
     }
 
     // Prevent infinite refresh loop
-    if (originalRequest.url.includes("/auth/login") || originalRequest.url.includes("/auth/refresh-token")) {
+    if (originalRequest.url.includes("/auth/signup") || originalRequest.url.includes("/auth/login") || originalRequest.url.includes("/auth/refresh-token")) {
       return Promise.reject(error);
     }
 

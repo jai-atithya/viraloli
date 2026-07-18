@@ -15,8 +15,7 @@ export const Login = () => {
         email,
         password,
       });
-
-      console.log(response.data);
+      window.location.href = "/";
     } catch (error) {
       setError(error.response.data.data.message);
       console.error("Login failed:", error);

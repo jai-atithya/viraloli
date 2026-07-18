@@ -5,11 +5,12 @@ import { SecondaryNavbar } from '../components/SecondaryNavbar';
 import { Login } from './components/Login';
 import { Signup } from './components/Signup';
 
-const OAuthMessage={
-    "GOOGLE_AUTH_FAILED":"Google authentication failed. Please try again.",
-    "SERVER_ERROR":"Sorry! Problem at out end! Please try again after sometime.",
-    "EMAIL_IS_NOT_REGISTERED":"Kindly Signup first!",
-    "GOOGLE_ACCOUNT_MISMATCH":"Sorry your google account doesn't match, Raise a support ticker!"
+const OAuthMessage = {
+    "GOOGLE_AUTH_FAILED": "Google authentication failed. Please try again.",
+    "SERVER_ERROR": "Sorry! Problem at out end! Please try again after sometime.",
+    "EMAIL_IS_NOT_REGISTERED": "Kindly Signup first!",
+    "GOOGLE_ACCOUNT_MISMATCH": "Sorry your google account doesn't match, Raise a support ticker!",
+    "EMAIL_ALREADY_EXISTS": "An account with this email already exists.",
 }
 export const Auth = () => {
     const [current, setCurrent] = useState(0);
@@ -22,14 +23,20 @@ export const Auth = () => {
         const token = searchParams.get("token");
 
         if (error) {
+            if (error === "EMAIL_ALREADY_EXISTS") {
+                setCurrent(1);
+            }
+
             alert(OAuthMessage[error]);
+
             setSearchParams({}, { replace: true });
             return;
         }
 
         if (token) {
-            console.log("TOKEN: ",token);
+            setCurrent(1);
             sessionStorage.setItem("googleTempToken", token);
+            console.log("TOKEN: ", token);
             setSearchParams({}, { replace: true });
             return;
         }
@@ -52,7 +59,7 @@ export const Auth = () => {
                         <Login />
                     )}
                     {current === 1 && (
-                        <Signup />
+                        <Signup key={sessionStorage.getItem("googleTempToken") || "signup"} />
                     )}
                 </div>
             </div>

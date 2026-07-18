@@ -155,7 +155,7 @@ const googleCallback = asyncHandler(async (req, res) => {
     );
   }
 
-  const { email, flow, googleId } = googleUser;
+  const { email, flow, fullName, googleId } = googleUser;
   const ip = req.ip;
   const userAgent = req.headers["user-agent"];
 
@@ -240,6 +240,7 @@ const verifyTempGoogleToken = asyncHandler(async (req, res) => {
     data: {
       email: payload.email,
       googleId: payload.googleId,
+      fullName: payload.fullName,
       flow: payload.flow,
     },
   });

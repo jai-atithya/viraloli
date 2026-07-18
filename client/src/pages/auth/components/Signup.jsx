@@ -1,6 +1,122 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import api from "../../../api/axios";
 
 export const Signup = () => {
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [googleName, setGoogleName] = useState("");
+  const [googleId, setGoogleId] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [isVerified, setIsVerified] = useState(false);
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleUsernameChange = (e) => {
+    const value = e.target.value;
+    setUsername(value);
+    localStorage.setItem("signupUsername", value);
+  };
+
+  const handleGoogleEmailSelect = () => {
+    window.location.href = `${import.meta.env.VITE_BASE_URL}/auth/google?flow=signup`;
+  };
+
+  useEffect(() => {
+    const username = localStorage.getItem("signupUsername");
+
+    if (username) {
+      setUsername(username);
+    }
+
+    verifyGoogleToken();
+  }, []);
+
+  const verifyGoogleToken = async () => {
+    const token = sessionStorage.getItem("googleTempToken");
+
+    if (!token) return;
+
+    try {
+      setLoading(true);
+
+      const response = await api.post("/auth/google/verify", {
+        token,
+      });
+
+      const { email, fullName, googleId } = response.data.data;
+
+      setEmail(email);
+      setGoogleName(fullName);
+      setGoogleId(googleId);
+      setIsVerified(true);
+      console.log(response);
+    } catch (err) {
+      console.error(err);
+
+      sessionStorage.removeItem("googleTempToken");
+
+      setIsVerified(false);
+      setEmail("");
+      setGoogleName("");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleSignup = async () => {
+    setError("");
+
+    if (!username.trim()) {
+      setError("Username is required.");
+      return;
+    }
+
+    if (!isVerified) {
+      setError("Please verify your Google account.");
+      return;
+    }
+
+    if (!password) {
+      setError("Password is required.");
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      setError("Passwords do not match.");
+      return;
+    }
+
+    try {
+      setLoading(true);
+
+      const response = await api.post("/auth/signup", {
+        username,
+        fullName: googleName,
+        email,
+        password,
+        googleId,
+      });
+
+      console.log(response.data);
+
+      localStorage.removeItem("signupUsername");
+      sessionStorage.removeItem("googleTempToken");
+
+
+      window.location.href = "/";
+    } catch (err) {
+      console.error(err);
+
+      setError(
+        err.response?.data?.data?.message ||
+        err.response?.data?.message ||
+        "Signup failed."
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
   return (
     <div className="w-full h-full flex items-center justify-center">
       <div className="w-full max-w-sm flex flex-col gap-[1rem]">
@@ -8,18 +124,13 @@ export const Signup = () => {
         <input
           type="text"
           placeholder="Username"
+          value={username}
+          onChange={handleUsernameChange}
           className="w-full rounded-md border border-slate-300 px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500"
         />
 
-        {/* Email + Verify */}
-        <div className="flex gap-2">
-          <input
-            type="email"
-            placeholder="Email"
-            className="flex-1 rounded-md border border-slate-300 px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500"
-          />
 
-          <button className="px-4 rounded-md text-white font-medium bg-slate-100">
+        <button onClick={handleGoogleEmailSelect} className="w-full flex items-center justify-center gap-3 rounded-md border border-slate-300 bg-white py-3 font-medium hover:bg-slate-100 transition">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 48 48"
@@ -42,26 +153,43 @@ export const Signup = () => {
               d="M43.6 20.5H42V20H24v8h11.3c-1.1 3.1-3.4 5.6-6.6 7.1l6.3 5.2C40.7 36.6 44 30.8 44 24c0-1.2-.1-2.3-.4-3.5z"
             />
           </svg>
-          </button>
-        </div>
 
-        {/* Password */}
+          {isVerified ? email : "Select Email"}
+        </button>
+        {isVerified && (
+          <div className="w-full rounded-md border border-slate-300 px-4 py-3">
+            {googleName}
+          </div>
+        )}
+
         <input
           type="password"
           placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
           className="w-full rounded-md border border-slate-300 px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500"
         />
 
-        {/* Confirm Password */}
         <input
           type="password"
           placeholder="Confirm Password"
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
           className="w-full rounded-md border border-slate-300 px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500"
         />
+        {error && (
+          <div className="text-sm text-red-600">
+            {error}
+          </div>
+        )}
 
         {/* Sign Up Button */}
-        <button className="w-full rounded-md bg-blue-600 py-3 text-white font-medium hover:bg-blue-700 transition">
-          Sign Up
+        <button
+          onClick={handleSignup}
+          disabled={loading}
+          className="w-full rounded-md bg-blue-600 py-3 text-white font-medium hover:bg-blue-700 transition disabled:opacity-50"
+        >
+          {loading ? "Signing Up..." : "Sign Up"}
         </button>
       </div>
     </div>

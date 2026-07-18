@@ -86,7 +86,7 @@ const generateTempGoogleToken = ({ email, googleId, fullName}) => {
 
 // ==== VERIFY GOOGLE TOKEN ====
 const verifyTempGoogleToken = (tempToken) => {
-  const payload = jwt.verify(tempToken, process.env.JWT_ACCESS_KEY);
+  const payload = jwt.verify(tempToken, process.env.JWT_GOOGLE_KEY);
   return payload;
 }
 
@@ -96,5 +96,6 @@ module.exports = {
     loginUser,
     refreshAccessToken,
     googleLoginUser,
+    generateTempGoogleToken,
     verifyTempGoogleToken
 };
