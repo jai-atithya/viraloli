@@ -11,7 +11,7 @@ const hashPassword = async (password) => {
 };
 
 // ===== SIGNUP USER =====
-const signupUser = async ({ username, fullName, email, password, googleId }) => {
+const signupUser = async ({ username, fullName, email, password, googleId }, ip, userAgent) => {
   const hashedPassword = await hashPassword(password);
 
   const userPayload = {
@@ -23,9 +23,31 @@ const signupUser = async ({ username, fullName, email, password, googleId }) => 
   };
 
   const user = await User.create(userPayload);
-  return user;
+  const accessToken = generateAccessToken({ userId: user._id });
+  const refreshToken = generateRefreshToken({ userId: user._id, ip, userAgent });
+  return { user, accessToken, refreshToken };
+};
+
+// ===== VERIFY PASSWORD =====
+const verifyPassword = async (plain, hashed) => {
+  return await bcrypt.compare(plain, hashed);
+};
+
+// ===== LOGIN USER =====
+const loginUser = async ({ email, password }, ip, userAgent) => {
+  const user = await User.findOne({ email });
+  if (!user) throw Object.assign(new Error("Invalid credentials"), { statusCode: 401 });
+
+  const isValid = await verifyPassword(password, user.password);
+  if (!isValid) throw Object.assign(new Error("Invalid credentials"), { statusCode: 401 });
+
+  const accessToken = generateAccessToken({ userId: user._id });
+  const refreshToken = generateRefreshToken({ userId: user._id, ip, userAgent });
+
+  return { user, accessToken, refreshToken };
 };
 
 module.exports = {
     signupUser,
+    loginUser,
 };
