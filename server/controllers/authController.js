@@ -149,7 +149,7 @@ const refreshToken = asyncHandler(async (req, res) => {
 const googleCallback = asyncHandler(async (req, res) => {
   const googleUser = req.user;
 
-  if (!googleUser || !googleUser.email || !googleUser.flow) {
+  if (!googleUser || !googleUser.email || !googleUser.flow || !googleUser.fullName) {
     return res.redirect(
       `${process.env.FRONTEND_URL}/auth?error=GOOGLE_AUTH_FAILED`
     );
@@ -203,6 +203,7 @@ const googleCallback = asyncHandler(async (req, res) => {
 
     const tempToken = authService.generateTempGoogleToken({
       email,
+      fullName,
       googleId,
     });
     if (!tempToken) {

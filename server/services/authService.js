@@ -78,8 +78,8 @@ const googleLoginUser=async({googleId, email}, ip, userAgent, res)=>{
 }
 
 // ==== TEMP GOOGLE TOKEN ====
-const generateTempGoogleToken = ({ email, googleId}) => {
-  const payload = { email, googleId};
+const generateTempGoogleToken = ({ email, googleId, fullName}) => {
+  const payload = { email, googleId, fullName};
   const tempToken = generateGoogleTempToken(payload);
   return tempToken;
 };
