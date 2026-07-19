@@ -28,6 +28,7 @@ const signup = asyncHandler(async (req, res) => {
       statusCode: 400,
     });
   }
+  await bloomService.addUsername(user.username);
   const signupPayload = {
     username,
     fullName,
@@ -45,11 +46,6 @@ const signup = asyncHandler(async (req, res) => {
     throw Object.assign(new Error("Error creating user details"), {
       statusCode: 500,
     });
-  }
-  try {
-    await bloomService.addUsername(user.username);
-  } catch (err) {
-    console.error("Bloom filter update failed:", err);
   }
   res.cookie("access_token", accessToken, {
     httpOnly: true,
