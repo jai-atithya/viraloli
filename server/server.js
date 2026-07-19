@@ -21,6 +21,7 @@ require('./config/passport');
 app.use(passport.initialize());
 
 app.use("/api/auth", require('./routes/authRoutes'));
+app.use("/api/characters", require('./routes/characterRoutes'));
 
 app.use(errorHandler);
 app.listen(PORT, () => {
