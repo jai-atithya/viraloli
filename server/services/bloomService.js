@@ -38,7 +38,7 @@ const getBit = (buffer, bitIndex) => {
     return (buffer[byteIndex] & (1 << bitOffset)) !== 0;
 };
 
-// ===== SET A PARTICULAR BIT LOCATION TO TRUE =====
+// ===== SET A PARTICULAR BIT TO TRUE =====
 const setBit = (buffer, bitIndex) => {
     const byteIndex = bitIndex >> 3;
     const bitOffset = bitIndex & 7;
