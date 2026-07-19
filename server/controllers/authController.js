@@ -28,7 +28,10 @@ const signup = asyncHandler(async (req, res) => {
       statusCode: 400,
     });
   }
+<<<<<<< HEAD
   await bloomService.addUsername(user.username);
+=======
+>>>>>>> f212782 (Merge conflict resolved)
   const signupPayload = {
     username,
     fullName,
@@ -47,6 +50,14 @@ const signup = asyncHandler(async (req, res) => {
       statusCode: 500,
     });
   }
+<<<<<<< HEAD
+=======
+  try {
+    await bloomService.addUsername(user.username);
+  } catch (err) {
+    console.error("Bloom filter update failed:", err);
+  }
+>>>>>>> f212782 (Merge conflict resolved)
   res.cookie("access_token", accessToken, {
     httpOnly: true,
     // maxAge: 60 * 1000,

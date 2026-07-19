@@ -21,4 +21,5 @@ module.exports = {
     getUserbyEmail,
     getUserbyUsername,
     getMyData,
+    getUserbyUsername
 };

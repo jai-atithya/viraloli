@@ -20,4 +20,8 @@ const initializeBloomFilter = asyncHandler(async (req, res) => {
     });
 });
 
+<<<<<<< HEAD
 module.exports = { initializeBloomFilter };
+=======
+module.exports = { initializeBloomFilter };
+>>>>>>> f212782 (Merge conflict resolved)
