@@ -22,6 +22,7 @@ require('./config/passport');
 app.use(passport.initialize());
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use("/api/auth", require('./routes/authRoutes'));
+<<<<<<< HEAD
 app.use("/api/upload", require('./routes/uploadRoutes'));
 app.use("/api/user", require('./routes/userRoutes'));
 app.use("/api/bloom", require('./routes/bloomRoutes'));
@@ -31,6 +32,9 @@ app.use("/api/unit", require('./routes/unitRoutes'));
 app.use("/api/lesson", require('./routes/lessonRoutes'));
 app.use("/api/session", require('./routes/dailySessionRoutes'));
 
+=======
+app.use("/api/bloom", require('./routes/bloomRoutes'));
+>>>>>>> c1aa06e (Bloom filter creation done)
 
 app.use(errorHandler);
 app.listen(PORT, () => {
