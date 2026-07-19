@@ -1,24 +1,8 @@
 const asyncHandler = require("express-async-handler");
 const bloomService = require("../services/bloomService");
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 // @Desc Create a bloom filter
 // @Route POST /api/bloom/init
-=======
->>>>>>> 7ae4858 (Bloom filter creation done)
-=======
-// @Desc Create a bloom filter
-// @Route POST /api/bloom/init
->>>>>>> f212782 (Merge conflict resolved)
-=======
->>>>>>> c1aa06e (Bloom filter creation done)
-=======
-// @Desc Create a bloom filter
-// @Route POST /api/bloom/init
->>>>>>> b8ede55 (Bloom filter logic created)
 const initializeBloomFilter = asyncHandler(async (req, res) => {
     const bloom = await bloomService.getBloomFilter();
     if (bloom) {
@@ -36,20 +20,4 @@ const initializeBloomFilter = asyncHandler(async (req, res) => {
     });
 });
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 module.exports = { initializeBloomFilter };
-=======
-module.exports = {initializeBloomFilter};
->>>>>>> 7ae4858 (Bloom filter creation done)
-=======
-module.exports = { initializeBloomFilter };
->>>>>>> f212782 (Merge conflict resolved)
-=======
-module.exports = {initializeBloomFilter};
->>>>>>> c1aa06e (Bloom filter creation done)
-=======
-module.exports = { initializeBloomFilter };
->>>>>>> b8ede55 (Bloom filter logic created)
