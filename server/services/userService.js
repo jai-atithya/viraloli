@@ -7,6 +7,7 @@ const getUserbyEmail = async (email) => {
 };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 // ===== USER DETAILS BY USERNAME =====
 const getUserbyUsername = async (username) => {
     return await User.findOne({ username: { $eq: username } });
@@ -19,6 +20,8 @@ const getMyData = async (userId) => {
     return user;
 }
 
+=======
+>>>>>>> b8ede55 (Bloom filter logic created)
 // ===== USER DETAILS BY USERNAME =====
 const getUserbyUsername = async (username) => {
     return await User.findOne({ username: { $eq: username } });
@@ -27,6 +30,9 @@ const getUserbyUsername = async (username) => {
 module.exports = {
     getUserbyEmail,
     getUserbyUsername
+<<<<<<< HEAD
     getMyData,
     getUserbyUsername
+=======
+>>>>>>> b8ede55 (Bloom filter logic created)
 };
