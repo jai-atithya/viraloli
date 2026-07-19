@@ -6,6 +6,10 @@ const getUserbyEmail = async (email) => {
     return await User.findOne({ email: { $eq: email } });
 };
 
+// ===== USER DETAILS BY USERNAME =====
+const getUserbyUsername = async (username) => {
+    return await User.findOne({ username: { $eq: username } }
+)};
 
 // ==== GET MY DATA ====
 const getMyData = async (userId) => {
@@ -15,5 +19,6 @@ const getMyData = async (userId) => {
 
 module.exports = {
     getUserbyEmail,
+    getUserbyUsername,
     getMyData,
 };
