@@ -21,7 +21,10 @@ require('./config/passport');
 app.use(passport.initialize());
 
 app.use("/api/auth", require('./routes/authRoutes'));
+<<<<<<< HEAD
 app.use("/api/user", require('./routes/userRoutes'));
+=======
+>>>>>>> c1aa06e (Bloom filter creation done)
 app.use("/api/bloom", require('./routes/bloomRoutes'));
 
 app.use(errorHandler);
