@@ -2,10 +2,15 @@ const asyncHandler = require("express-async-handler");
 const bloomService = require("../services/bloomService");
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 // @Desc Create a bloom filter
 // @Route POST /api/bloom/init
 =======
 >>>>>>> c1aa06e (Bloom filter creation done)
+=======
+// @Desc Create a bloom filter
+// @Route POST /api/bloom/init
+>>>>>>> b8ede55 (Bloom filter logic created)
 const initializeBloomFilter = asyncHandler(async (req, res) => {
     const bloom = await bloomService.getBloomFilter();
     if (bloom) {
@@ -25,6 +30,7 @@ const initializeBloomFilter = asyncHandler(async (req, res) => {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 module.exports = { initializeBloomFilter };
 =======
 module.exports = { initializeBloomFilter };
@@ -32,3 +38,6 @@ module.exports = { initializeBloomFilter };
 =======
 module.exports = {initializeBloomFilter};
 >>>>>>> c1aa06e (Bloom filter creation done)
+=======
+module.exports = { initializeBloomFilter };
+>>>>>>> b8ede55 (Bloom filter logic created)

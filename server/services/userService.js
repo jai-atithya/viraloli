@@ -19,7 +19,6 @@ const getUserbyUsername = async (username) => {
 
 module.exports = {
     getUserbyEmail,
-    getUserbyUsername,
     getMyData,
     getUserbyUsername
 };
