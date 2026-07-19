@@ -38,7 +38,11 @@ const getBit = (buffer, bitIndex) => {
     return (buffer[byteIndex] & (1 << bitOffset)) !== 0;
 };
 
+<<<<<<< HEAD
 // ===== SET A PARTICULAR BIT TO TRUE =====
+=======
+// ===== SET A PARTICULAR BIT LOCATION TO TRUE =====
+>>>>>>> 761b7bd (Feature/bloom filter (#13))
 const setBit = (buffer, bitIndex) => {
     const byteIndex = bitIndex >> 3;
     const bitOffset = bitIndex & 7;
