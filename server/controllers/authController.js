@@ -28,13 +28,7 @@ const signup = asyncHandler(async (req, res) => {
       statusCode: 400,
     });
   }
-<<<<<<< HEAD
-<<<<<<< HEAD
   await bloomService.addUsername(user.username);
-=======
->>>>>>> f212782 (Merge conflict resolved)
-=======
->>>>>>> b8ede55 (Bloom filter logic created)
   const signupPayload = {
     username,
     fullName,
@@ -53,20 +47,6 @@ const signup = asyncHandler(async (req, res) => {
       statusCode: 500,
     });
   }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> b8ede55 (Bloom filter logic created)
-  try {
-    await bloomService.addUsername(user.username);
-  } catch (err) {
-    console.error("Bloom filter update failed:", err);
-  }
-<<<<<<< HEAD
->>>>>>> f212782 (Merge conflict resolved)
-=======
->>>>>>> b8ede55 (Bloom filter logic created)
   res.cookie("access_token", accessToken, {
     httpOnly: true,
     // maxAge: 60 * 1000,

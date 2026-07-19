@@ -33,6 +33,8 @@ app.use("/api/session", require('./routes/dailySessionRoutes'));
 app.use("/api/user", require('./routes/userRoutes'));
 app.use("/api/user", require('./routes/userRoutes'));
 app.use("/api/bloom", require('./routes/bloomRoutes'));
+app.use("/api/characters", require('./routes/characterRoutes'));
+
 app.use(errorHandler);
 app.listen(PORT, () => {
     dbConnect.ConnectToMongoDB();
