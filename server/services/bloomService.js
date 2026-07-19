@@ -1,6 +1,5 @@
 const BloomFilter = require("../models/bloomModel");
 
-<<<<<<< HEAD
 let bloomCache = null;
 
 // ===== HASH FN 1 =====
@@ -39,7 +38,7 @@ const getBit = (buffer, bitIndex) => {
     return (buffer[byteIndex] & (1 << bitOffset)) !== 0;
 };
 
-// ===== SET A PARTICULAR BIT TO TRUE =====
+// ===== SET A PARTICULAR BIT LOCATION TO TRUE =====
 const setBit = (buffer, bitIndex) => {
     const byteIndex = bitIndex >> 3;
     const bitOffset = bitIndex & 7;
@@ -63,32 +62,19 @@ const getBloomFilter = async () => {
 };
 
 // ===== INITIALIZE A BLOOM FILTER =====
-=======
-const getBloomFilter = async () => {
-    const bloom = await BloomFilter.findOne();
-    return bloom;
-};
-
->>>>>>> c1aa06e (Bloom filter creation done)
 const initializeBloomFilter = async () => {
     const NUM_BITS = 95851;
     const EXPECTED_ITEMS = 10000;
     const NUM_HASHES = Math.ceil(Math.log(2) * (NUM_BITS / EXPECTED_ITEMS));
     const FALSE_POSITIVE_RATE = 0.01;
-<<<<<<< HEAD
     
     const bloom = await BloomFilter.create({
-=======
-
-    bloom = await BloomFilter.create({
->>>>>>> c1aa06e (Bloom filter creation done)
         numBits: NUM_BITS,
         numHashes: NUM_HASHES,
         expectedItems: EXPECTED_ITEMS,
         falsePositiveRate: FALSE_POSITIVE_RATE,
         buffer: Buffer.alloc(Math.ceil(NUM_BITS / 8))
     });
-<<<<<<< HEAD
     
     bloomCache = bloom;
     
@@ -140,10 +126,3 @@ module.exports = {
     checkUsername,
     addUsername
 };
-=======
-
-    return bloom;
-};
-
-module.exports = {initializeBloomFilter,getBloomFilter};
->>>>>>> c1aa06e (Bloom filter creation done)
