@@ -23,6 +23,23 @@ export const TypeEngine = ({ lesson }) => {
       progress: 0,
     }))
   );
+  const handleRequest= ()=>{
+    setCurrentUnit(0);
+    setCurrentKey(0);
+    setPressedKey(null);
+    setStartTime(null);
+    setCorrectKeyStrokes(0);
+    setIncorrectKeyStrokes(0);
+    setUnitsState(
+      lesson.units.map(() => ({
+        status: "pending",
+        progress: 0,
+      }))
+    );
+  }
+  const handlePause=()=>{
+    setIsActive(false);
+  }
 
   const totalKeyStrokes = correctKeyStrokes + incorrectKeyStrokes;
   const minutes = startTime ? (Date.now() - startTime) / 60000 : 0;
@@ -106,6 +123,8 @@ export const TypeEngine = ({ lesson }) => {
               <div>WPM:  {wpm}</div>
               <div>CPM:  {cpm}</div>
               <div>Accuracy:  {accuracy}</div>
+              <button onClick={handleRequest} className="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600">Reset</button>
+              <button onClick={handlePause} className="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600">Pause</button>
             </div>
             {showKeyboard && (
               <Keyboard
