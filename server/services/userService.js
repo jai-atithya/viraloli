@@ -6,22 +6,12 @@ const getUserbyEmail = async (email) => {
     return await User.findOne({ email: { $eq: email } });
 };
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-// ===== USER DETAILS BY USERNAME =====
-const getUserbyUsername = async (username) => {
-    return await User.findOne({ username: { $eq: username } });
-
-=======
->>>>>>> f212782 (Merge conflict resolved)
 // ==== GET MY DATA ====
 const getMyData = async (userId) => {
     const user = await UserCred.findById(userId, { password: 0, __v: 0, createdAt: 0, updatedAt: 0, googleId: 0 });
     return user;
 }
 
-=======
->>>>>>> b8ede55 (Bloom filter logic created)
 // ===== USER DETAILS BY USERNAME =====
 const getUserbyUsername = async (username) => {
     return await User.findOne({ username: { $eq: username } });
@@ -29,10 +19,6 @@ const getUserbyUsername = async (username) => {
 
 module.exports = {
     getUserbyEmail,
-    getUserbyUsername
-<<<<<<< HEAD
+    getUserbyUsername,
     getMyData,
-    getUserbyUsername
-=======
->>>>>>> b8ede55 (Bloom filter logic created)
 };

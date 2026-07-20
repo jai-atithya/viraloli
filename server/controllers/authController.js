@@ -28,10 +28,7 @@ const signup = asyncHandler(async (req, res) => {
       statusCode: 400,
     });
   }
-<<<<<<< HEAD
   await bloomService.addUsername(user.username);
-=======
->>>>>>> b8ede55 (Bloom filter logic created)
   const signupPayload = {
     username,
     fullName,
@@ -50,14 +47,6 @@ const signup = asyncHandler(async (req, res) => {
       statusCode: 500,
     });
   }
-<<<<<<< HEAD
-=======
-  try {
-    await bloomService.addUsername(user.username);
-  } catch (err) {
-    console.error("Bloom filter update failed:", err);
-  }
->>>>>>> b8ede55 (Bloom filter logic created)
   res.cookie("access_token", accessToken, {
     httpOnly: true,
     // maxAge: 60 * 1000,
