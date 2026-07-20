@@ -35,10 +35,20 @@ const getCharactersInLesson = async (unlockLesson) => {
         .lean();
 };
 
+const getMaxUnlockLessonByNames = async (names) => {
+    return await Character.findOne(
+        { name: { $in: names } },
+        { unlockLesson: 1, _id: 0 }
+    )
+    .sort({ unlockLesson: -1 })
+    .lean();
+};
+
 module.exports = {
     getAllCharacters,
     getCharacterByName,
     createCharacter,
     getCharactersUnlockedTillLesson,
     getCharactersInLesson,
+    getMaxUnlockLessonByNames,
 };
