@@ -120,9 +120,9 @@ export const TypeEngine = ({ lesson }) => {
               setIncorrectKeyStrokes={setIncorrectKeyStrokes}
             />
             <div className='flex w-full justify-between'>
-              <div>WPM:  {wpm}</div>
-              <div>CPM:  {cpm}</div>
-              <div>Accuracy:  {accuracy}</div>
+              <div>WPM: {wpm}</div>
+              <div>CPM: {cpm}</div>
+              <div>Accuracy: {accuracy}</div>
               <button onClick={handleRequest} className="px-2 py-1 bg-blue-500 text-white rounded hover:bg-blue-600">Reset</button>
               <button onClick={handlePause} className="px-2 py-1 bg-red-500 text-white rounded hover:bg-red-600">Pause</button>
             </div>
