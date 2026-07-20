@@ -57,55 +57,59 @@ export const Unit = () => {
           </div>
 
           {/* MIDDLE PANEL - path */}
-{/* MIDDLE PANEL - path */}
-          <div className='w-[50%] h-full flex flex-col items-center py-[1rem]'>
+
+          <div className='w-[50%] h-full flex flex-col items-center py-[1rem] overflow-hidden'>
             <p className='text-slate-400 text-xs mb-2 tracking-wide'>அடுத்த அலகு</p>
 
             <div className='relative w-full flex-1 min-h-0'>
-              {/* connecting line, drawn in the same 0-100 coordinate space as the node positions below */}
-              <svg
-                className='absolute inset-0 w-full h-full'
-                viewBox='0 0 100 100'
-                preserveAspectRatio='none'
-              >
-                <polyline
-                  points={nodes
-                    .map((_, idx) => {
-                      const top = 6 + idx * (88 / (nodes.length - 1));
-                      const leftPattern = [50, 32, 20, 32, 50, 68, 80];
-                      const left = leftPattern[idx % leftPattern.length];
-                      return `${left},${top}`;
-                    })
-                    .join(' ')}
-                  fill='none'
-                  stroke='#cbd5e1'
-                  strokeWidth='0.6'
-                  strokeDasharray='2,2'
-                  vectorEffect='non-scaling-stroke'
-                />
-              </svg>
 
-              {/* nodes, positioned and sized entirely in % so they can never overflow the panel */}
-              {nodes.map((node, idx) => {
-                const top = 6 + idx * (88 / (nodes.length - 1));
-                const leftPattern = [50, 32, 20, 32, 50, 68, 80];
-                const left = leftPattern[idx % leftPattern.length];
+              {(() => {
+                const gapWeights = [1, 2, 1, 1, 2, 1]; // extra space for 2-3 and 6-7
+                const totalWeight = gapWeights.reduce((a, b) => a + b, 0);
+                const range = 88; // matches old 6 -> 94 span
+                const tops = [6];
+                gapWeights.forEach((w) => {
+                  tops.push(tops[tops.length - 1] + (w / totalWeight) * range);
+                });
+                const leftPattern = [50, 25, 25, 50, 75, 75, 50];
+
                 return (
-                  <div
-                    key={node}
-                    className={`absolute aspect-square w-[12%] max-w-[4.5rem] rounded-full flex items-center justify-center border-4 shadow-md -translate-x-1/2 -translate-y-1/2
-                      ${idx === 0 ? 'bg-yellow-400 border-yellow-200' : 'bg-white border-slate-200'}
-                    `}
-                    style={{ top: `${top}%`, left: `${left}%` }}
-                  >
-                    {idx === 0 ? (
-                      <div className='w-1/2 h-1/2 rounded-full bg-yellow-300' />
-                    ) : (
-                      <img src={SampleLogo} className='w-1/2 h-1/2 object-contain opacity-70' />
-                    )}
-                  </div>
+                  <>
+                    <svg
+                      className='absolute inset-0 w-full h-full'
+                      viewBox='0 0 100 100'
+                      preserveAspectRatio='none'
+                    >
+                      <polyline
+                        points={nodes
+                          .map((_, idx) => `${leftPattern[idx % leftPattern.length]},${tops[idx]}`)
+                          .join(' ')}
+                        fill='none'
+                        stroke='#cbd5e1'
+                        strokeWidth='0.6'
+                        strokeDasharray='2,2'
+                        vectorEffect='non-scaling-stroke'
+                      />
+                    </svg>
+
+                    {nodes.map((node, idx) => (
+                      <div
+                        key={node}
+                        className={`absolute aspect-square w-[12%] max-w-[4.5rem] rounded-full flex items-center justify-center border-4 shadow-md -translate-x-1/2 -translate-y-1/2
+                          ${idx === 0 ? 'bg-yellow-400 border-yellow-200' : 'bg-white border-slate-200'}
+                        `}
+                        style={{ top: `${tops[idx]}%`, left: `${leftPattern[idx % leftPattern.length]}%` }}
+                      >
+                        {idx === 0 ? (
+                          <div className='w-1/2 h-1/2 rounded-full bg-yellow-300' />
+                        ) : (
+                          <img src={SampleLogo} className='w-1/2 h-1/2 object-contain opacity-70' />
+                        )}
+                      </div>
+                    ))}
+                  </>
                 );
-              })}
+              })()}
             </div>
           </div>
 
@@ -135,8 +139,8 @@ export const Unit = () => {
                         ${d.done
                           ? 'bg-green-100 text-green-600'
                           : d.date === 17
-                          ? 'bg-blue-500 text-white'
-                          : 'text-slate-500'}
+                            ? 'bg-blue-500 text-white'
+                            : 'text-slate-500'}
                       `}
                     >
                       {d.done ? '✓' : d.date}
