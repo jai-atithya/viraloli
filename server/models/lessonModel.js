@@ -2,6 +2,20 @@ const mongoose = require("mongoose");
 
 const lessonSchema = new mongoose.Schema(
     {
+        unitId: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Unit",
+            required: true,
+            index: true,
+        },
+        unitNumber:{
+            type: Number,
+            required: true
+        },
+        lessonNumber:{
+            type: Number,
+            required: true
+        },
         type: {
             type: String,
             required: true,

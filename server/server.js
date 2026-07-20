@@ -26,6 +26,8 @@ app.use("/api/user", require('./routes/userRoutes'));
 app.use("/api/bloom", require('./routes/bloomRoutes'));
 app.use("/api/characters", require('./routes/characterRoutes'));
 app.use("/api/unit", require('./routes/unitRoutes'));
+app.use("/api/lesson", require('./routes/lessonRoutes'));
+
 
 app.use(errorHandler);
 app.listen(PORT, () => {
