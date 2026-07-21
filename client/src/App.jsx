@@ -6,6 +6,7 @@ import { TypeEngine } from "./typeEngine/TypeEngine";
 import { TypingTest } from "./pages/typingTest/TypingTest";
 import { Auth } from "./pages/auth/Auth";
 import { Unit } from "./pages/unit/Unit";
+import { Profile } from "./pages/profile/Profile";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/auth" element={<Auth />} />
           <Route path="/engine" element={<TypeEngine />} />
           <Route path="/units" element={<Unit />} />
+          <Route path="/profile" element={<Profile />} />
 
         </Routes>
       </BrowserRouter>
