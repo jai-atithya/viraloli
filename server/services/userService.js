@@ -10,7 +10,7 @@ const getUserbyEmail = async (email) => {
 const getMyData = async (userId) => {
     const user = await User.findById(userId, { password: 0, __v: 0, createdAt: 0, updatedAt: 0, googleId: 0 });
     return user;
-}
+};
 
 // ===== USER DETAILS BY USERNAME =====
 const getUserbyUsername = async (username) => {
