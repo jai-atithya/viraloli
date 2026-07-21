@@ -8,12 +8,12 @@ const unitSchema = new mongoose.Schema(
             unique: true,
         },
 
-        unitNumber:{
+        unitNumber: {
             type: Number,
-            required:true,
-            unique:true,
+            required: true,
+            unique: true,
         },
-        
+
         unitNameEnglish: {
             type: String,
             required: true,
@@ -38,14 +38,20 @@ const unitSchema = new mongoose.Schema(
             trim: true,
         },
 
-        logo: {
-            type:
-            {
-                url: { type: String, required: true },
-                key: { type: String, required: true }
-            },
+        thumbnail: {
+            type: String,
             required: true,
-            trim: true,
+            trim: true
+        },
+
+        characters: {
+            character1: { type: String, required: true, trim: true },
+            character2: { type: String, required: true, trim: true },
+            character3: { type: String, required: true, trim: true },
+            character4: { type: String, required: true, trim: true },
+            character5: { type: String, required: true, trim: true },
+            character6: { type: String, required: true, trim: true },
+            character7: { type: String, required: true, trim: true },
         },
     },
     {

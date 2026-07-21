@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const path = require("path");
 
 const cookieParser = require("cookie-parser");
 require("dotenv").config();
@@ -20,7 +21,10 @@ app.use(cookieParser());
 require('./config/passport');
 app.use(passport.initialize());
 
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+
 app.use("/api/auth", require('./routes/authRoutes'));
+app.use("/api/upload", require('./routes/uploadRoutes'));
 app.use("/api/user", require('./routes/userRoutes'));
 app.use("/api/bloom", require('./routes/bloomRoutes'));
 app.use("/api/characters", require('./routes/characterRoutes'));
