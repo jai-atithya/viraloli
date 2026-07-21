@@ -6,5 +6,7 @@ const protectRoute = require("../middleware/protectRoute");
 router.use(protectRoute);
 
 router.post("/add-xp", dailySessionController.addXP);
+router.get("/week/:userId", dailySessionController.getPast7DaysSessions);
+router.get("/year/:userId", dailySessionController.getPastYearSessions);
 
 module.exports = router;
