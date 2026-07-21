@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Navbar } from '../components/Navbar'
 import SampleLogo from '../../assets/tamilLogo.png'
-
+import { Lock } from "lucide-react";
 export const Unit = () => {
   const [isOdd, setIsOdd] = useState(false);
 
@@ -10,13 +10,13 @@ export const Unit = () => {
 
   // dummy calendar days for the current week
   const weekDays = [
+    { day: 'Su', date: 12, done: true },
     { day: 'Mo', date: 13, done: true },
     { day: 'Tu', date: 14, done: true },
     { day: 'We', date: 15, done: true },
     { day: 'Th', date: 16, done: true },
     { day: 'Fr', date: 17, done: false },
     { day: 'Sa', date: 18, done: false },
-    { day: 'Su', date: 19, done: false },
   ];
 
   return (
@@ -25,35 +25,41 @@ export const Unit = () => {
         <div className='h-[10vh]'>
           <Navbar />
         </div>
-        <div className='w-full h-full flex gap-[1rem]'>
+        <div className='w-full h-full flex  gap-[1rem]'>
 
           {/* LEFT PANEL */}
-          <div className='bg-white border border-slate-200 shadow-sm w-[25%] rounded-[0.3rem] p-[1rem] flex flex-col justify-center items-center gap-[0.75rem]'>
-            <div>
-              <p className='text-slate-800 font-bold text-lg tracking-wide'>TITLE</p>
+          <div className="bg-white border border-slate-200 shadow-lg w-[25%] rounded-2xl p-8 flex flex-col justify-between items-center gap-6">
+            <h2 className="text-3xl font-bold text-slate-800 tracking-wide">CHERA DYNASTY</h2>
+            <div className="w-36 h-36 flex items-center justify-center">
+              <img
+                src={SampleLogo}
+                className="w-full h-full object-contain"
+                alt="Chera Dynasty"
+              />
             </div>
-            <div className='w-24 h-24 flex items-center justify-center'>
-              <img src={SampleLogo} className='w-full h-full object-contain' />
-            </div>
-            <div>
-              <p className='text-slate-500 text-sm text-center leading-relaxed'>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem obcaecati pariatur repellendus laudantium ratione corrupti voluptatum distinctio minus, nam odit sit cum, officia ab enim. Dignissimos sit fuga delectus deleniti?
-              </p>
-            </div>
-            <div className='grid grid-cols-3 gap-3 mt-2'>
-              {[...Array(6)].map((_, i) => (
+            <p className="text-slate-600 text-base text-center leading-8 px-2">The Chera dynasty was one of the three great Tamil royal lineages;They ruled the western regions of ancient Tamil Nadu and excelled in maritime trade and cultural development.</p>
+            <div className="w-full grid grid-cols-3 gap-5 mt-2">
+              {[...Array(7)].map((_, i) => (
                 <div
                   key={i}
-                  className='w-10 h-10 rounded-full border border-slate-200 bg-slate-50 flex items-center justify-center p-1 shadow-sm'
-                >
-                  <img src={SampleLogo} className='w-full h-full object-contain rounded-full' />
+                  className="w-16 h-16 rounded-full bg-white border border-slate-200 shadow-md flex items-center justify-center">
+                  <img
+                    src={SampleLogo}
+                    className="w-12 h-12 object-contain rounded-full blur-[1px]"
+                    alt=""
+                  />
                 </div>
+
               ))}
-            </div>
-            <button className='w-full mt-2 flex items-center justify-center gap-2 border border-slate-200 rounded-[0.4rem] py-2 text-sm text-slate-600 hover:bg-slate-50'>
-              <img src={SampleLogo} className='w-4 h-4 object-contain' />
+              <button className="w-full col-span-2 flex items-center justify-center gap-3 border border-slate-300 rounded-xl py-4 text-lg font-medium text-slate-700 hover:bg-slate-50 transition-all duration-200">
+              <img
+                src={SampleLogo}
+                className="w-5 h-5 object-contain"
+                alt=""
+              />
               குறிப்புகள்
             </button>
+            </div>
           </div>
 
           {/* MIDDLE PANEL - path */}
@@ -103,7 +109,16 @@ export const Unit = () => {
                         {idx === 0 ? (
                           <div className='w-1/2 h-1/2 rounded-full bg-yellow-300' />
                         ) : (
-                          <img src={SampleLogo} className='w-1/2 h-1/2 object-contain opacity-70' />
+
+                          <div className="w-1/2 h-1/2 flex items-center justify-center">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              fill="currentColor"
+                              className="w-full h-full text-slate-500">
+                              <path d="M17 8h-1V6a4 4 0 10-8 0v2H7a2 2 0 00-2 2v8a2 2 0 002 2h10a2 2 0 002-2v-8a2 2 0 00-2-2zm-7-2a2 2 0 114 0v2h-4V6z"/>
+                            </svg>
+                          </div>
                         )}
                       </div>
                     ))}
