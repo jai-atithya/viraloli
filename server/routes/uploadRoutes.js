@@ -5,7 +5,7 @@ const { upload } = require("../middleware/uploadHandler");
 const uploadController = require("../controllers/uploadController");
 const protectRoute = require("../middleware/protectRoute");
 
-// router.use(protectRoute);
+router.use(protectRoute);
 
 router.post(
     "/unit/:unitNumber",
