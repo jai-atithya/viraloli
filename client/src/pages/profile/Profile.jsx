@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import { Navbar } from '../components/Navbar'
-
+import { HeatMap } from './components/HeatMap'
 export const Profile = () => {
     
     return (
