@@ -14,7 +14,7 @@ const dailySessionSchema = new mongoose.Schema(
             required: true,
         },
 
-        pointsInXP: {
+        pointsXP: {
             type: Number,
             default: 0,
             min: 0,
