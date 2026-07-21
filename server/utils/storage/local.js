@@ -25,6 +25,7 @@ const deleteUnitFolderLocal = async (unitNumber) => {
         `U${unitNumber}`
     );
 
+<<<<<<< HEAD
     try {
         await fs.access(dir);
     } catch {
@@ -36,6 +37,8 @@ const deleteUnitFolderLocal = async (unitNumber) => {
         );
     }
 
+=======
+>>>>>>> d12e474 (Multer units images handling done)
     await fs.rm(dir, {
         recursive: true,
         force: true,

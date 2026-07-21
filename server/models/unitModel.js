@@ -40,6 +40,7 @@ const unitSchema = new mongoose.Schema(
 
         thumbnail: {
             type: String,
+<<<<<<< HEAD
             required: true,
             trim: true
         },
@@ -55,6 +56,20 @@ const unitSchema = new mongoose.Schema(
                 character7: { type: String, required: true, trim: true },
             },
             required: true,
+=======
+            required: true,
+            trim: true
+        },
+
+        characters: {
+            character1: { type: String, required: true, trim: true },
+            character2: { type: String, required: true, trim: true },
+            character3: { type: String, required: true, trim: true },
+            character4: { type: String, required: true, trim: true },
+            character5: { type: String, required: true, trim: true },
+            character6: { type: String, required: true, trim: true },
+            character7: { type: String, required: true, trim: true },
+>>>>>>> d12e474 (Multer units images handling done)
         },
     },
     {

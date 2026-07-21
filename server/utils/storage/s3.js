@@ -1,9 +1,13 @@
+<<<<<<< HEAD
 const {
     S3Client,
     PutObjectCommand,
     ListObjectsV2Command,
     DeleteObjectsCommand,
 } = require("@aws-sdk/client-s3");
+=======
+const { S3Client, PutObjectCommand, ListObjectsV2Command, DeleteObjectsCommand } = require("@aws-sdk/client-s3");
+>>>>>>> d12e474 (Multer units images handling done)
 
 const s3 = new S3Client({
     region: process.env.AWS_REGION,
@@ -37,12 +41,16 @@ const deleteUnitFolderS3 = async (unitNumber) => {
     );
 
     if (!Contents || Contents.length === 0) {
+<<<<<<< HEAD
         throw Object.assign(
             new Error(`Unit ${unitNumber} images not found`),
             {
                 statusCode: 404,
             }
         );
+=======
+        return;
+>>>>>>> d12e474 (Multer units images handling done)
     }
 
     await s3.send(
