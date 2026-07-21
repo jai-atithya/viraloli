@@ -8,6 +8,9 @@ import { Auth } from "./pages/auth/Auth";
 import { Unit } from "./pages/unit/Unit";
 import { Profile } from "./pages/profile/Profile";
 
+import { ThemeProvider } from "./context/ThemeContext";
+import { AuthProvider } from "./context/AuthContext";
+
 function App() {
   return (
     <>
