@@ -45,13 +45,16 @@ const unitSchema = new mongoose.Schema(
         },
 
         characters: {
-            character1: { type: String, required: true, trim: true },
-            character2: { type: String, required: true, trim: true },
-            character3: { type: String, required: true, trim: true },
-            character4: { type: String, required: true, trim: true },
-            character5: { type: String, required: true, trim: true },
-            character6: { type: String, required: true, trim: true },
-            character7: { type: String, required: true, trim: true },
+            type: {
+                character1: { type: String, required: true, trim: true },
+                character2: { type: String, required: true, trim: true },
+                character3: { type: String, required: true, trim: true },
+                character4: { type: String, required: true, trim: true },
+                character5: { type: String, required: true, trim: true },
+                character6: { type: String, required: true, trim: true },
+                character7: { type: String, required: true, trim: true },
+            },
+            required: true,
         },
     },
     {

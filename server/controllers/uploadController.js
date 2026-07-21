@@ -47,9 +47,19 @@ const uploadUnitImages = asyncHandler(async (req, res) => {
         );
     }
 
-    res.status(200).json({
+    const paths = {
+        thumbnail: `units/U${unitNumber}/thumbnail.webp`,
+        characters: {},
+    };
+
+    for (let i = 1; i <= 7; i++) {
+        paths.characters[`character${i}`] =
+            `units/U${unitNumber}/${i}.webp`;
+    }
+
+    return res.status(200).json({
         success: true,
-        message: "Unit images uploaded.",
+        data: paths,
     });
 });
 
@@ -60,6 +70,7 @@ const deleteUnitImages = asyncHandler(async (req, res) => {
 
     res.json({
         success: true,
+        message: `Unit ${unitNumber} images deleted!`
     });
 });
 

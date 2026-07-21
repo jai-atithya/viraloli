@@ -25,6 +25,17 @@ const deleteUnitFolderLocal = async (unitNumber) => {
         `U${unitNumber}`
     );
 
+    try {
+        await fs.access(dir);
+    } catch {
+        throw Object.assign(
+            new Error(`Unit ${unitNumber} images not found`),
+            {
+                statusCode: 404,
+            }
+        );
+    }
+
     await fs.rm(dir, {
         recursive: true,
         force: true,

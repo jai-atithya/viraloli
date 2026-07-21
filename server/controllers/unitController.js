@@ -35,7 +35,8 @@ const addUnitDetails = asyncHandler(async (req, res) => {
         unitNameTamil,
         unitDescriptionEnglish,
         unitDescriptionTamil,
-        logo,
+        thumbnail,
+        characters
     } = req.body;
 
     const unit = await unitService.addUnitDetails({
@@ -45,7 +46,8 @@ const addUnitDetails = asyncHandler(async (req, res) => {
         unitNameTamil,
         unitDescriptionEnglish,
         unitDescriptionTamil,
-        logo,
+        thumbnail,
+        characters
     });
 
     if (!unit) {

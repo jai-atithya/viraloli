@@ -1,4 +1,9 @@
-const { S3Client, PutObjectCommand, ListObjectsV2Command, DeleteObjectsCommand } = require("@aws-sdk/client-s3");
+const {
+    S3Client,
+    PutObjectCommand,
+    ListObjectsV2Command,
+    DeleteObjectsCommand,
+} = require("@aws-sdk/client-s3");
 
 const s3 = new S3Client({
     region: process.env.AWS_REGION,
@@ -32,7 +37,12 @@ const deleteUnitFolderS3 = async (unitNumber) => {
     );
 
     if (!Contents || Contents.length === 0) {
-        return;
+        throw Object.assign(
+            new Error(`Unit ${unitNumber} images not found`),
+            {
+                statusCode: 404,
+            }
+        );
     }
 
     await s3.send(
