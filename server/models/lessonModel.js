@@ -92,6 +92,19 @@ const lessonSchema = new mongoose.Schema(
                 trim: true,
             },
         },
+
+        required: {
+            type: boolean,
+            required: true,
+            default: false,
+        },
+
+        requiredParameters: {
+            wpm: { type: Number, default: 0 },
+            cpm: { type: Number, default: 0 },
+            accuracy: { type: Number, default: 0 },
+        }
+
     },
     {
         timestamps: true,
