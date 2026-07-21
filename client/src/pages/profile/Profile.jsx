@@ -11,7 +11,7 @@ export const Profile = () => {
                 </div>
                 
                 <div className='flex-1 w-full h-full p-[1rem]'>
-                    Profile
+                    <p>PROFILE</p>
                     <HeatMap />
                 </div>
             </div>
