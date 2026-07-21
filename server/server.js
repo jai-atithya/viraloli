@@ -30,8 +30,6 @@ app.use("/api/words", require('./routes/wordRoutes'));
 app.use("/api/unit", require('./routes/unitRoutes'));
 app.use("/api/lesson", require('./routes/lessonRoutes'));
 app.use("/api/session", require('./routes/dailySessionRoutes'));
-
-app.use("/api/bloom", require('./routes/bloomRoutes'));
 app.use(errorHandler);
 app.listen(PORT, () => {
     dbConnect.ConnectToMongoDB();

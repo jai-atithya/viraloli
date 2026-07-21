@@ -2,7 +2,11 @@ const asyncHandler = require("express-async-handler");
 const dailySessionService = require("../services/dailySessionService");
 
 // @Desc    Add XP to today's session
+<<<<<<< HEAD
 // @Route   POST /api/session/add-xp
+=======
+// @Route   POST /api/daily-session/add-xp
+>>>>>>> 7f1a67e (session creation done)
 const addXP = asyncHandler(async (req, res) => {
 
     const { userId, points } = req.body;
@@ -42,6 +46,7 @@ const addXP = asyncHandler(async (req, res) => {
     });
 });
 
+<<<<<<< HEAD
 // @Desc Helper function to fill missing dates
 const fillMissingDays = (sessions, numberOfDays) => {
 
@@ -114,4 +119,8 @@ module.exports = {
     addXP,
     getPast7DaysSessions,
     getPastYearSessions,
+=======
+module.exports = {
+    addXP,
+>>>>>>> 7f1a67e (session creation done)
 };
