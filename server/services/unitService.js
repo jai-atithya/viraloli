@@ -12,7 +12,13 @@ const addUnitDetails = async (unitData) => {
     return await Unit.create(unitData);
 };
 
+// ==== GET UNIT BY UNIT ID ====
+const getUnitById = async (unitId) => {
+    return await Unit.find(unitId);
+}
+
 module.exports = {
     getUnitDetails,
     addUnitDetails,
+    getUnitById
 };

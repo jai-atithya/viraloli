@@ -14,7 +14,6 @@ const progressSchema = new mongoose.Schema(
             required: true,
             index: true,
         },
-
         lesson1: {
             wpm: { type: Number, default: 0 },
             cpm: { type: Number, default: 0 },
