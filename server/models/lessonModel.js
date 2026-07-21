@@ -94,7 +94,7 @@ const lessonSchema = new mongoose.Schema(
         },
 
         required: {
-            type: boolean,
+            type: Boolean,
             required: true,
             default: false,
         },
