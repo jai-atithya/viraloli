@@ -80,6 +80,34 @@ const updateLessonProgress = asyncHandler(async (req, res) => {
     });
 });
 
+// @Desc    Get Progress by User & Unit
+// @Route   GET /api/progress/:userId/:unitId
+const getProgress = asyncHandler(async (req, res) => {
+    const { userId, unitId } = req.params;
+
+    if (!userId || !unitId) {
+        return res.status(400).json({
+            success: false,
+            message: "User ID and Unit ID are required.",
+        });
+    }
+
+    const progress = await progressService.getProgress(userId, unitId);
+
+    if (!progress) {
+        return res.status(404).json({
+            success: false,
+            message: "Progress not found.",
+        });
+    }
+
+    return res.status(200).json({
+        success: true,
+        progress,
+    });
+});
+
 module.exports = {
     updateLessonProgress,
+    getProgress
 };

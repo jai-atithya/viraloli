@@ -39,8 +39,17 @@ const updateLesson = async (
     );
 };
 
+// ==== GET PROGRESS ====
+const getProgress = async (userId, unitId) => {
+    return await Progress.findOne({
+        userId,
+        unitId,
+    }).lean();
+};
+
 module.exports = {
     getProgress,
     createProgress,
     updateLesson,
+    getProgress
 };
