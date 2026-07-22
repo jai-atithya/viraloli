@@ -118,7 +118,8 @@ export const Signup = () => {
     }
   };
   return (
-    <div className="w-full h-full flex items-center justify-center">
+    <div className="w-full h-full flex flex-col items-center justify-center gap-6">
+      <h1 className="text-2xl font-semibold text-slate-800">Signup</h1>
       <div className="w-full max-w-sm flex flex-col gap-[1rem]">
         {/* Username */}
         <input

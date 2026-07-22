@@ -29,7 +29,8 @@ export const Login = () => {
   };
 
   return (
-    <div className="w-full h-full flex items-center justify-center">
+    <div className="w-full h-full flex flex-col items-center justify-center gap-6">
+      <h1 className="text-2xl font-semibold text-slate-800">Login</h1>
       <div className="w-full max-w-sm flex flex-col gap-[1rem]">
         <input
           type="text"
