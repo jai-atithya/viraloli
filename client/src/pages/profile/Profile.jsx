@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Navbar } from "../components/Navbar";
 import { HeatMap } from "./components/HeatMap";
-import { DasdBoard } from "./components/DashBoard";
+import { DashBoard } from "./components/DashBoard";
 import { ProfileCard } from "./components/ProfileCard";
 import { StatsCard } from "./components/StatsCard";
 export const Profile = () => {
@@ -25,7 +25,7 @@ export const Profile = () => {
 
             <StatsCard
               icon="🎓"
-              title="கோர்ஸ்கள் முடித்தது"
+              title="அலகுகள் முடித்தது"
               value="8"
               label="மொத்தம்"
             />
