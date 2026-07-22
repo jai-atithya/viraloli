@@ -27,7 +27,7 @@ function App() {
               <Route path="/auth" element={<Auth />} />
               {/* <Route path="/engine" element={<TypeEngine />} /> */}
               <Route path="/units" element={<Unit />} />
-              <Route path="/units/:unidId/:lessonNumber" element={<Lessons />} />
+              <Route path="/units/:unitId/:lessonNumber" element={<Lessons />} />
               <Route path="/profile" element={<Profile />} />
             </Routes>
             </LanguageProvider>
