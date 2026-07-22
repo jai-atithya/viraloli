@@ -1,4 +1,5 @@
 const DailySession = require("../models/dailySessionModel");
+const UserStats = require("../models/userStatsModel");
 
 // ===== CREATE OR UPDATE SESSION =====
 const addXP = async (userId, sessionDate, addPoints) => {
@@ -47,7 +48,7 @@ const getPastYearSessions = async (userId) => {
     today.setUTCHours(0, 0, 0, 0);
 
     const startDate = new Date(today);
-    startDate.setUTCFullYear(startDate.getUTCFullYear() - 1);
+    startDate.setUTCDate(startDate.getUTCDate() - 364);
 
     return await DailySession.find({
         userId,
@@ -77,9 +78,38 @@ const getAnyYearSessions = async (userId, year) => {
         .lean();
 };
 
+// ===== GET USER STATS =====
+const getUserStats = async (userId) => {
+    return await UserStats.findOne({ userId }).lean();
+};
+
+// ===== CREATE OR UPDATE USER STATS =====
+const updateUserStats = async (
+    userId,
+    currentStreak,
+    maxStreak,
+    lastActiveDate
+) => {
+    return await UserStats.findOneAndUpdate(
+        { userId },
+        {
+            currentStreak,
+            maxStreak,
+            lastActiveDate,
+        },
+        {
+            upsert: true,
+            new: true,
+            setDefaultsOnInsert: true,
+        }
+    ).lean();
+};
+
 module.exports = {
     addXP,
     getPast7DaysSessions,
     getPastYearSessions,
-    getAnyYearSessions
+    getAnyYearSessions,
+    getUserStats,
+    updateUserStats,
 };
