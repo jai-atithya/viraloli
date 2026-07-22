@@ -47,7 +47,6 @@ const uploadUnitImages = asyncHandler(async (req, res) => {
         );
     }
 
-<<<<<<< HEAD
     const paths = {
         thumbnail: `units/U${unitNumber}/thumbnail.webp`,
         characters: {},
@@ -61,11 +60,6 @@ const uploadUnitImages = asyncHandler(async (req, res) => {
     return res.status(200).json({
         success: true,
         data: paths,
-=======
-    res.status(200).json({
-        success: true,
-        message: "Unit images uploaded.",
->>>>>>> d12e474 (Multer units images handling done)
     });
 });
 
@@ -76,10 +70,7 @@ const deleteUnitImages = asyncHandler(async (req, res) => {
 
     res.json({
         success: true,
-<<<<<<< HEAD
         message: `Unit ${unitNumber} images deleted!`
-=======
->>>>>>> d12e474 (Multer units images handling done)
     });
 });
 

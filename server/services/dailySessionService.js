@@ -20,7 +20,6 @@ const addXP = async (userId, sessionDate, addPoints) => {
     );
 };
 
-<<<<<<< HEAD
 // ===== GET PAST 7 DAYS SESSION =====
 const getPast7DaysSessions = async (userId) => {
 
@@ -66,6 +65,3 @@ module.exports = {
     getPast7DaysSessions,
     getPastYearSessions,
 };
-=======
-module.exports = { addXP };
->>>>>>> 7f1a67e (session creation done)
