@@ -25,7 +25,7 @@ app.use("/api/auth", require('./routes/authRoutes'));
 app.use("/api/upload", require('./routes/uploadRoutes'));
 app.use("/api/user", require('./routes/userRoutes'));
 app.use("/api/bloom", require('./routes/bloomRoutes'));
-app.use("/api/characters", require('./routes/characterRoutes'));
+app.use("/api/character", require('./routes/characterRoutes'));
 app.use("/api/words", require('./routes/wordRoutes'));
 app.use("/api/unit", require('./routes/unitRoutes'));
 app.use("/api/lesson", require('./routes/lessonRoutes'));
