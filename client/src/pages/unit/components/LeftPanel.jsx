@@ -2,31 +2,39 @@ import React from "react";
 import { Lock, ChevronLeft, ChevronRight } from "lucide-react";
 import SampleLogo from "../../../assets/tamilLogo.png";
 
-const dynastyData = {
-  title: "CHERA DYNASTY",
-  logo: SampleLogo,
-  description:
-    "The Chera dynasty was one of the three great Tamil royal lineages. They ruled the western regions of ancient Tamil Nadu and excelled in maritime trade and cultural development.",
+const BASE_URL = import.meta.env.VITE_SERVER_URL;
 
-  topics: [
-    { id: 1, image: SampleLogo, isUnlocked: true },
-    { id: 2, image: SampleLogo, isUnlocked: false },
-    { id: 3, image: SampleLogo, isUnlocked: false },
-    { id: 4, image: SampleLogo, isUnlocked: true },
-    { id: 5, image: SampleLogo, isUnlocked: false },
-    { id: 6, image: SampleLogo, isUnlocked: true },
-    { id: 7, image: SampleLogo, isUnlocked: false },
-  ],
-};
+export const LeftPanel = ({
+  progress,
+  language,
+  setPopupOpen,
+}) => {
+  if (!progress) {
+    return (
+      <div className="h-full border border-slate-200 shadow-lg rounded-2xl flex items-center justify-center">
+        Loading...
+      </div>
+    );
+  }
 
-export const LeftPanel = ({ setPopupOpen }) => {
+  const isTamil = language === "Tamil";
+
+  const title = isTamil
+    ? progress.unitNameTamil
+    : progress.unitNameEnglish;
+
+  const description = isTamil
+    ? progress.unitDescriptionTamil
+    : progress.unitDescriptionEnglish;
+
+  const characters = Object.values(progress.characters);
+
   return (
     <div className="h-full border border-slate-200 shadow-lg rounded-2xl p-5 md:p-6 flex flex-col">
-      {/* Title with arrows on either side */}
+      {/* Title */}
       <div className="flex items-center justify-between mb-4">
         <button
           type="button"
-          aria-label="Previous dynasty"
           className="p-2 rounded-full hover:bg-slate-100 transition-colors"
         >
           <ChevronLeft className="w-5 h-5 md:w-6 md:h-6 text-slate-600" />
@@ -36,49 +44,56 @@ export const LeftPanel = ({ setPopupOpen }) => {
           onClick={() => setPopupOpen(true)}
           className="text-xl md:text-2xl lg:text-3xl font-bold text-center px-3 py-1 rounded-lg hover:bg-slate-100 transition-colors cursor-pointer"
         >
-          {dynastyData.title}
+          {isTamil
+            ? `அ${progress.unitNumber}: ${title}`
+            : `U${progress.unitNumber}: ${title}`
+          }
         </h2>
 
         <button
           type="button"
-          aria-label="Next dynasty"
           className="p-2 rounded-full hover:bg-slate-100 transition-colors"
         >
           <ChevronRight className="w-5 h-5 md:w-6 md:h-6 text-slate-600" />
         </button>
       </div>
 
-      {/* Image */}
+      {/* Unit Thumbnail */}
       <div className="flex-1 flex items-center justify-center min-h-[10vh]">
         <img
-          src={dynastyData.logo}
-          alt={dynastyData.title}
-          className="max-w-full max-h-full object-contain"
+          src={`${BASE_URL}/uploads/${progress.thumbnail}`}
+          alt={title}
+          className="max-w-full max-h-full object-contain border border-slate-200 rounded-2xl"
         />
       </div>
 
       {/* Description */}
-      <p className="text-sm md:text-base text-center leading-6 mt-4">
-        {dynastyData.description}
-      </p>
+      <div className="mt-4 mb-10 flex justify-center">
+        <p className="max-w-md text-sm md:text-base leading-7 text-justify text-slate-700">
+          {description}
+        </p>
+      </div>
 
-      {/* Bottom */}
+      {/* Characters */}
       <div className="flex-1 min-h-0">
-        <div className="h-full w-full grid grid-cols-3 grid-rows-3 gap-3">
-          {dynastyData.topics.map((topic) => (
+        <div className="h-full w-full grid grid-cols-4 grid-rows-3 gap-3">
+          {characters.map((character, index) => (
             <div
-              key={topic.id}
-              className={`aspect-square h-full max-h-full rounded-full border shadow flex items-center justify-center overflow-hidden transition-all ${
-                topic.isUnlocked
-                  ? "bg-white border-slate-200"
-                  : "bg-slate-100 border-slate-300"
-              }`}
+              key={index}
+              className={`aspect-square h-full max-h-full rounded-full border shadow flex items-center justify-center overflow-hidden ${character.isUnlocked
+                ? "bg-white border-slate-200"
+                : "bg-slate-100 border-slate-300"
+                }`}
             >
-              {topic.isUnlocked ? (
+              {character.isUnlocked ? (
                 <img
-                  src={topic.image}
-                  alt={`Topic ${topic.id}`}
-                  className="w-1/2 h-1/2 object-contain"
+                  src={`${BASE_URL}/uploads/${character.url}`}
+                  alt={
+                    isTamil
+                      ? character.nameTamil
+                      : character.nameEnglish
+                  }
+                  className="w-auto h-2/3 object-contain"
                 />
               ) : (
                 <Lock className="w-6 h-6 text-slate-500" />
@@ -86,13 +101,8 @@ export const LeftPanel = ({ setPopupOpen }) => {
             </div>
           ))}
 
-          <button className="col-span-2 rounded-xl border border-slate-300 py-2 px-3 flex items-center justify-center gap-2 text-sm md:text-base font-medium text-slate-700 hover:bg-slate-50 transition">
-            <img
-              src={dynastyData.logo}
-              alt="Notes"
-              className="w-5 h-5 object-contain"
-            />
-            குறிப்புகள்
+          <button className="col-span-4 mt-3 rounded-xl border border-slate-300 py-2 px-3 flex items-center justify-center gap-2 text-sm md:text-base font-medium text-slate-700 hover:bg-slate-50 transition">
+            {isTamil ? "குறிப்புகள்" : "Notes"}
           </button>
         </div>
       </div>

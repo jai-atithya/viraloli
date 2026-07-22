@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from "react";
-import SampleLogo from "../../../assets/tamilLogo.png";
 import { useAuth } from "../../../context/AuthContext";
 import axios from "../../../api/axios";
 
-export const RightPanel = () => {
+const BASE_URL = import.meta.env.VITE_SERVER_URL;
+
+export const RightPanel = ({ progress, language }) => {
     const { user, authDataLoading } = useAuth();
 
     const [userId, setUserId] = useState("");
 
     const [weekDays, setWeekDays] = useState([]);
-
     const [currentStreak, setCurrentStreak] = useState(0);
     const [maxStreak, setMaxStreak] = useState(0);
+
+    const tamilDays = ["ஞா", "தி", "செ", "பு", "வி", "வெ", "ச"];
+    const englishDays = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
 
     useEffect(() => {
         if (!authDataLoading && user) {
@@ -20,78 +23,90 @@ export const RightPanel = () => {
     }, [authDataLoading, user]);
 
     useEffect(() => {
-
         if (!userId) return;
 
         const fetchWeek = async () => {
-
             try {
-
                 const res = await axios.get(`session/week/${userId}`);
                 const data = res.data;
+
                 setCurrentStreak(data.currentStreak);
                 setMaxStreak(data.maxStreak);
 
                 const formatted = data.data.map((item) => {
-
                     const date = new Date(item.sessionDate);
 
                     return {
-                        day: date.toLocaleDateString("en-US", {
-                            weekday: "short",
-                        }).slice(0, 2),
-
                         date: date.getDate(),
-
                         fullDate: date,
-
                         attended: item.attended,
-
                         isFuture: item.isFuture,
                     };
                 });
 
                 setWeekDays(formatted);
-
             } catch (err) {
                 console.error(err);
             }
-
         };
 
         fetchWeek();
-
     }, [userId]);
 
     const today = new Date();
 
+    const isTamil = language === "Tamil";
+
+    const characters = progress
+        ? Object.values(progress.characters)
+        : [];
+
+    const currentCharacter =
+        [...characters].reverse().find((c) => c.isUnlocked) || null;
+
+    const characterName = currentCharacter
+        ? isTamil
+            ? currentCharacter.nameTamil
+            : currentCharacter.nameEnglish
+        : "";
+
+    const characterDescription = currentCharacter
+        ? isTamil
+            ? currentCharacter.descriptionTamil
+            : currentCharacter.descriptionEnglish
+        : "";
+
     return (
         <div className="h-full w-full border border-slate-200 shadow-lg rounded-xl sm:rounded-2xl p-3 sm:p-5 md:p-6 flex flex-col">
 
-            {/* streak header */}
-            <div className="flex items-center justify-between border-b border-slate-100 pb-2 sm:pb-3">
-                <div className="flex items-center gap-1.5 sm:gap-2">
-                    <span className="text-orange-500 text-lg sm:text-xl">🔥</span>
-                    <span className="font-bold text-slate-800 text-base sm:text-lg">
+            {/* Streak */}
+            <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+                <div className="flex items-center gap-2">
+                    <span className="text-orange-500 text-xl">🔥</span>
+
+                    <span className="font-bold text-slate-800 text-lg">
                         {currentStreak}
                     </span>
                 </div>
 
-                <div className="text-slate-600 text-xs sm:text-sm font-medium">
-                    அதிகபட்சம்: {" "}
+                <div className="text-slate-600 text-sm font-medium">
+                    {isTamil ? "அதிகபட்சம்:" : "Max:"}{" "}
                     <span className="text-slate-800 font-bold">
                         {maxStreak}
                     </span>
                 </div>
             </div>
 
-            {/* calendar */}
+            {/* Calendar */}
             <div className="mt-3">
                 <p className="text-slate-700 font-semibold text-xs sm:text-sm mb-2">
-                    {today.toLocaleDateString("en-US", {
-                        year: "numeric",
-                        month: "long",
-                    })}
+                    {today.toLocaleDateString(
+                        isTamil ? "ta-IN" : "en-US",
+                        {
+                            year: "numeric",
+                            month: "long",
+                        }
+                    )}
                 </p>
 
                 <div className="grid grid-cols-7 gap-0.5 sm:gap-1 text-center text-[10px] sm:text-xs">
@@ -139,7 +154,9 @@ export const RightPanel = () => {
                                 className="flex flex-col items-center gap-1 min-w-0"
                             >
                                 <span className="text-slate-400">
-                                    {d.day}
+                                    {isTamil
+                                        ? tamilDays[d.fullDate.getDay()]
+                                        : englishDays[d.fullDate.getDay()]}
                                 </span>
 
                                 <div className={className}>
@@ -163,21 +180,30 @@ export const RightPanel = () => {
                 </div>
             </div>
 
-            {/* chat bubble + mascot */}
-            <div className="mt-auto pt-4 flex items-end gap-1.5 sm:gap-2">
+            {/* Character Card */}
+            {currentCharacter && (
+                <div className="mt-auto pt-6 flex flex-col gap-4">
 
-                <div className="bg-slate-50 border border-slate-200 rounded-lg sm:rounded-[0.5rem] p-2.5 sm:p-3 text-[11px] sm:text-xs text-slate-600 leading-relaxed flex-1 min-w-0">
-                    என் நாட்டில் விலையற்ற திரவும் விட்டு வந்தான்.
+                    <div className="flex items-center justify-center rounded-2xl p-4 min-h-[140px]">
+                        <img
+                            src={`${BASE_URL}/uploads/${currentCharacter.url}`}
+                            alt={characterName}
+                            className="max-h-32 w-auto object-contain"
+                        />
+                    </div>
+
+                    <div className="bg-slate-50 border border-slate-200 rounded-xl p-4">
+                        <h3 className="font-bold text-slate-800 text-base mb-2 text-center">
+                            {characterName}
+                        </h3>
+
+                        <p className="text-sm text-slate-600 leading-relaxed text-justify">
+                            {characterDescription}
+                        </p>
+                    </div>
+
                 </div>
-
-                <img
-                    src={SampleLogo}
-                    className="w-10 h-10 sm:w-14 sm:h-14 object-contain shrink-0"
-                    alt="Mascot"
-                />
-
-            </div>
-
+            )}
         </div>
     );
 };
