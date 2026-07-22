@@ -28,7 +28,7 @@ const signup = asyncHandler(async (req, res) => {
       statusCode: 400,
     });
   }
-  await bloomService.addUsername(user.username);
+  await bloomService.addUsername(username);
   const signupPayload = {
     username,
     fullName,
