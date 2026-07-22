@@ -12,11 +12,10 @@ export const AuthProvider = ({ children }) => {
     const location = useLocation();
 
     useEffect(() => {
-        const isLoginRoute = location.pathname === "/login";
-        const isSignupRoute = location.pathname === "/signup";
-        const isSearchRoute = location.pathname === "/search";
+        const isAuthRoute = location.pathname === "/auth";
 
-        if (sessionInitialized || isLoginRoute || isSignupRoute || isSearchRoute) {
+
+        if (sessionInitialized || isAuthRoute) {
             setAuthDataLoading(false);
             return;
         }
@@ -27,7 +26,7 @@ export const AuthProvider = ({ children }) => {
                 setUser(res.data.data);
             } catch (err) {
                 console.error("Unable to set global data", err.message);
-                navigate("/login");
+                navigate("/auth");
                 setUser(null);
             } finally {
                 setSessionInitialized(true);
