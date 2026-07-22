@@ -1,4 +1,5 @@
 import React from 'react'
+import { TypeEngine } from '../../../typeEngine/TypeEngine';
 const lesson = {
     sentence: "பாகம் தமிழ்",
     units: [
