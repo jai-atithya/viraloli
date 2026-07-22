@@ -190,7 +190,7 @@ const googleCallback = asyncHandler(async (req, res) => {
       secure: process.env.NODE_ENV !== "development",
     });
 
-    return res.redirect(`${process.env.FRONTEND_URL}/`);
+    return res.redirect(`${process.env.FRONTEND_URL}/profile`);
   }
 
   // ================= SIGNUP FLOW =================
