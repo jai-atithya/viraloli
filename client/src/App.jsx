@@ -20,7 +20,7 @@ function App() {
             <Routes>
               {/* <Route path="/url" element={<element />} /> */}
               <Route path="*" element={<div className="w-screen h-screen flex justify-center items-center"><h1>404 NOT FOUND</h1></div>} />
-              {/* <Route path="/" element={<TypingTest />} /> */}
+              <Route path="/" element={<TypingTest />} />
               <Route path="/auth" element={<Auth />} />
               {/* <Route path="/engine" element={<TypeEngine />} /> */}
               <Route path="/units" element={<Unit />} />
