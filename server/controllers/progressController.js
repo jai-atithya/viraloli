@@ -124,6 +124,17 @@ const getCurrentProgressDetails = asyncHandler(async (req, res) => {
             }
         );
     }
+    const characters = {};
+
+    for (const [key, character] of Object.entries(progress.characters)) {
+        if (key === "_id") continue;
+
+        characters[key] = character.isUnlocked
+            ? character
+            : { isUnlocked: false };
+    }
+
+    progress.characters = characters;
 
     res.status(200).json({
         success: true,
