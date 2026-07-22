@@ -33,6 +33,13 @@ const checkUsername = asyncHandler(async (req, res) => {
   });
 });
 
+// @Desc Get my user data
+// @Route GET /api/user/user-data/me
+const getMyData = asyncHandler(async (req, res) => {
+  res.status(200).json({ success: true, data: req.user });
+});
+
 module.exports = {
-  checkUsername
+  checkUsername,
+  getMyData
 };
