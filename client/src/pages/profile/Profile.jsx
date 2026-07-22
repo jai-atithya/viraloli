@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import { Navbar } from '../components/Navbar'
 import { HeatMap } from './components/HeatMap'
 import { DasdBoard} from './components/DashBoard'
+import { ProfileCard } from './components/ProfileCard'
 export const Profile = () => {
     
     return (
@@ -11,8 +12,11 @@ export const Profile = () => {
                     <Navbar />
                 </div>
                 
-                <div className='flex-1 w-full h-full p-[1rem]'>
+                <div className='flex-1 w-full h-full p-[1rem] flex flex-col gap-[1rem]'>
+                    <div className='w-full flex gap-[1rem]'>
                     <DasdBoard/>
+                        <ProfileCard />
+                    </div>
                     <HeatMap />
                 </div>
             </div>
