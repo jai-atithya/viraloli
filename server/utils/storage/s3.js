@@ -57,7 +57,68 @@ const deleteUnitFolderS3 = async (unitNumber) => {
     );
 };
 
+const saveIntroVideoS3 = async (
+    buffer,
+    unitNumber,
+    fileName,
+    contentType
+) => {
+    const key = `units/U${unitNumber}/${fileName}`;
+
+    await s3.send(
+        new PutObjectCommand({
+            Bucket: BUCKET,
+            Key: key,
+            Body: buffer,
+            ContentType: contentType,
+        })
+    );
+
+    return key;
+};
+
+const deleteIntroVideoS3 = async (unitNumber) => {
+    const prefix = `units/U${unitNumber}/`;
+
+    const { Contents } = await s3.send(
+        new ListObjectsV2Command({
+            Bucket: BUCKET,
+            Prefix: prefix,
+        })
+    );
+
+    const introObjects = (Contents || []).filter((obj) => {
+        const name = obj.Key.split("/").pop();
+        return (
+            name.startsWith("introTamil.") ||
+            name.startsWith("introEnglish.")
+        );
+    });
+
+    if (introObjects.length === 0) {
+        throw Object.assign(
+            new Error(`Unit ${unitNumber} intro videos not found`),
+            {
+                statusCode: 404,
+            }
+        );
+    }
+
+    await s3.send(
+        new DeleteObjectsCommand({
+            Bucket: BUCKET,
+            Delete: {
+                Objects: introObjects.map((obj) => ({
+                    Key: obj.Key,
+                })),
+            },
+        })
+    );
+};
+
 module.exports = {
     saveUnitImage: saveUnitImageS3,
     deleteUnitFolder: deleteUnitFolderS3,
+    saveIntroVideo: saveIntroVideoS3,
+    deleteIntroVideo: deleteIntroVideoS3
 };
