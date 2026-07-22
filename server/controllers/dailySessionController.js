@@ -209,6 +209,9 @@ const getPastYearSessions = asyncHandler(async (req, res) => {
         activeDays,
         currentStreak: userStats?.currentStreak ?? 0,
         maxStreak: userStats?.maxStreak ?? 0,
+        lessonsCompleted: userStats.lessonsCompleted,
+        unitsCompleted: userStats.unitsCompleted,
+        accuracy: userStats.accuracy,
         count: result.length,
         data: result,
     });
@@ -247,6 +250,9 @@ const getAnyYearSessions = asyncHandler(async (req, res) => {
         activeDays,
         currentStreak: userStats?.currentStreak ?? 0,
         maxStreak: userStats?.maxStreak ?? 0,
+        lessonsCompleted: userStats.lessonsCompleted,
+        unitsCompleted: userStats.unitsCompleted,
+        accuracy: userStats.accuracy,
         count: result.length,
         data: result,
     });
