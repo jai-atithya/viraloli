@@ -2,7 +2,7 @@ import React from "react";
 
 export const StatsCard = ({ icon, title, value, label }) => {
   return (
-    <div className="w-64 h-[300px] bg-white rounded-lg border border-gray-200  flex flex-col items-center justify-center text-grey shadow-lg">
+    <div className="w-full h-full bg-white rounded-lg border border-gray-200  flex flex-col items-center justify-center text-grey shadow-lg p-[1rem]">
       {/* Icon */}
       <div className="text-3xl">
         {icon}
