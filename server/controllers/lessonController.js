@@ -111,6 +111,10 @@ const addLesson = asyncHandler(async (req, res) => {
         );
     }
 
+    if(lessonNumber == 1){
+        
+    }
+
     const lesson = await lessonService.addLesson({
         ...req.body,
         unitNumber: Number(unitNumber),

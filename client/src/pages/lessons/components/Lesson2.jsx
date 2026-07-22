@@ -28,7 +28,6 @@ const lesson = {
 export const Lesson2 = () => {
   return (
     <div className="w-full h-full p-[1rem] flex flex-col justify-center items-center">
-
       {lesson && <TypeEngine lesson={lesson} />}
     </div>
   )
