@@ -92,7 +92,7 @@ const fillMissingDays = (sessions, startDate, numberOfDays) => {
     sessions.forEach(session => {
         sessionMap.set(
             session.sessionDate.toISOString().split("T")[0],
-            session.pointsInXP
+            session
         );
     });
 
@@ -105,9 +105,12 @@ const fillMissingDays = (sessions, startDate, numberOfDays) => {
 
         const key = date.toISOString().split("T")[0];
 
+        const session = sessionMap.get(key);
+
         result.push({
             sessionDate: key,
-            pointsInXP: sessionMap.get(key) ?? 0,
+            pointsXP: session?.pointsXP ?? 0, // or session?.pointsInXP if that's your schema field
+            present: session !== undefined,
         });
     }
 
@@ -157,7 +160,7 @@ const getPastYearSessions = asyncHandler(async (req, res) => {
 
     const startDate = new Date();
     startDate.setUTCHours(0, 0, 0, 0);
-    startDate.setUTCFullYear(startDate.getUTCFullYear() - 1);
+    startDate.setUTCDate(startDate.getUTCDate() - 364);
 
     const result = fillMissingDays(
         sessions,
