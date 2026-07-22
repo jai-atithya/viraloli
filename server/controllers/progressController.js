@@ -114,7 +114,7 @@ const getCurrentProgressDetails = asyncHandler(async (req, res) => {
 
     const userId = req.user._id;
 
-    const progress = await progressService.getCurrentUnitDetails(userId);
+    const progress = await progressService.getCurrentProgressDetails(userId);
 
     if (!progress) {
         throw Object.assign(
