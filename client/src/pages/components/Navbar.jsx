@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { Logo } from "./Logo";
 import { useTheme } from "../../context/ThemeContext";
 import { useAuth } from "../../context/AuthContext";
+import { useLanguage } from "../../context/LanguageContext";
 
 const leftNavItems = [
     // {
@@ -65,13 +66,13 @@ const rightNavItems = [
 
 export const Navbar = () => {
     const { user, authDataLoading } = useAuth();
+    const { language, setLanguage, languages } = useLanguage();
     const navigate = useNavigate();
     const location = useLocation();
     const profileLink = user ? "/profile" : "/auth";
     const { primaryColor, secondaryColor } = useTheme();
 
     const isActive = (link) => location.pathname === link;
-    console.log(location.pathname);
     return (
         <div className="flex items-center h-full w-full px-4 gap-4">
             <div className="h-full">
@@ -79,6 +80,7 @@ export const Navbar = () => {
             </div>
 
             <div className="flex-1 flex justify-between">
+                {/* Left Navigation */}
                 <div className="flex gap-4">
                     {leftNavItems.map((item) => (
                         <button
@@ -97,7 +99,28 @@ export const Navbar = () => {
                     ))}
                 </div>
 
-                <div className="flex gap-4">
+                {/* Right Navigation */}
+                <div className="flex items-center gap-4">
+                                        <select
+                        value={language}
+                        onChange={(e) => setLanguage(e.target.value)}
+                        className="outline-none rounded-md px-2 py-1 text-sm cursor-pointer border"
+                        style={{
+                            color: secondaryColor,
+                            borderColor: secondaryColor,
+                            background: "transparent",
+                        }}
+                    >
+                        {languages.map((lang) => (
+                            <option
+                                key={lang}
+                                value={lang}
+                                style={{ color: "#000" }}
+                            >
+                                {lang}
+                            </option>
+                        ))}
+                    </select>
                     {rightNavItems.map((item) => {
                         const link =
                             item.label === "Profile"
@@ -121,6 +144,8 @@ export const Navbar = () => {
                             </button>
                         );
                     })}
+
+
                 </div>
             </div>
         </div>

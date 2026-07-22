@@ -5,12 +5,13 @@ import { Lock } from "lucide-react";
 import { LeftPanel } from './components/LeftPanel';
 import { MiddlePanel } from './components/MiddlePanel';
 import { RightPanel } from './components/RightPanel';
+import { useLanguage } from "../../context/LanguageContext";
+
+
 export const Unit = () => {
   const [isOdd, setIsOdd] = useState(false);
-
-
-
-
+  const { language } = useLanguage();
+  console.log(language)
 
   return (
     <>

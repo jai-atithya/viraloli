@@ -10,6 +10,7 @@ import { Profile } from "./pages/profile/Profile";
 
 import { ThemeProvider } from "./context/ThemeContext";
 import { AuthProvider } from "./context/AuthContext";
+import { LanguageProvider } from "./context/LanguageContext";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <BrowserRouter>
         <AuthProvider>
           <ThemeProvider>
+            <LanguageProvider>
             <Routes>
               {/* <Route path="/url" element={<element />} /> */}
               <Route path="*" element={<div className="w-screen h-screen flex justify-center items-center"><h1>404 NOT FOUND</h1></div>} />
@@ -26,6 +28,7 @@ function App() {
               <Route path="/units" element={<Unit />} />
               <Route path="/profile" element={<Profile />} />
             </Routes>
+            </LanguageProvider>
           </ThemeProvider>
         </AuthProvider>
       </BrowserRouter>
