@@ -77,9 +77,38 @@ const getAnyYearSessions = async (userId, year) => {
         .lean();
 };
 
+// ===== GET USER STATS =====
+const getUserStats = async (userId) => {
+    return await UserStats.findOne({ userId }).lean();
+};
+
+// ===== CREATE OR UPDATE USER STATS =====
+const updateUserStats = async (
+    userId,
+    currentStreak,
+    maxStreak,
+    lastActiveDate
+) => {
+    return await UserStats.findOneAndUpdate(
+        { userId },
+        {
+            currentStreak,
+            maxStreak,
+            lastActiveDate,
+        },
+        {
+            upsert: true,
+            new: true,
+            setDefaultsOnInsert: true,
+        }
+    ).lean();
+};
+
 module.exports = {
     addXP,
     getPast7DaysSessions,
     getPastYearSessions,
-    getAnyYearSessions
+    getAnyYearSessions,
+    getUserStats,
+    updateUserStats,
 };
