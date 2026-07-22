@@ -17,7 +17,7 @@ export const LeftPanel = ({
     );
   }
 
-  const isTamil = language === "tamil";
+  const isTamil = language === "Tamil";
 
   const title = isTamil
     ? progress.unitNameTamil
@@ -45,7 +45,7 @@ export const LeftPanel = ({
           className="text-xl md:text-2xl lg:text-3xl font-bold text-center px-3 py-1 rounded-lg hover:bg-slate-100 transition-colors cursor-pointer"
         >
           {isTamil
-            ? `ஆ${progress.unitNumber}: ${title}`
+            ? `அ${progress.unitNumber}: ${title}`
             : `U${progress.unitNumber}: ${title}`
           }
         </h2>

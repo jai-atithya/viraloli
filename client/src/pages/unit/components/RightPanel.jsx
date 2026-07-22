@@ -13,6 +13,9 @@ export const RightPanel = ({ progress, language }) => {
     const [currentStreak, setCurrentStreak] = useState(0);
     const [maxStreak, setMaxStreak] = useState(0);
 
+    const tamilDays = ["ஞா", "தி", "செ", "பு", "வி", "வெ", "ச"];
+    const englishDays = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
+
     useEffect(() => {
         if (!authDataLoading && user) {
             setUserId(user._id);
@@ -34,11 +37,6 @@ export const RightPanel = ({ progress, language }) => {
                     const date = new Date(item.sessionDate);
 
                     return {
-                        day: date
-                            .toLocaleDateString("en-US", {
-                                weekday: "short",
-                            })
-                            .slice(0, 2),
                         date: date.getDate(),
                         fullDate: date,
                         attended: item.attended,
@@ -57,7 +55,7 @@ export const RightPanel = ({ progress, language }) => {
 
     const today = new Date();
 
-    const isTamil = language === "tamil";
+    const isTamil = language === "Tamil";
 
     const characters = progress
         ? Object.values(progress.characters)
@@ -102,10 +100,13 @@ export const RightPanel = ({ progress, language }) => {
             {/* Calendar */}
             <div className="mt-3">
                 <p className="text-slate-700 font-semibold text-xs sm:text-sm mb-2">
-                    {today.toLocaleDateString("en-US", {
-                        year: "numeric",
-                        month: "long",
-                    })}
+                    {today.toLocaleDateString(
+                        isTamil ? "ta-IN" : "en-US",
+                        {
+                            year: "numeric",
+                            month: "long",
+                        }
+                    )}
                 </p>
 
                 <div className="grid grid-cols-7 gap-0.5 sm:gap-1 text-center text-[10px] sm:text-xs">
@@ -153,7 +154,9 @@ export const RightPanel = ({ progress, language }) => {
                                 className="flex flex-col items-center gap-1 min-w-0"
                             >
                                 <span className="text-slate-400">
-                                    {d.day}
+                                    {isTamil
+                                        ? tamilDays[d.fullDate.getDay()]
+                                        : englishDays[d.fullDate.getDay()]}
                                 </span>
 
                                 <div className={className}>
