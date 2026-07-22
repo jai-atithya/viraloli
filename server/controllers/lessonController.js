@@ -2,7 +2,7 @@ const asyncHandler = require("express-async-handler");
 const lessonService = require("../services/lessonService");
 
 // @Desc    Get Lesson by Unit Number & Lesson Number
-// @Route   GET /api/lesson/get/:unitNumber/:lessonNumber
+// @Route   GET /api/lesson/:unitNumber/:lessonNumber
 const getLessonByNumber = asyncHandler(async (req, res) => {
 
     const { unitNumber, lessonNumber } = req.params;

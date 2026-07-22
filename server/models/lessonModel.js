@@ -8,11 +8,11 @@ const lessonSchema = new mongoose.Schema(
             required: true,
             index: true,
         },
-        unitNumber:{
+        unitNumber: {
             type: Number,
             required: true
         },
-        lessonNumber:{
+        lessonNumber: {
             type: Number,
             required: true
         },
@@ -55,29 +55,15 @@ const lessonSchema = new mongoose.Schema(
         },
 
         videoUrlEnglish: {
-            url: {
-                type: String,
-                default: "",
-                trim: true,
-            },
-            key: {
-                type: String,
-                default: "",
-                trim: true,
-            },
+            type: String,
+            required: true,
+            trim: true,
         },
 
         videoUrlTamil: {
-            url: {
-                type: String,
-                default: "",
-                trim: true,
-            },
-            key: {
-                type: String,
-                default: "",
-                trim: true,
-            },
+            type: String,
+            required: true,
+            trim: true,
         },
 
         game: {
