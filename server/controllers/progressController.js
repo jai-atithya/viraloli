@@ -1,5 +1,5 @@
 const asyncHandler = require("express-async-handler");
-const progressService = require("../services/progressService");
+const progressService = require("../services/progressSerivce");
 const unitService = require("../services/unitService");
 
 // @Desc    Update Lesson Progress
@@ -107,7 +107,33 @@ const getProgress = asyncHandler(async (req, res) => {
     });
 });
 
+
+// @Desc    Get Current Unit Details
+// @Route   GET /api/progress/current
+const getCurrentProgressDetails = asyncHandler(async (req, res) => {
+
+    const userId = req.user._id;
+
+    const progress = await progressService.getCurrentUnitDetails(userId);
+
+    if (!progress) {
+        throw Object.assign(
+            new Error("No progress found for this user"),
+            {
+                statusCode: 404,
+            }
+        );
+    }
+
+    res.status(200).json({
+        success: true,
+        data: progress,
+    });
+});
+
+
 module.exports = {
     updateLessonProgress,
-    getProgress
+    getProgress,
+    getCurrentProgressDetails
 };

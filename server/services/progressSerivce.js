@@ -83,10 +83,20 @@ const updateLesson = async (
     );
 };
 
+// ==== GET CURRENT UNIT DETAILS ====
+const getCurrentProgressDetails = async (userId) => {
+    return Progress.findOne({ userId })
+        .sort({ createdAt: -1 })
+        .lean();
+};
+
+
+
 
 module.exports = {
     getProgress,
     createProgress,
     updateLesson,
-    getProgress
+    getProgress,
+    getCurrentProgressDetails,
 };
