@@ -110,8 +110,49 @@ const getPastYearSessions = asyncHandler(async (req, res) => {
     });
 });
 
+// @Desc    Get session data for a specific year
+// @Route   GET /api/session/:username/:year
+const getAnyYearSessions = asyncHandler(async (req, res) => {
+
+    const { userId, year } = req.params;
+
+    const sessions = await dailySessionService.getYearSessionsByUsername(
+        userId,
+        Number(year)
+    );
+
+    if (sessions === null) {
+        throw Object.assign(
+            new Error("User not found"),
+            {
+                statusCode: 404,
+            }
+        );
+    }
+
+    const startDate = new Date(Date.UTC(Number(year), 0, 1));
+
+    const isLeapYear =
+        (Number(year) % 4 === 0 && Number(year) % 100 !== 0) ||
+        Number(year) % 400 === 0;
+
+    const result = fillMissingDays(
+        sessions,
+        startDate,
+        isLeapYear ? 366 : 365
+    );
+
+    res.status(200).json({
+        success: true,
+        year: Number(year),
+        count: result.length,
+        data: result,
+    });
+});
+
 module.exports = {
     addXP,
     getPast7DaysSessions,
     getPastYearSessions,
+    getAnyYearSessions
 };
