@@ -109,7 +109,7 @@ const fillMissingDays = (sessions, startDate, numberOfDays) => {
 
         result.push({
             sessionDate: key,
-            pointsXP: session?.pointsXP ?? 0, // or session?.pointsInXP if that's your schema field
+            pointsXP: session?.pointsXP ?? -1,
             present: session !== undefined,
         });
     }
