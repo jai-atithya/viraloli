@@ -2,11 +2,6 @@ const mongoose = require("mongoose");
 
 const unitSchema = new mongoose.Schema(
     {
-        unitId: {
-            type: Number,
-            required: true,
-            unique: true,
-        },
 
         unitNumber: {
             type: Number,

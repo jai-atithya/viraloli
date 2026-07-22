@@ -29,35 +29,94 @@ const getUnitDetails = asyncHandler(async (req, res) => {
 const addUnitDetails = asyncHandler(async (req, res) => {
 
     const {
-        unitId,
         unitNumber,
         unitNameEnglish,
         unitNameTamil,
         unitDescriptionEnglish,
         unitDescriptionTamil,
         thumbnail,
-        characters
-    } = req.body;
+        characters,
+    } = req.body || {};
 
-    const unit = await unitService.addUnitDetails({
-        unitId,
-        unitNumber,
-        unitNameEnglish,
-        unitNameTamil,
-        unitDescriptionEnglish,
-        unitDescriptionTamil,
-        thumbnail,
-        characters
-    });
-
-    if (!unit) {
+    // Required field validation
+    if (
+        unitNumber == null ||
+        !unitNameEnglish ||
+        !unitNameTamil ||
+        !unitDescriptionEnglish ||
+        !unitDescriptionTamil ||
+        !thumbnail ||
+        !characters
+    ) {
         throw Object.assign(
-            new Error("Error creating unit"),
-            {
-                statusCode: 400,
-            }
+            new Error("All fields are required"),
+            { statusCode: 400 }
         );
     }
+
+    // Check duplicate unit number
+    const existingUnit = await unitService.getUnitByNumber(unitNumber);
+
+    if (existingUnit) {
+        throw Object.assign(
+            new Error("Unit number already exists"),
+            { statusCode: 409 }
+        );
+    }
+
+    // Validate characters
+    const requiredCharacters = [
+        "character1",
+        "character2",
+        "character3",
+        "character4",
+        "character5",
+        "character6",
+        "character7",
+    ];
+
+    for (const characterKey of requiredCharacters) {
+
+        const character = characters[characterKey];
+
+        if (!character) {
+            throw Object.assign(
+                new Error(`${characterKey} is required`),
+                { statusCode: 400 }
+            );
+        }
+
+        const {
+            nameEnglish,
+            nameTamil,
+            descriptionEnglish,
+            descriptionTamil,
+            url,
+        } = character;
+
+        if (
+            !nameEnglish ||
+            !nameTamil ||
+            !descriptionEnglish ||
+            !descriptionTamil ||
+            !url
+        ) {
+            throw Object.assign(
+                new Error(`All fields are required for ${characterKey}`),
+                { statusCode: 400 }
+            );
+        }
+    }
+
+    const unit = await unitService.addUnitDetails({
+        unitNumber,
+        unitNameEnglish,
+        unitNameTamil,
+        unitDescriptionEnglish,
+        unitDescriptionTamil,
+        thumbnail,
+        characters,
+    });
 
     res.status(201).json({
         success: true,

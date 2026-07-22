@@ -3,24 +3,24 @@ const Progress = require("../models/progressModel");
 
 // ==== GET ALL UNIT DETAILS ====
 const getUnitDetails = async () => {
-    return await Unit.find({})
+    return Unit.find({})
         .sort({ unitNumber: 1 })
         .lean();
 };
 
 // ==== ADD UNIT ====
 const addUnitDetails = async (unitData) => {
-    return await Unit.create(unitData);
+    return Unit.create(unitData);
 };
 
-// ==== GET UNIT BY UNIT ID ====
-const getUnitById = async (unitId) => {
-    return await Unit.find(unitId);
-}
+// ==== GET UNIT BY UNIT NUMBER ====
+const getUnitByNumber = async (unitNumber) => {
+    return Unit.findOne({ unitNumber }).lean();
+};
 
 // ==== GET CURRENT UNIT DETAILS ====
 const getCurrentUnitDetails = async (userId) => {
-    return await Progress.findOne({ userId })
+    return Progress.findOne({ userId })
         .sort({ createdAt: -1 })
         .lean();
 };
@@ -28,6 +28,6 @@ const getCurrentUnitDetails = async (userId) => {
 module.exports = {
     getUnitDetails,
     addUnitDetails,
-    getUnitById,
-    getCurrentUnitDetails
+    getUnitByNumber,
+    getCurrentUnitDetails,
 };
