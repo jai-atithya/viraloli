@@ -18,18 +18,18 @@ export const Unit = () => {
         <div className='h-[10vh]'>
           <Navbar />
         </div>
-        <div className='w-full h-full flex  gap-[1rem]'>
+        <div className="flex-1 flex gap-4 min-h-0">
+          <div className="w-full lg:w-1/4 h-full">
+            <LeftPanel />
+          </div>
 
-          {/* LEFT PANEL */}
-          <LeftPanel />
+          <div className="flex-1 h-full">
+            <MiddlePanel />
+          </div>
 
-          {/* MIDDLE PANEL - path */}
-          <MiddlePanel />
-
-
-          {/* RIGHT PANEL */}
-          <RightPanel />
-
+          <div className="w-full lg:w-1/4 h-full">
+            <RightPanel />
+          </div>
         </div>
       </div>
     </>

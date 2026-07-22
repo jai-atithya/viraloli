@@ -13,7 +13,7 @@ export const RightPanel = () => {
         { day: 'Sa', date: 18, done: false },
     ];
     return (
-        <div className='bg-white border border-slate-200 shadow-sm w-[25%] rounded-[0.3rem] p-[1rem] flex flex-col gap-[1rem]'>
+        <div className='h-full border border-slate-200 shadow-lg rounded-2xl p-5 md:p-6 flex flex-col '>
 
             {/* streak header */}
             <div className='flex items-center justify-between border-b border-slate-100 pb-3'>

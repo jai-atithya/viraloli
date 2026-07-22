@@ -4,7 +4,7 @@ const nodes = [1, 2, 3, 4, 5, 6, 7];
 
 export const MiddlePanel = () => {
     return (
-        <div className='w-[50%] h-full flex flex-col items-center py-[1rem] overflow-hidden'>
+        <div className='w-full h-full flex flex-col items-center py-[1rem] overflow-hidden '>
             <p className='text-slate-400 text-xs mb-2 tracking-wide'>அடுத்த அலகு</p>
 
             <div className='relative w-full flex-1 min-h-0'>
