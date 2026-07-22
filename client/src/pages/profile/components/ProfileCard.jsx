@@ -16,7 +16,7 @@ export const ProfileCard = () => {
     
   }, [authDataLoading, user]);
   return (
-    <div className="flex items-center gap-4 p-4 border rounded-lg ">
+    <div className="h-full w-full flex items-center gap-4 p-4 border rounded-lg ">
       {/* Profile Image */}
       <img
         src={Logo}

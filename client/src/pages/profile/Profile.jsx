@@ -1,23 +1,48 @@
-import React,{useState} from 'react'
-import { Navbar } from '../components/Navbar'
-import { HeatMap } from './components/HeatMap'
-import { ProfileCard } from './components/ProfileCard'
+import React, { useState } from "react";
+import { Navbar } from "../components/Navbar";
+import { HeatMap } from "./components/HeatMap";
+import { DasdBoard } from "./components/DashBoard";
+import { ProfileCard } from "./components/ProfileCard";
+import { StatsCard } from "./components/StatsCard";
 export const Profile = () => {
-    
-    return (
-        <>
-            <div className='flex flex-col justify-center h-[100vh] w-[100vw] p-[1rem]'>
-                <div className='h-[10vh]'>
-                    <Navbar />
-                </div>
-                
-                <div className='flex-1 w-full h-full p-[1rem] flex flex-col gap-[1rem]'>
-                    <div className='w-full flex gap-[1rem]'>
-                        <ProfileCard />
-                    </div>
-                    <HeatMap />
-                </div>
-            </div>
-        </>
-    )
-}
+  return (
+    <>
+      <div className="flex flex-col justify-center h-[100vh] w-[100vw] p-[1rem]">
+        <div className="h-[10vh]">
+          <Navbar />
+        </div>
+
+        <div className="flex-1 w-full h-full p-[1rem] flex flex-col gap-[1rem]">
+          <div className="w-full flex gap-[1rem]">
+            <ProfileCard />
+
+            <StatsCard
+              icon="📖"
+              title="பாடங்கள் முடித்தது"
+              value={46}
+              label="மொத்தம்"
+            />
+
+            <StatsCard
+              icon="🎓"
+              title="கோர்ஸ்கள் முடித்தது"
+              value="8"
+              label="மொத்தம்"
+            />
+
+            <StatsCard
+              icon="🔥"
+              title="தினசரி தொடர்"
+              value="16"
+              label="நாட்கள்"
+            />
+
+            <StatsCard icon="🎯" title="துல்லியம்" value="32%" label="சராசரி" />
+            {/* <DasdBoard/> */}
+          </div>
+          <HeatMap />
+        </div>
+      </div>
+    </>
+  );
+};

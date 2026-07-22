@@ -163,7 +163,7 @@ export const HeatMap = ({ data = SAMPLE_DATA }) => {
   )
 
   return (
-    <div className="w-full max-w-full box-border rounded-lg border border-gray-200 bg-white p-[1.5vw] sm:p-4 overflow-hidden">
+    <div className="w-full max-w-full box-border rounded-lg border border-gray-200 bg-white p-[1.5vw] sm:p-4 overflow-hidden shadow-lg">
       {/* Header */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
         <h2 className="text-sm sm:text-base font-semibold text-gray-800">
