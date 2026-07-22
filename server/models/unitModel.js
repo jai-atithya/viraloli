@@ -46,13 +46,81 @@ const unitSchema = new mongoose.Schema(
 
         characters: {
             type: {
-                character1: { type: String, required: true, trim: true },
-                character2: { type: String, required: true, trim: true },
-                character3: { type: String, required: true, trim: true },
-                character4: { type: String, required: true, trim: true },
-                character5: { type: String, required: true, trim: true },
-                character6: { type: String, required: true, trim: true },
-                character7: { type: String, required: true, trim: true },
+                character1: {
+                    nameEnglish: {
+                        type: String,
+                        required: true,
+                        trim: true,
+                    },
+                    nameTamil: {
+                        type: String,
+                        required: true,
+                        trim: true,
+                    },
+                    descriptionEnglish: {
+                        type: String,
+                        required: true,
+                        trim: true,
+                    },
+                    descriptionTamil: {
+                        type: String,
+                        required: true,
+                        trim: true,
+                    },
+                    url: {
+                        type: String,
+                        required: true,
+                        trim: true,
+                    },
+                },
+
+                character2: {
+                    nameEnglish: { type: String, required: true, trim: true },
+                    nameTamil: { type: String, required: true, trim: true },
+                    descriptionEnglish: { type: String, required: true, trim: true },
+                    descriptionTamil: { type: String, required: true, trim: true },
+                    url: { type: String, required: true, trim: true },
+                },
+
+                character3: {
+                    nameEnglish: { type: String, required: true, trim: true },
+                    nameTamil: { type: String, required: true, trim: true },
+                    descriptionEnglish: { type: String, required: true, trim: true },
+                    descriptionTamil: { type: String, required: true, trim: true },
+                    url: { type: String, required: true, trim: true },
+                },
+
+                character4: {
+                    nameEnglish: { type: String, required: true, trim: true },
+                    nameTamil: { type: String, required: true, trim: true },
+                    descriptionEnglish: { type: String, required: true, trim: true },
+                    descriptionTamil: { type: String, required: true, trim: true },
+                    url: { type: String, required: true, trim: true },
+                },
+
+                character5: {
+                    nameEnglish: { type: String, required: true, trim: true },
+                    nameTamil: { type: String, required: true, trim: true },
+                    descriptionEnglish: { type: String, required: true, trim: true },
+                    descriptionTamil: { type: String, required: true, trim: true },
+                    url: { type: String, required: true, trim: true },
+                },
+
+                character6: {
+                    nameEnglish: { type: String, required: true, trim: true },
+                    nameTamil: { type: String, required: true, trim: true },
+                    descriptionEnglish: { type: String, required: true, trim: true },
+                    descriptionTamil: { type: String, required: true, trim: true },
+                    url: { type: String, required: true, trim: true },
+                },
+
+                character7: {
+                    nameEnglish: { type: String, required: true, trim: true },
+                    nameTamil: { type: String, required: true, trim: true },
+                    descriptionEnglish: { type: String, required: true, trim: true },
+                    descriptionTamil: { type: String, required: true, trim: true },
+                    url: { type: String, required: true, trim: true },
+                },
             },
             required: true,
         },

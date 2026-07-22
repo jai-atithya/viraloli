@@ -14,8 +14,8 @@ const progressSchema = new mongoose.Schema(
             required: true,
             index: true,
         },
-        unitNumber:{
-            type:Number,
+        unitNumber: {
+            type: Number,
             required: true,
             index: true
         },
@@ -51,13 +51,88 @@ const progressSchema = new mongoose.Schema(
 
         characters: {
             type: {
-                character1: { type: String, required: true, trim: true },
-                character2: { type: String, required: true, trim: true },
-                character3: { type: String, required: true, trim: true },
-                character4: { type: String, required: true, trim: true },
-                character5: { type: String, required: true, trim: true },
-                character6: { type: String, required: true, trim: true },
-                character7: { type: String, required: true, trim: true },
+                character1: {
+                    isUnlocked: { type: Boolean, required: true },
+                    nameEnglish: {
+                        type: String,
+                        required: true,
+                        trim: true,
+                    },
+                    nameTamil: {
+                        type: String,
+                        required: true,
+                        trim: true,
+                    },
+                    descriptionEnglish: {
+                        type: String,
+                        required: true,
+                        trim: true,
+                    },
+                    descriptionTamil: {
+                        type: String,
+                        required: true,
+                        trim: true,
+                    },
+                    url: {
+                        type: String,
+                        required: true,
+                        trim: true,
+                    },
+                },
+
+                character2: {
+                    isUnlocked: { type: Boolean, required: true },
+                    nameEnglish: { type: String, required: true, trim: true },
+                    nameTamil: { type: String, required: true, trim: true },
+                    descriptionEnglish: { type: String, required: true, trim: true },
+                    descriptionTamil: { type: String, required: true, trim: true },
+                    url: { type: String, required: true, trim: true },
+                },
+
+                character3: {
+                    isUnlocked: { type: Boolean, required: true },
+                    nameEnglish: { type: String, required: true, trim: true },
+                    nameTamil: { type: String, required: true, trim: true },
+                    descriptionEnglish: { type: String, required: true, trim: true },
+                    descriptionTamil: { type: String, required: true, trim: true },
+                    url: { type: String, required: true, trim: true },
+                },
+
+                character4: {
+                    isUnlocked: { type: Boolean, required: true },
+                    nameEnglish: { type: String, required: true, trim: true },
+                    nameTamil: { type: String, required: true, trim: true },
+                    descriptionEnglish: { type: String, required: true, trim: true },
+                    descriptionTamil: { type: String, required: true, trim: true },
+                    url: { type: String, required: true, trim: true },
+                },
+
+                character5: {
+                    isUnlocked: { type: Boolean, required: true },
+                    nameEnglish: { type: String, required: true, trim: true },
+                    nameTamil: { type: String, required: true, trim: true },
+                    descriptionEnglish: { type: String, required: true, trim: true },
+                    descriptionTamil: { type: String, required: true, trim: true },
+                    url: { type: String, required: true, trim: true },
+                },
+
+                character6: {
+                    isUnlocked: { type: Boolean, required: true },
+                    nameEnglish: { type: String, required: true, trim: true },
+                    nameTamil: { type: String, required: true, trim: true },
+                    descriptionEnglish: { type: String, required: true, trim: true },
+                    descriptionTamil: { type: String, required: true, trim: true },
+                    url: { type: String, required: true, trim: true },
+                },
+
+                character7: {
+                    isUnlocked: { type: Boolean, required: true },
+                    nameEnglish: { type: String, required: true, trim: true },
+                    nameTamil: { type: String, required: true, trim: true },
+                    descriptionEnglish: { type: String, required: true, trim: true },
+                    descriptionTamil: { type: String, required: true, trim: true },
+                    url: { type: String, required: true, trim: true },
+                },
             },
             required: true,
         },
