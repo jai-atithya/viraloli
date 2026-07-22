@@ -24,7 +24,6 @@ export const AuthProvider = ({ children }) => {
             try {
                 const res = await api.get("/user/user-data/me");
                 setUser(res.data.data);
-                console.log(res.data.data);
             } catch (err) {
                 console.error("Unable to set global data", err.message);
                 navigate("/auth");
