@@ -15,16 +15,19 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Routes>
-          {/* <Route path="/url" element={<element />} /> */}
-          <Route path="*" element={<h1>404 Not Found</h1>} />
-          <Route path="/" element={<TypingTest />} />
-          <Route path="/auth" element={<Auth />} />
-          <Route path="/engine" element={<TypeEngine />} />
-          <Route path="/units" element={<Unit />} />
-          <Route path="/profile" element={<Profile />} />
-
-        </Routes>
+        <AuthProvider>
+          <ThemeProvider>
+            <Routes>
+              {/* <Route path="/url" element={<element />} /> */}
+              <Route path="*" element={<h1>404 Not Found</h1>} />
+              <Route path="/" element={<TypingTest />} />
+              <Route path="/auth" element={<Auth />} />
+              <Route path="/engine" element={<TypeEngine />} />
+              <Route path="/units" element={<Unit />} />
+              <Route path="/profile" element={<Profile />} />
+            </Routes>
+          </ThemeProvider>
+        </AuthProvider>
       </BrowserRouter>
     </>
   );
