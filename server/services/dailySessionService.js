@@ -60,8 +60,26 @@ const getPastYearSessions = async (userId) => {
         .lean();
 };
 
+// ===== GET A PARTICULAR YEAR'S SESSION =====
+const getAnyYearSessions = async (userId, year) => {
+
+    const startDate = new Date(Date.UTC(year, 0, 1));
+    const endDate = new Date(Date.UTC(year + 1, 0, 1));
+
+    return await DailySession.find({
+        userId,
+        sessionDate: {
+            $gte: startDate,
+            $lt: endDate,
+        },
+    })
+        .sort({ sessionDate: 1 })
+        .lean();
+};
+
 module.exports = {
     addXP,
     getPast7DaysSessions,
     getPastYearSessions,
+    getAnyYearSessions
 };

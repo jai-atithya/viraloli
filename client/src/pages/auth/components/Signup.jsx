@@ -104,7 +104,7 @@ export const Signup = () => {
       sessionStorage.removeItem("googleTempToken");
 
 
-      window.location.href = "/";
+      window.location.href = "/profile";
     } catch (err) {
       console.error(err);
 

@@ -27,7 +27,7 @@ export const ThemeProvider = ({ children }) => {
       if (theme === 'light') {
         return {
           primaryColor: '#C17143',           
-          secondaryColor: '#FBB000',        
+          secondaryColor: '#474f5c',        
           tertiaryColor: '#111827',              
           primaryBackgroundColor: '#ffffff', 
           secondaryBackgroundColor: '#474f5c',
