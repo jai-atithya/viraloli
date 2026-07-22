@@ -1,5 +1,5 @@
 import React from "react";
-import { Lock } from "lucide-react";
+import { Lock, ChevronLeft, ChevronRight } from "lucide-react";
 import SampleLogo from "../../../assets/tamilLogo.png";
 
 const dynastyData = {
@@ -15,17 +15,38 @@ const dynastyData = {
     { id: 4, image: SampleLogo, isUnlocked: true },
     { id: 5, image: SampleLogo, isUnlocked: false },
     { id: 6, image: SampleLogo, isUnlocked: true },
-    { id: 7, image: SampleLogo, isUnlocked:false },
+    { id: 7, image: SampleLogo, isUnlocked: false },
   ],
 };
 
-export const LeftPanel = () => {
+export const LeftPanel = ({ setPopupOpen }) => {
   return (
     <div className="h-full border border-slate-200 shadow-lg rounded-2xl p-5 md:p-6 flex flex-col">
-      {/* Title */}
-      <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-center mb-4">
-        {dynastyData.title}
-      </h2>
+      {/* Title with arrows on either side */}
+      <div className="flex items-center justify-between mb-4">
+        <button
+          type="button"
+          aria-label="Previous dynasty"
+          className="p-2 rounded-full hover:bg-slate-100 transition-colors"
+        >
+          <ChevronLeft className="w-5 h-5 md:w-6 md:h-6 text-slate-600" />
+        </button>
+
+        <h2
+          onClick={() => setPopupOpen(true)}
+          className="text-xl md:text-2xl lg:text-3xl font-bold text-center px-3 py-1 rounded-lg hover:bg-slate-100 transition-colors cursor-pointer"
+        >
+          {dynastyData.title}
+        </h2>
+
+        <button
+          type="button"
+          aria-label="Next dynasty"
+          className="p-2 rounded-full hover:bg-slate-100 transition-colors"
+        >
+          <ChevronRight className="w-5 h-5 md:w-6 md:h-6 text-slate-600" />
+        </button>
+      </div>
 
       {/* Image */}
       <div className="flex-1 flex items-center justify-center min-h-[10vh]">
