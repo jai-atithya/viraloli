@@ -31,24 +31,75 @@ const getLessonByNumber = asyncHandler(async (req, res) => {
 // @Desc    Add Lesson
 // @Route   POST /api/lesson/add
 const addLesson = asyncHandler(async (req, res) => {
-
     const {
+        unitId,
         unitNumber,
         lessonNumber,
+        type,
+        headingEnglish,
+        headingTamil,
+        descriptionEnglish,
+        descriptionTamil,
     } = req.body;
 
-    if (!unitNumber || !lessonNumber) {
+    // Required fields
+    const requiredFields = {
+        unitId,
+        unitNumber,
+        lessonNumber,
+        type,
+        headingEnglish,
+        headingTamil,
+        descriptionEnglish,
+        descriptionTamil,
+    };
+
+    const missingFields = Object.entries(requiredFields)
+        .filter(([_, value]) => value === undefined || value === null || value === "")
+        .map(([key]) => key);
+
+    if (missingFields.length > 0) {
         throw Object.assign(
-            new Error("unitNumber and lessonNumber are required"),
-            {
-                statusCode: 400,
-            }
+            new Error(
+                `Missing required field(s): ${missingFields.join(", ")}`
+            ),
+            { statusCode: 400 }
         );
     }
 
+    // Validate ObjectId
+    if (!mongoose.Types.ObjectId.isValid(unitId)) {
+        throw Object.assign(
+            new Error("Invalid unitId"),
+            { statusCode: 400 }
+        );
+    }
+
+    // Validate numbers
+    if (
+        !Number.isInteger(Number(unitNumber)) ||
+        Number(unitNumber) <= 0
+    ) {
+        throw Object.assign(
+            new Error("unitNumber must be a positive integer"),
+            { statusCode: 400 }
+        );
+    }
+
+    if (
+        !Number.isInteger(Number(lessonNumber)) ||
+        Number(lessonNumber) <= 0
+    ) {
+        throw Object.assign(
+            new Error("lessonNumber must be a positive integer"),
+            { statusCode: 400 }
+        );
+    }
+
+    // Check duplicate lesson
     const existingLesson = await lessonService.lessonExists(
-        unitNumber,
-        lessonNumber
+        Number(unitNumber),
+        Number(lessonNumber)
     );
 
     if (existingLesson) {
@@ -56,13 +107,15 @@ const addLesson = asyncHandler(async (req, res) => {
             new Error(
                 `Lesson ${lessonNumber} already exists in Unit ${unitNumber}`
             ),
-            {
-                statusCode: 409,
-            }
+            { statusCode: 409 }
         );
     }
 
-    const lesson = await lessonService.addLesson(req.body);
+    const lesson = await lessonService.addLesson({
+        ...req.body,
+        unitNumber: Number(unitNumber),
+        lessonNumber: Number(lessonNumber),
+    });
 
     res.status(201).json({
         success: true,
@@ -70,6 +123,7 @@ const addLesson = asyncHandler(async (req, res) => {
         data: lesson,
     });
 });
+
 
 module.exports = {
     getLessonByNumber,
