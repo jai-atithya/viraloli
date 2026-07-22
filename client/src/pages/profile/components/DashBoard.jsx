@@ -1,7 +1,7 @@
 import React from "react";
 import { ProfileCard } from "./ProfileCard";
 import { StatsCard } from "./StatsCard";
-export const DasdBoard = () => {
+export const DashBoard = () => {
   return (
     <div className="w-full max-w-full box-border rounded-lg bg-white px-0 py-4 m-0 overflow-hidden">
       <div className="flex gap-6">
@@ -15,7 +15,7 @@ export const DasdBoard = () => {
 
         <StatsCard
           icon="🎓"
-          title="கோர்ஸ்கள் முடித்தது"
+          title="அலகுகள் முடித்தது"
           value="8"
           label="மொத்தம்"
         />
