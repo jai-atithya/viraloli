@@ -44,7 +44,10 @@ export const LeftPanel = ({
           onClick={() => setPopupOpen(true)}
           className="text-xl md:text-2xl lg:text-3xl font-bold text-center px-3 py-1 rounded-lg hover:bg-slate-100 transition-colors cursor-pointer"
         >
-          {title}
+          {isTamil
+            ? `ஆ${progress.unitNumber}: ${title}`
+            : `U${progress.unitNumber}: ${title}`
+          }
         </h2>
 
         <button
@@ -60,7 +63,7 @@ export const LeftPanel = ({
         <img
           src={`${BASE_URL}/uploads/${progress.thumbnail}`}
           alt={title}
-          className="max-w-full max-h-full object-contain"
+          className="max-w-full max-h-full object-contain border border-slate-200 rounded-2xl"
         />
       </div>
 
@@ -78,8 +81,8 @@ export const LeftPanel = ({
             <div
               key={index}
               className={`aspect-square h-full max-h-full rounded-full border shadow flex items-center justify-center overflow-hidden ${character.isUnlocked
-                  ? "bg-white border-slate-200"
-                  : "bg-slate-100 border-slate-300"
+                ? "bg-white border-slate-200"
+                : "bg-slate-100 border-slate-300"
                 }`}
             >
               {character.isUnlocked ? (

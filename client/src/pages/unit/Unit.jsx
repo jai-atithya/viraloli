@@ -54,7 +54,11 @@ export const Unit = () => {
         </div>
 
         <div className="w-full lg:w-1/4 h-full">
-          <RightPanel />
+          <RightPanel
+            progress={progress}
+            loading={loading}
+            language={language}
+          />
         </div>
       </div>
     </div>
