@@ -4,16 +4,18 @@ import { HeatMap } from "./components/HeatMap";
 import { DashBoard } from "./components/DashBoard";
 import { ProfileCard } from "./components/ProfileCard";
 import { StatsCard } from "./components/StatsCard";
+import AccuracySpeedChart from "./components/AccuracySpeedChart";
+
 export const Profile = () => {
   return (
     <>
-      <div className="flex flex-col justify-center h-[100vh] w-[100vw] p-[1rem]">
+      <div className="flex flex-col min-h-screen w-full p-4">
         <div className="h-[10vh]">
           <Navbar />
         </div>
 
-        <div className="flex-1 w-full h-full p-[1rem] flex flex-col gap-[1rem]">
-          <div className="w-full flex gap-[1rem]">
+        <div className="flex-1 w-full h-full p-4 flex flex-col gap-4">
+          <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
             <ProfileCard />
 
             <StatsCard
@@ -38,9 +40,11 @@ export const Profile = () => {
             />
 
             <StatsCard icon="🎯" title="துல்லியம்" value="32%" label="சராசரி" />
-            {/* <DasdBoard/> */}
+            {/* <DashBoard/> */}
           </div>
+
           <HeatMap />
+          <AccuracySpeedChart/>
         </div>
       </div>
     </>
