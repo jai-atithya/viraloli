@@ -7,6 +7,7 @@ import { TypingTest } from "./pages/typingTest/TypingTest";
 import { Auth } from "./pages/auth/Auth";
 import { Unit } from "./pages/unit/Unit";
 import { Profile } from "./pages/profile/Profile";
+import { Lessons } from "./pages/lessons/Lessons";
 
 import { ThemeProvider } from "./context/ThemeContext";
 import { AuthProvider } from "./context/AuthContext";
@@ -26,6 +27,7 @@ function App() {
               <Route path="/auth" element={<Auth />} />
               {/* <Route path="/engine" element={<TypeEngine />} /> */}
               <Route path="/units" element={<Unit />} />
+              <Route path="/units/:unidId/:lessonNumber" element={<Lessons />} />
               <Route path="/profile" element={<Profile />} />
             </Routes>
             </LanguageProvider>
