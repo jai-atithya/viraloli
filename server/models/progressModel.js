@@ -14,6 +14,53 @@ const progressSchema = new mongoose.Schema(
             required: true,
             index: true,
         },
+        unitNumber:{
+            type:Number,
+            required: true,
+            index: true
+        },
+        unitNameEnglish: {
+            type: String,
+            required: true,
+            trim: true,
+        },
+
+        unitNameTamil: {
+            type: String,
+            required: true,
+            trim: true,
+        },
+
+        unitDescriptionEnglish: {
+            type: String,
+            required: true,
+            trim: true,
+        },
+
+        unitDescriptionTamil: {
+            type: String,
+            required: true,
+            trim: true,
+        },
+
+        thumbnail: {
+            type: String,
+            required: true,
+            trim: true
+        },
+
+        characters: {
+            type: {
+                character1: { type: String, required: true, trim: true },
+                character2: { type: String, required: true, trim: true },
+                character3: { type: String, required: true, trim: true },
+                character4: { type: String, required: true, trim: true },
+                character5: { type: String, required: true, trim: true },
+                character6: { type: String, required: true, trim: true },
+                character7: { type: String, required: true, trim: true },
+            },
+            required: true,
+        },
         lesson1: {
             wpm: { type: Number, default: 0 },
             cpm: { type: Number, default: 0 },

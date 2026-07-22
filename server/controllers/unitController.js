@@ -66,7 +66,34 @@ const addUnitDetails = asyncHandler(async (req, res) => {
     });
 });
 
+
+// @Desc    Get Current Unit Details
+// @Route   GET /api/unit/current
+const getCurrentUnitDetails = asyncHandler(async (req, res) => {
+
+    const userId = req.user._id;
+
+    const progress = await unitService.getCurrentUnitDetails(userId);
+
+    if (!progress) {
+        throw Object.assign(
+            new Error("No progress found for this user"),
+            {
+                statusCode: 404,
+            }
+        );
+    }
+
+    res.status(200).json({
+        success: true,
+        data: progress,
+    });
+});
+
+
+
 module.exports = {
     getUnitDetails,
     addUnitDetails,
+    getCurrentUnitDetails,
 };
