@@ -117,25 +117,60 @@ const fillMissingDays = (sessions, startDate, numberOfDays) => {
     return result;
 };
 
-// @Desc    Get past 7 days session data
+// @Desc    Get current week's session data
 // @Route   GET /api/session/week/:userId
-const getPast7DaysSessions = asyncHandler(async (req, res) => {
+const getCurrentWeekSessions = asyncHandler(async (req, res) => {
 
     const { userId } = req.params;
 
-    const sessions = await dailySessionService.getPast7DaysSessions(userId);
+    const sessions =
+        await dailySessionService.getCurrentWeekSessions(userId);
 
-    const userStats = await dailySessionService.getUserStats(userId);
+    const userStats =
+        await dailySessionService.getUserStats(userId);
 
-    const startDate = new Date();
-    startDate.setUTCHours(0, 0, 0, 0);
-    startDate.setUTCDate(startDate.getUTCDate() - 6);
+    const today = new Date();
+    today.setUTCHours(0, 0, 0, 0);
 
-    const result = fillMissingDays(
-        sessions,
-        startDate,
-        7
+    const startDate = new Date(today);
+    startDate.setUTCDate(today.getUTCDate() - today.getUTCDay());
+
+    const sessionMap = new Map(
+        sessions.map(session => [
+            session.sessionDate.toISOString().split("T")[0],
+            session,
+        ])
     );
+
+    const result = [];
+
+    for (let i = 0; i < 7; i++) {
+
+        const current = new Date(startDate);
+        current.setUTCDate(startDate.getUTCDate() + i);
+
+        const key = current.toISOString().split("T")[0];
+
+        const session = sessionMap.get(key);
+
+        if (session) {
+
+            result.push({
+                sessionDate: current,
+                attended: true,
+                isFuture: false,
+            });
+
+        } else {
+
+            result.push({
+                sessionDate: current,
+                attended: false,
+                isFuture: current > today,
+            });
+
+        }
+    }
 
     res.status(200).json({
         success: true,
@@ -144,6 +179,7 @@ const getPast7DaysSessions = asyncHandler(async (req, res) => {
         count: result.length,
         data: result,
     });
+
 });
 
 // @Desc    Get past 1 year session data
@@ -218,7 +254,7 @@ const getAnyYearSessions = asyncHandler(async (req, res) => {
 
 module.exports = {
     addXP,
-    getPast7DaysSessions,
+    getCurrentWeekSessions,
     getPastYearSessions,
     getAnyYearSessions,
 };

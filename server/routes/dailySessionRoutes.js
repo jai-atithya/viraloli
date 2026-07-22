@@ -6,7 +6,7 @@ const protectRoute = require("../middleware/protectRoute");
 router.use(protectRoute);
 
 router.post("/add-xp", dailySessionController.addXP);
-router.get("/week/:userId", dailySessionController.getPast7DaysSessions);
+router.get("/week/:userId", dailySessionController.getCurrentWeekSessions);
 router.get("/year/:userId", dailySessionController.getPastYearSessions);
 router.get("/:userId/:year", dailySessionController.getAnyYearSessions);
 
