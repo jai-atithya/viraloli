@@ -1,4 +1,5 @@
 const Unit = require("../models/unitModel");
+const Progress = require("../models/progressModel");
 
 // ==== GET ALL UNIT DETAILS ====
 const getUnitDetails = async () => {
@@ -17,8 +18,16 @@ const getUnitById = async (unitId) => {
     return await Unit.find(unitId);
 }
 
+// ==== GET CURRENT UNIT DETAILS ====
+const getCurrentUnitDetails = async (userId) => {
+    return await Progress.findOne({ userId })
+        .sort({ createdAt: -1 })
+        .lean();
+};
+
 module.exports = {
     getUnitDetails,
     addUnitDetails,
-    getUnitById
+    getUnitById,
+    getCurrentUnitDetails
 };
