@@ -21,10 +21,39 @@ const getLessonByNumber = asyncHandler(async (req, res) => {
             }
         );
     }
-    
-    if(lessonNumber==2){
-        const characters = await characterService.getCharactersInLesson(lessonNumber);
-        console.log(characters);
+
+    if (lessonNumber == 2) {
+        const characters = await characterService.getCharactersInLesson(unitNumber);
+        lesson.characters = characters;
+    }
+    if (Number(lessonNumber) === 3) {
+        const characters = await characterService.generateRandomCharactersLesson(
+            Number(unitNumber),
+            true,
+            150
+        );
+
+        lesson.characters = characters;
+    }
+
+    if (Number(lessonNumber) === 4) {
+        const characters = await characterService.generateRandomCharactersLesson(
+            Number(unitNumber),
+            false,
+            150
+        );
+
+        lesson.characters = characters;
+    }
+
+    if (Number(lessonNumber) === 4) {
+        const characters = await characterService.generateRandomCharactersLesson(
+            Number(unitNumber),
+            false,
+            20
+        );
+
+        lesson.characters = characters;
     }
 
     res.status(200).json({
@@ -112,14 +141,14 @@ const addLesson = asyncHandler(async (req, res) => {
         );
     }
 
-    if(lessonNumber == 1){
-        if(!req.body.videoUrlEnglish || !req.body.videoUrlTamil){
+    if (lessonNumber == 1) {
+        if (!req.body.videoUrlEnglish || !req.body.videoUrlTamil) {
             throw Object.assign(
-            new Error(
-                `Video URLs is required!`
-            ),
-            { statusCode: 400 }
-        );
+                new Error(
+                    `Video URLs is required!`
+                ),
+                { statusCode: 400 }
+            );
         }
     }
 

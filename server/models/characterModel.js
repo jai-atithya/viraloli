@@ -6,7 +6,6 @@ const characterSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
-
     unlockLesson: {
         type: Number,
         required: true
