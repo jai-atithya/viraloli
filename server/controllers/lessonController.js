@@ -1,7 +1,7 @@
 const asyncHandler = require("express-async-handler");
 const lessonService = require("../services/lessonService");
 const characterService = require("../services/characterService");
-
+const wordService = require("../services/wordService")
 // @Desc    Get Lesson by Unit Number & Lesson Number
 // @Route   GET /api/lesson/:unitNumber/:lessonNumber
 const getLessonByNumber = asyncHandler(async (req, res) => {
@@ -50,10 +50,32 @@ const getLessonByNumber = asyncHandler(async (req, res) => {
         const characters = await characterService.generateRandomCharactersLesson(
             Number(unitNumber),
             false,
-            20
+            150
         );
 
         lesson.characters = characters;
+    }
+
+    if (Number(lessonNumber) === 5) {
+        let lessonContent = await wordService.generateRandomWordsLesson(
+            Number(unitNumber),
+            true,
+            20
+        );
+
+        if (
+            !lessonContent ||
+            !lessonContent.units?.length ||
+            !lessonContent.sentence
+        ) {
+            lessonContent = await characterService.generateRandomCharactersLesson(
+                Number(unitNumber),
+                false,
+                150
+            );
+        }
+
+        lesson.characters = lessonContent;
     }
 
     res.status(200).json({
