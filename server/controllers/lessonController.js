@@ -35,6 +35,17 @@ const getLessonByNumber = asyncHandler(async (req, res) => {
 
         lesson.characters = characters;
     }
+
+    if (Number(lessonNumber) === 4) {
+        const characters = await characterService.generateRandomCharactersLesson(
+            Number(unitNumber),
+            false,
+            150
+        );
+
+        lesson.characters = characters;
+    }
+
     if (Number(lessonNumber) === 4) {
         const characters = await characterService.generateRandomCharactersLesson(
             Number(unitNumber),
