@@ -5,7 +5,7 @@ import { Practise } from './components/Practise';
 
 export const TypingTest = () => {
     const [current, setCurrent] = useState(0);
-    const secondaryNavItems = ["Practice", "Test"];
+    const secondaryNavItems = ["Practice"];
     return (
         <>
             <div className='flex flex-col justify-center h-[100vh] w-[100vw] p-[1rem]'>
