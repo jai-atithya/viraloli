@@ -30,19 +30,19 @@ export const LeftPanel = ({
   const characters = Object.values(progress.characters);
 
   return (
-    <div className="h-full border border-slate-200 shadow-lg rounded-2xl p-5 md:p-6 flex flex-col">
+    <div className="h-full border border-slate-200 shadow-lg rounded-2xl p-4 flex flex-col overflow-hidden">
       {/* Title */}
-      <div className="flex items-center justify-between mb-4">
+      <div className="flex items-center justify-between mb-3 gap-1">
         <button
           type="button"
-          className="p-2 rounded-full hover:bg-slate-100 transition-colors"
+          className="shrink-0 p-1.5 rounded-full hover:bg-slate-100 transition-colors"
         >
-          <ChevronLeft className="w-5 h-5 md:w-6 md:h-6 text-slate-600" />
+          <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 text-slate-600" />
         </button>
 
         <h2
           onClick={() => setPopupOpen(true)}
-          className="text-xl md:text-2xl lg:text-3xl font-bold text-center px-3 py-1 rounded-lg hover:bg-slate-100 transition-colors cursor-pointer"
+          className="flex-1 min-w-0 truncate whitespace-nowrap text-center text-base sm:text-lg font-bold px-2 py-1 rounded-lg hover:bg-slate-100 transition-colors cursor-pointer"
         >
           {isTamil
             ? `அ${progress.unitNumber}: ${title}`
@@ -52,14 +52,14 @@ export const LeftPanel = ({
 
         <button
           type="button"
-          className="p-2 rounded-full hover:bg-slate-100 transition-colors"
+          className="shrink-0 p-1.5 rounded-full hover:bg-slate-100 transition-colors"
         >
-          <ChevronRight className="w-5 h-5 md:w-6 md:h-6 text-slate-600" />
+          <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-slate-600" />
         </button>
       </div>
 
       {/* Unit Thumbnail */}
-      <div className="flex-1 flex items-center justify-center min-h-[10vh]">
+      <div className="flex-1 flex items-center justify-center min-h-[8vh] max-h-[22vh]">
         <img
           src={`${BASE_URL}/uploads/${progress.thumbnail}`}
           alt={title}
@@ -68,15 +68,15 @@ export const LeftPanel = ({
       </div>
 
       {/* Description */}
-      <div className="mt-4 mb-10 flex justify-center">
-        <p className="max-w-md text-sm md:text-base leading-7 text-justify text-slate-700">
+      <div className="mt-3 mb-5 flex justify-center">
+        <p className="max-w-md text-xs sm:text-sm leading-6 text-left text-slate-700">
           {description}
         </p>
       </div>
 
       {/* Characters */}
       <div className="flex-1 min-h-0">
-        <div className="h-full w-full grid grid-cols-4 grid-rows-3 gap-3">
+        <div className="h-full w-full grid grid-cols-4 auto-rows-fr gap-2 sm:gap-3">
           {characters.map((character, index) => (
             <div
               key={index}
@@ -96,12 +96,12 @@ export const LeftPanel = ({
                   className="w-auto h-2/3 object-contain"
                 />
               ) : (
-                <Lock className="w-6 h-6 text-slate-500" />
+                <Lock className="w-4 h-4 sm:w-5 sm:h-5 text-slate-500" />
               )}
             </div>
           ))}
 
-          <button className="col-span-4 mt-3 rounded-xl border border-slate-300 py-2 px-3 flex items-center justify-center gap-2 text-sm md:text-base font-medium text-slate-700 hover:bg-slate-50 transition">
+          <button className="col-span-4 mt-3 rounded-xl border border-slate-300 py-2 px-3 flex items-center justify-center gap-2 text-xs sm:text-sm font-medium text-slate-700 hover:bg-slate-50 transition">
             {isTamil ? "குறிப்புகள்" : "Notes"}
           </button>
         </div>
