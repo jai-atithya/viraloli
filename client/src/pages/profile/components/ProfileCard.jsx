@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Logo from '../../../assets/tamilLogo.png'
+import User from '../../../assets/user.png'
 import { useAuth } from "../../../context/AuthContext";
 
 export const ProfileCard = () => {
@@ -19,7 +19,7 @@ export const ProfileCard = () => {
     <div className="h-full w-full flex flex-col items-center gap-4 p-4 border border-gray-200 shadow-lg rounded-lg ">
       {/* Profile Image */}
       <img
-        src={Logo}
+        src={User}
         alt="Profile"
         className="w-20 h-20 rounded-full object-cover"
       />

@@ -28,7 +28,7 @@ function App() {
               {/* <Route path="/engine" element={<TypeEngine />} /> */}
               <Route path="/units" element={<Unit />} />
               <Route path="/units/:unitId/:lessonNumber" element={<Lessons />} />
-              <Route path="/profile" element={<Profile />} />
+              <Route path="/profile/:username" element={<Profile />} />
             </Routes>
             </LanguageProvider>
           </ThemeProvider>

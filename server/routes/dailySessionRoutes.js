@@ -7,7 +7,7 @@ router.use(protectRoute);
 
 router.post("/add-xp", dailySessionController.addXP);
 router.get("/week/:userId", dailySessionController.getCurrentWeekSessions);
-router.get("/year/:userId", dailySessionController.getPastYearSessions);
-router.get("/:userId/:year", dailySessionController.getAnyYearSessions);
+router.get("/year/:username", dailySessionController.getPastYearSessions);
+router.get("/:username/:year", dailySessionController.getAnyYearSessions);
 
 module.exports = router;

@@ -69,7 +69,7 @@ export const Navbar = () => {
     const { language, setLanguage, languages } = useLanguage();
     const navigate = useNavigate();
     const location = useLocation();
-    const profileLink = user ? "/profile" : "/auth";
+    const profileLink = user ? `/profile/${user.username}` : "/auth";
     const { primaryColor, secondaryColor } = useTheme();
 
     const isActive = (link) => location.pathname === link;
