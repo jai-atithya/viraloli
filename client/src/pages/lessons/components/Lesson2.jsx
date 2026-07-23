@@ -25,7 +25,7 @@ const lesson = {
         { text: "ஃ", keys: [{ code: "KeyF", altKey: false, ctrlKey: false, metaKey: false, shiftKey: true }] },
     ],
 };
-export const Lesson2 = () => {
+export const Lesson2 = ({lesson}) => {
   return (
     <div className="w-full h-full p-[1rem] flex flex-col justify-center items-center">
       {lesson && <TypeEngine lesson={lesson} />}
