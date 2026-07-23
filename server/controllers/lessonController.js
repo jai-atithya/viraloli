@@ -112,7 +112,14 @@ const addLesson = asyncHandler(async (req, res) => {
     }
 
     if(lessonNumber == 1){
-        
+        if(!req.body.videoUrlEnglish || !req.body.videoUrlTamil){
+            throw Object.assign(
+            new Error(
+                `Video URLs is required!`
+            ),
+            { statusCode: 400 }
+        );
+        }
     }
 
     const lesson = await lessonService.addLesson({
