@@ -1,20 +1,18 @@
 import React, { useState, useEffect } from "react";
 import User from '../../../assets/user.png'
-import { useAuth } from "../../../context/AuthContext";
 
-export const ProfileCard = () => {
-  const { user, authDataLoading } = useAuth();
+export const ProfileCard = ({user}) => {
   const [username, setUsername] = useState("");
   const [fullName, setFullName] = useState("Loading...");
   const [email, setEmail] = useState("")
   useEffect(() => {
-    if (!authDataLoading && user) {
+    if (user) {
       setUsername(user.username);
       setFullName(user.fullName);
       setEmail(user.email);
     }
     
-  }, [authDataLoading, user]);
+  }, [user]);
   return (
     <div className="h-full w-full flex flex-col items-center gap-4 p-4 border border-gray-200 shadow-lg rounded-lg ">
       {/* Profile Image */}
