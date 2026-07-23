@@ -15,7 +15,6 @@ const OAuthMessage = {
 export const Auth = () => {
     const [current, setCurrent] = useState(0);
     const [searchParams, setSearchParams] = useSearchParams();
-
     const secondaryNavItems = ["Login", "Signup"];
 
     const handleQueryParams = () => {
