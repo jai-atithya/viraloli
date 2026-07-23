@@ -1,4 +1,5 @@
 import React from "react";
+const BASE_URL = import.meta.env.VITE_SERVER_URL;
 
 export const Lesson1 = ({ title, description, video }) => {
   return (

@@ -11,6 +11,7 @@ export const Unit = () => {
 
   const [progress, setProgress] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [popupOpen,setPopupOpen] = useState(false);
 
   useEffect(() => {
     const fetchCurrentProgress = async () => {
@@ -42,6 +43,7 @@ export const Unit = () => {
             progress={progress}
             loading={loading}
             language={language}
+            setPopupOpen={setPopupOpen}
           />
         </div>
 
