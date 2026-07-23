@@ -1,5 +1,6 @@
 const asyncHandler = require("express-async-handler");
 const lessonService = require("../services/lessonService");
+const characterService = require("../services/characterService");
 
 // @Desc    Get Lesson by Unit Number & Lesson Number
 // @Route   GET /api/lesson/:unitNumber/:lessonNumber
@@ -19,6 +20,11 @@ const getLessonByNumber = asyncHandler(async (req, res) => {
                 statusCode: 404,
             }
         );
+    }
+    
+    if(lessonNumber==2){
+        const characters = await characterService.getCharactersInLesson(lessonNumber);
+        console.log(characters);
     }
 
     res.status(200).json({
@@ -40,6 +46,7 @@ const addLesson = asyncHandler(async (req, res) => {
         headingTamil,
         descriptionEnglish,
         descriptionTamil,
+        required,
     } = req.body;
 
     // Required fields
@@ -52,6 +59,7 @@ const addLesson = asyncHandler(async (req, res) => {
         headingTamil,
         descriptionEnglish,
         descriptionTamil,
+        required
     };
 
     const missingFields = Object.entries(requiredFields)
@@ -67,13 +75,6 @@ const addLesson = asyncHandler(async (req, res) => {
         );
     }
 
-    // Validate ObjectId
-    if (!mongoose.Types.ObjectId.isValid(unitId)) {
-        throw Object.assign(
-            new Error("Invalid unitId"),
-            { statusCode: 400 }
-        );
-    }
 
     // Validate numbers
     if (
@@ -127,6 +128,7 @@ const addLesson = asyncHandler(async (req, res) => {
         unitNumber: Number(unitNumber),
         lessonNumber: Number(lessonNumber),
     });
+
 
     res.status(201).json({
         success: true,
