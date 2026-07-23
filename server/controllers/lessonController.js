@@ -23,8 +23,8 @@ const getLessonByNumber = asyncHandler(async (req, res) => {
     }
     
     if(lessonNumber==2){
-        const characters = await characterService.getCharactersInLesson(lessonNumber);
-        console.log(characters);
+        const characters = await characterService.getCharactersInLesson(unitNumber);
+        lesson.characters = characters;
     }
 
     res.status(200).json({
