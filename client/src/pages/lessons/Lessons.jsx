@@ -22,7 +22,11 @@ export const Lessons = () => {
           <Navbar />
         </div>
         <div>
-          {lessonNumber == 1 && (<Lesson1 />)}
+          {lessonNumber == 1 && (    <Lesson1
+      title="Introduction to Tamil Alphabets"
+      description="In this lesson, you will learn the basic Tamil vowels and their pronunciation. Watch the video carefully before proceeding to the practice section."
+      video="/Units/U1/lesson/english1.mp4"
+    />)}
           {lessonNumber == 2 && (<Lesson2 />)}
           {lessonNumber == 3 && (<Lesson3 />)}
           {lessonNumber == 4 && (<Lesson4 />)}
