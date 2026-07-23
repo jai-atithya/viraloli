@@ -56,13 +56,11 @@ const lessonSchema = new mongoose.Schema(
 
         videoUrlEnglish: {
             type: String,
-            required: true,
             trim: true,
         },
 
         videoUrlTamil: {
             type: String,
-            required: true,
             trim: true,
         },
 
