@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useLanguage } from "../../context/LanguageContext";
 import { Navbar } from "../components/Navbar";
 import axios from "../../api/axios";
@@ -15,21 +15,25 @@ import { Lesson7 } from "./components/Lesson7";
 const BASE_URL = import.meta.env.VITE_SERVER_URL;
 
 export const Lessons = () => {
-  const { unitId, lessonNumber } = useParams();
+  const { unitNumber, lessonNumber } = useParams();
+  const navigate = useNavigate();
   const { language } = useLanguage();
 
   const [lesson, setLesson] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [nextLessonUnlocked, setNextLessonUnlocked] = useState(true);
 
   useEffect(() => {
+    setNextLessonUnlocked(false);
+
     const fetchLesson = async () => {
       try {
         setLoading(true);
         setError("");
 
         const { data } = await axios.get(
-          `/lesson/${unitId}/${lessonNumber}`
+          `/lesson/${unitNumber}/${lessonNumber}`
         );
 
         setLesson(data.data);
@@ -45,7 +49,7 @@ export const Lessons = () => {
     };
 
     fetchLesson();
-  }, [unitId, lessonNumber]);
+  }, [unitNumber, lessonNumber]);
 
   if (loading) {
     return (
@@ -84,46 +88,77 @@ export const Lessons = () => {
       ? `${BASE_URL}/uploads/${lesson.videoUrlTamil}`
       : `${BASE_URL}/uploads/${lesson.videoUrlEnglish}`;
 
-      console.log(title, description, video);
-
   return (
-    <div className="flex flex-col h-screen w-screen p-4 gap-4 bg-white">
+    <div className="flex flex-col h-screen w-screen p-4 gap-4 bg-white overflow-hidden">
       <div className="h-[10vh]">
         <Navbar />
       </div>
 
-      <div className="flex-1">
+      <div className="flex-1 min-h-0 overflow-hidden">
         {lessonNumber === "1" && (
           <Lesson1
             title={title}
             description={description}
             video={video}
+            onComplete={() => setNextLessonUnlocked(true)}
           />
         )}
 
         {lessonNumber === "2" && (
-          <Lesson2 lesson={lesson} />
+          <Lesson2
+            lesson={lesson}
+            onComplete={() => setNextLessonUnlocked(true)}
+          />
         )}
 
         {lessonNumber === "3" && (
-          <Lesson3 lesson={lesson} />
+          <Lesson3
+            lesson={lesson}
+            onComplete={() => setNextLessonUnlocked(true)}
+          />
         )}
 
         {lessonNumber === "4" && (
-          <Lesson4 lesson={lesson} />
+          <Lesson4
+            lesson={lesson}
+            onComplete={() => setNextLessonUnlocked(true)}
+          />
         )}
 
         {lessonNumber === "5" && (
-          <Lesson5 lesson={lesson} />
+          <Lesson5
+            lesson={lesson}
+            onComplete={() => setNextLessonUnlocked(true)}
+          />
         )}
 
         {lessonNumber === "6" && (
-          <Lesson6 lesson={lesson} />
+          <Lesson6
+            lesson={lesson}
+            onComplete={() => setNextLessonUnlocked(true)}
+          />
         )}
 
         {lessonNumber === "7" && (
-          <Lesson7 lesson={lesson} />
+          <Lesson7
+            lesson={lesson}
+            onComplete={() => setNextLessonUnlocked(true)}
+          />
         )}
+      </div>
+
+      <div className="flex justify-end">
+        <button
+          className="px-6 py-3 rounded-lg font-medium bg-blue-600 text-white hover:bg-blue-700 transition"
+          onClick={() => {
+            navigate(`/units/${unitNumber}/${Number(lessonNumber) + 1}`);
+            setTimeout(() => {
+              window.location.reload();
+            }, 0);
+          }}
+        >
+          Next Lesson →
+        </button>
       </div>
     </div>
   );
