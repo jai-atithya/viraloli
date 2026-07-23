@@ -1,7 +1,12 @@
-import React from 'react'
+import React from "react";
+import { TypeEngine } from "../../../typeEngine/TypeEngine";
 
-export const Lesson4 = () => {
+export const Lesson4 = ({ lesson }) => {
+  if (!lesson) return null;
+
   return (
-    <div>Lesson4</div>
-  )
-}
+    <div className="w-full h-full p-[1rem] flex flex-col justify-center items-center">
+      <TypeEngine lesson={lesson.characters} />
+    </div>
+  );
+};
