@@ -1,5 +1,6 @@
 const asyncHandler = require("express-async-handler");
 const dailySessionService = require("../services/dailySessionService");
+const userService = require("../services/userService");
 
 // @Desc    Add XP to today's session
 // @Route   POST /api/session/add-xp
@@ -117,25 +118,60 @@ const fillMissingDays = (sessions, startDate, numberOfDays) => {
     return result;
 };
 
-// @Desc    Get past 7 days session data
+// @Desc    Get current week's session data
 // @Route   GET /api/session/week/:userId
-const getPast7DaysSessions = asyncHandler(async (req, res) => {
+const getCurrentWeekSessions = asyncHandler(async (req, res) => {
 
     const { userId } = req.params;
 
-    const sessions = await dailySessionService.getPast7DaysSessions(userId);
+    const sessions =
+        await dailySessionService.getCurrentWeekSessions(userId);
 
-    const userStats = await dailySessionService.getUserStats(userId);
+    const userStats =
+        await dailySessionService.getUserStats(userId);
 
-    const startDate = new Date();
-    startDate.setUTCHours(0, 0, 0, 0);
-    startDate.setUTCDate(startDate.getUTCDate() - 6);
+    const today = new Date();
+    today.setUTCHours(0, 0, 0, 0);
 
-    const result = fillMissingDays(
-        sessions,
-        startDate,
-        7
+    const startDate = new Date(today);
+    startDate.setUTCDate(today.getUTCDate() - today.getUTCDay());
+
+    const sessionMap = new Map(
+        sessions.map(session => [
+            session.sessionDate.toISOString().split("T")[0],
+            session,
+        ])
     );
+
+    const result = [];
+
+    for (let i = 0; i < 7; i++) {
+
+        const current = new Date(startDate);
+        current.setUTCDate(startDate.getUTCDate() + i);
+
+        const key = current.toISOString().split("T")[0];
+
+        const session = sessionMap.get(key);
+
+        if (session) {
+
+            result.push({
+                sessionDate: current,
+                attended: true,
+                isFuture: false,
+            });
+
+        } else {
+
+            result.push({
+                sessionDate: current,
+                attended: false,
+                isFuture: current > today,
+            });
+
+        }
+    }
 
     res.status(200).json({
         success: true,
@@ -144,17 +180,53 @@ const getPast7DaysSessions = asyncHandler(async (req, res) => {
         count: result.length,
         data: result,
     });
+
 });
 
+// Generate years
+const generateYears = (createdAt) => {
+
+    const joinedYear = new Date(createdAt).getUTCFullYear();
+    const currentYear = new Date().getUTCFullYear();
+
+    // Joined this year
+    if (joinedYear === currentYear) {
+        return ["Current"];
+    }
+
+    const years = [];
+
+    for (let year = joinedYear; year < currentYear; year++) {
+        years.push(year);
+    }
+
+    years.push("Current");
+
+    return years;
+};
+
 // @Desc    Get past 1 year session data
-// @Route   GET /api/session/year/:userId
+// @Route   GET /api/session/year/:username
 const getPastYearSessions = asyncHandler(async (req, res) => {
 
-    const { userId } = req.params;
+    const { username } = req.params;
 
-    const sessions = await dailySessionService.getPastYearSessions(userId);
+    const user = await userService.getUserbyUsername(username);
 
-    const userStats = await dailySessionService.getUserStats(userId);
+    if (!user) {
+        throw Object.assign(
+            new Error("User not found"),
+            { statusCode: 404 }
+        );
+    }
+
+    const userId = user._id;
+
+    const sessions =
+        await dailySessionService.getPastYearSessions(userId);
+
+    const userStats =
+        await dailySessionService.getUserStats(userId);
 
     const activeDays = sessions.length;
 
@@ -168,28 +240,52 @@ const getPastYearSessions = asyncHandler(async (req, res) => {
         365
     );
 
+    const years = generateYears(user.createdAt);
+
     res.status(200).json({
         success: true,
+        user: {
+            username: user.username,
+            fullName: user.fullName,
+            email: user.email,
+        },
+        years,
         activeDays,
         currentStreak: userStats?.currentStreak ?? 0,
         maxStreak: userStats?.maxStreak ?? 0,
+        lessonsCompleted: userStats?.lessonsCompleted ?? 0,
+        unitsCompleted: userStats?.unitsCompleted ?? 0,
+        accuracy: userStats?.accuracy ?? 0,
         count: result.length,
         data: result,
     });
 });
 
 // @Desc    Get session data for a specific year
-// @Route   GET /api/session/:userId/:year
+// @Route   GET /api/session/:username/:year
 const getAnyYearSessions = asyncHandler(async (req, res) => {
 
-    const { userId, year } = req.params;
+    const { username, year } = req.params;
 
-    const sessions = await dailySessionService.getAnyYearSessions(
-        userId,
-        Number(year)
-    );
+    const user = await userService.getUserbyUsername(username);
 
-    const userStats = await dailySessionService.getUserStats(userId);
+    if (!user) {
+        throw Object.assign(
+            new Error("User not found"),
+            { statusCode: 404 }
+        );
+    }
+
+    const userId = user._id;
+
+    const sessions =
+        await dailySessionService.getAnyYearSessions(
+            userId,
+            Number(year)
+        );
+
+    const userStats =
+        await dailySessionService.getUserStats(userId);
 
     const activeDays = sessions.length;
 
@@ -205,12 +301,23 @@ const getAnyYearSessions = asyncHandler(async (req, res) => {
         isLeapYear ? 366 : 365
     );
 
+    const years = generateYears(user.createdAt);
+
     res.status(200).json({
         success: true,
         year: Number(year),
+        user: {
+            username: user.username,
+            fullName: user.fullName,
+            email: user.email,
+        },
+        years,
         activeDays,
         currentStreak: userStats?.currentStreak ?? 0,
         maxStreak: userStats?.maxStreak ?? 0,
+        lessonsCompleted: userStats?.lessonsCompleted ?? 0,
+        unitsCompleted: userStats?.unitsCompleted ?? 0,
+        accuracy: userStats?.accuracy ?? 0,
         count: result.length,
         data: result,
     });
@@ -218,7 +325,7 @@ const getAnyYearSessions = asyncHandler(async (req, res) => {
 
 module.exports = {
     addXP,
-    getPast7DaysSessions,
+    getCurrentWeekSessions,
     getPastYearSessions,
     getAnyYearSessions,
 };

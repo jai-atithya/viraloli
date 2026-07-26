@@ -21,20 +21,23 @@ const addXP = async (userId, sessionDate, addPoints) => {
     );
 };
 
-// ===== GET PAST 7 DAYS SESSION =====
-const getPast7DaysSessions = async (userId) => {
+// ===== GET CURRENT WEEK'S SESSION =====
+const getCurrentWeekSessions = async (userId) => {
 
     const today = new Date();
     today.setUTCHours(0, 0, 0, 0);
 
     const startDate = new Date(today);
-    startDate.setUTCDate(startDate.getUTCDate() - 6);
+    startDate.setUTCDate(today.getUTCDate() - today.getUTCDay()); // Sunday
+
+    const endDate = new Date(startDate);
+    endDate.setUTCDate(startDate.getUTCDate() + 6); // Saturday
 
     return await DailySession.find({
         userId,
         sessionDate: {
             $gte: startDate,
-            $lte: today,
+            $lte: endDate,
         },
     })
         .sort({ sessionDate: 1 })
@@ -107,7 +110,7 @@ const updateUserStats = async (
 
 module.exports = {
     addXP,
-    getPast7DaysSessions,
+    getCurrentWeekSessions,
     getPastYearSessions,
     getAnyYearSessions,
     getUserStats,

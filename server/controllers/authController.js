@@ -2,6 +2,7 @@ const asyncHandler = require("express-async-handler");
 const authService = require("../services/authService");
 const userService = require("../services/userService");
 const bloomService = require("../services/bloomService");
+const progressService = require("../services/progressSerivce");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 
 // @Desc Signup user
@@ -46,6 +47,16 @@ const signup = asyncHandler(async (req, res) => {
     throw Object.assign(new Error("Error creating user details"), {
       statusCode: 500,
     });
+  }
+  const progress = await progressService.createProgress(user._id, 1);
+
+  if (!progress) {
+    throw Object.assign(
+      new Error("Error creating initial user progress"),
+      {
+        statusCode: 500,
+      }
+    );
   }
   res.cookie("access_token", accessToken, {
     httpOnly: true,
@@ -109,7 +120,7 @@ const login = asyncHandler(async (req, res) => {
 
   res.status(200).json({
     success: true,
-    data: { userId: user._id, message: "Login successful" },
+    data: { userId: user._id, username: user.username, message: "Login successful" },
   });
 });
 

@@ -2,23 +2,25 @@ const Unit = require("../models/unitModel");
 
 // ==== GET ALL UNIT DETAILS ====
 const getUnitDetails = async () => {
-    return await Unit.find({})
+    return Unit.find({})
         .sort({ unitNumber: 1 })
         .lean();
 };
 
 // ==== ADD UNIT ====
 const addUnitDetails = async (unitData) => {
-    return await Unit.create(unitData);
+    return Unit.create(unitData);
 };
 
-// ==== GET UNIT BY UNIT ID ====
-const getUnitById = async (unitId) => {
-    return await Unit.find(unitId);
-}
+// ==== GET UNIT BY UNIT NUMBER ====
+const getUnitByNumber = async (unitNumber) => {
+    return Unit.findOne({ unitNumber }).lean();
+};
+
+
 
 module.exports = {
     getUnitDetails,
     addUnitDetails,
-    getUnitById
+    getUnitByNumber,
 };

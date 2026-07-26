@@ -15,7 +15,6 @@ const OAuthMessage = {
 export const Auth = () => {
     const [current, setCurrent] = useState(0);
     const [searchParams, setSearchParams] = useSearchParams();
-
     const secondaryNavItems = ["Login", "Signup"];
 
     const handleQueryParams = () => {
@@ -54,13 +53,18 @@ export const Auth = () => {
                 <div className='p-[1rem]'>
                     <SecondaryNavbar List={secondaryNavItems} current={current} setCurrent={setCurrent} />
                 </div>
-                <div className='flex-1 w-full h-full p-[1rem]'>
-                    {current === 0 && (
-                        <Login />
-                    )}
-                    {current === 1 && (
-                        <Signup key={sessionStorage.getItem("googleTempToken") || "signup"} />
-                    )}
+                <div className="flex-1 flex items-center justify-center p-4">
+                    <div className="w-full max-w-md rounded-2xl border border-gray-200 bg-white shadow-xl p-6">
+                        {current === 0 && (
+                            <Login />
+                        )}
+
+                        {current === 1 && (
+                            <Signup
+                                key={sessionStorage.getItem("googleTempToken") || "signup"}
+                            />
+                        )}
+                    </div>
                 </div>
             </div>
         </>

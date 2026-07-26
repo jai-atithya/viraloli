@@ -1,8 +1,9 @@
 const asyncHandler = require("express-async-handler");
 const lessonService = require("../services/lessonService");
-
+const characterService = require("../services/characterService");
+const wordService = require("../services/wordService")
 // @Desc    Get Lesson by Unit Number & Lesson Number
-// @Route   GET /api/lesson/get/:unitNumber/:lessonNumber
+// @Route   GET /api/lesson/:unitNumber/:lessonNumber
 const getLessonByNumber = asyncHandler(async (req, res) => {
 
     const { unitNumber, lessonNumber } = req.params;
@@ -21,6 +22,62 @@ const getLessonByNumber = asyncHandler(async (req, res) => {
         );
     }
 
+    if (lessonNumber == 2) {
+        const characters = await characterService.getCharactersInLesson(unitNumber);
+        lesson.characters = characters;
+    }
+    if (Number(lessonNumber) === 3) {
+        const characters = await characterService.generateRandomCharactersLesson(
+            Number(unitNumber),
+            true,
+            150
+        );
+
+        lesson.characters = characters;
+    }
+
+    if (Number(lessonNumber) === 4) {
+        const characters = await characterService.generateRandomCharactersLesson(
+            Number(unitNumber),
+            false,
+            150
+        );
+
+        lesson.characters = characters;
+    }
+
+    if (Number(lessonNumber) === 4) {
+        const characters = await characterService.generateRandomCharactersLesson(
+            Number(unitNumber),
+            false,
+            150
+        );
+
+        lesson.characters = characters;
+    }
+
+    if (Number(lessonNumber) === 5) {
+        let lessonContent = await wordService.generateRandomWordsLesson(
+            Number(unitNumber),
+            true,
+            20
+        );
+
+        if (
+            !lessonContent ||
+            !lessonContent.units?.length ||
+            !lessonContent.sentence
+        ) {
+            lessonContent = await characterService.generateRandomCharactersLesson(
+                Number(unitNumber),
+                false,
+                150
+            );
+        }
+
+        lesson.characters = lessonContent;
+    }
+
     res.status(200).json({
         success: true,
         data: lesson,
@@ -31,24 +88,70 @@ const getLessonByNumber = asyncHandler(async (req, res) => {
 // @Desc    Add Lesson
 // @Route   POST /api/lesson/add
 const addLesson = asyncHandler(async (req, res) => {
-
     const {
+        unitId,
         unitNumber,
         lessonNumber,
+        type,
+        headingEnglish,
+        headingTamil,
+        descriptionEnglish,
+        descriptionTamil,
+        required,
     } = req.body;
 
-    if (!unitNumber || !lessonNumber) {
+    // Required fields
+    const requiredFields = {
+        unitId,
+        unitNumber,
+        lessonNumber,
+        type,
+        headingEnglish,
+        headingTamil,
+        descriptionEnglish,
+        descriptionTamil,
+        required
+    };
+
+    const missingFields = Object.entries(requiredFields)
+        .filter(([_, value]) => value === undefined || value === null || value === "")
+        .map(([key]) => key);
+
+    if (missingFields.length > 0) {
         throw Object.assign(
-            new Error("unitNumber and lessonNumber are required"),
-            {
-                statusCode: 400,
-            }
+            new Error(
+                `Missing required field(s): ${missingFields.join(", ")}`
+            ),
+            { statusCode: 400 }
         );
     }
 
+
+    // Validate numbers
+    if (
+        !Number.isInteger(Number(unitNumber)) ||
+        Number(unitNumber) <= 0
+    ) {
+        throw Object.assign(
+            new Error("unitNumber must be a positive integer"),
+            { statusCode: 400 }
+        );
+    }
+
+    if (
+        !Number.isInteger(Number(lessonNumber)) ||
+        Number(lessonNumber) <= 0
+    ) {
+        throw Object.assign(
+            new Error("lessonNumber must be a positive integer"),
+            { statusCode: 400 }
+        );
+    }
+
+    // Check duplicate lesson
     const existingLesson = await lessonService.lessonExists(
-        unitNumber,
-        lessonNumber
+        Number(unitNumber),
+        Number(lessonNumber)
     );
 
     if (existingLesson) {
@@ -56,13 +159,27 @@ const addLesson = asyncHandler(async (req, res) => {
             new Error(
                 `Lesson ${lessonNumber} already exists in Unit ${unitNumber}`
             ),
-            {
-                statusCode: 409,
-            }
+            { statusCode: 409 }
         );
     }
 
-    const lesson = await lessonService.addLesson(req.body);
+    if (lessonNumber == 1) {
+        if (!req.body.videoUrlEnglish || !req.body.videoUrlTamil) {
+            throw Object.assign(
+                new Error(
+                    `Video URLs is required!`
+                ),
+                { statusCode: 400 }
+            );
+        }
+    }
+
+    const lesson = await lessonService.addLesson({
+        ...req.body,
+        unitNumber: Number(unitNumber),
+        lessonNumber: Number(lessonNumber),
+    });
+
 
     res.status(201).json({
         success: true,
@@ -70,6 +187,7 @@ const addLesson = asyncHandler(async (req, res) => {
         data: lesson,
     });
 });
+
 
 module.exports = {
     getLessonByNumber,

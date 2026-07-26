@@ -111,7 +111,7 @@ export const Engine = ({
         <div style={{ userSelect: "none" }} className="w-full">
             <div className="flex flex-wrap ">
                 {lesson.units.map((unit, index) => (
-                    <div key={index} className={`p-[0.2rem] text-[3vw] min-w-[2rem]`} style={{ backgroundColor: getColor(index), color: getTextColor(index) }}>
+                    <div key={index} className={`p-[0.2rem] text-[1vw] min-w-[2rem]`} style={{ backgroundColor: getColor(index), color: getTextColor(index) }}>
                         {unit.text}
                     </div>
                 ))}
