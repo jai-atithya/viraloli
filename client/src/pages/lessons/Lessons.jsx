@@ -12,7 +12,7 @@ import { Lesson5 } from "./components/Lesson5";
 import { Lesson6 } from "./components/Lesson6";
 import { Lesson7 } from "./components/Lesson7";
 
-const BASE_URL = import.meta.env.VITE_SERVER_URL;
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 export const Lessons = () => {
   const { unitNumber, lessonNumber } = useParams();
