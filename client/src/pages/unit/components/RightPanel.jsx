@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useAuth } from "../../../context/AuthContext";
 import axios from "../../../api/axios";
 
-const BASE_URL = import.meta.env.VITE_SERVER_URL;
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 export const RightPanel = ({ progress, language }) => {
     const { user, authDataLoading } = useAuth();

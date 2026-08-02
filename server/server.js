@@ -20,7 +20,7 @@ app.use(express.json());
 app.use(cookieParser());
 require('./config/passport');
 app.use(passport.initialize());
-app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+app.use("/api/uploads", express.static(path.join(__dirname, "uploads")));
 app.use("/api/auth", require('./routes/authRoutes'));
 app.use("/api/upload", require('./routes/uploadRoutes'));
 app.use("/api/user", require('./routes/userRoutes'));
