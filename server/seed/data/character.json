@@ -1,0 +1,150 @@
+[
+  {
+    "name": "ஃ",
+    "unlockLesson": 1,
+    "keyMap": [
+      [
+        {
+          "code": "KeyF",
+          "altKey": false,
+          "ctrlKey": false,
+          "shiftKey": true,
+          "metaKey": false
+        }
+      ]
+    ]
+  },
+  {
+    "name": "ப்",
+    "unlockLesson": 1,
+    "keyMap": [
+      [
+        {
+          "code": "KeyJ",
+          "altKey": false,
+          "ctrlKey": false,
+          "shiftKey": false,
+          "metaKey": false
+        },
+        {
+          "code": "KeyF",
+          "altKey": false,
+          "ctrlKey": false,
+          "shiftKey": false,
+          "metaKey": false
+        }
+      ]
+    ]
+  },
+  {
+    "name": "ப",
+    "unlockLesson": 1,
+    "keyMap": [
+      [
+        {
+          "code": "KeyJ",
+          "altKey": false,
+          "ctrlKey": false,
+          "shiftKey": false,
+          "metaKey": false
+        }
+      ]
+    ]
+  },
+  {
+    "name": "ட்",
+    "unlockLesson": 2,
+    "keyMap": [
+      [
+        {
+          "code": "KeyO",
+          "altKey": false,
+          "ctrlKey": false,
+          "shiftKey": false,
+          "metaKey": false
+        },
+        {
+          "code": "KeyF",
+          "altKey": false,
+          "ctrlKey": false,
+          "shiftKey": false,
+          "metaKey": false
+        }
+      ]
+    ]
+  },
+  {
+    "name": "ட",
+    "unlockLesson": 2,
+    "keyMap": [
+      [
+        {
+          "code": "KeyO",
+          "altKey": false,
+          "ctrlKey": false,
+          "shiftKey": false,
+          "metaKey": false
+        }
+      ]
+    ]
+  },
+  {
+    "name": "இ",
+    "unlockLesson": 2,
+    "keyMap": [
+      [
+        {
+          "code": "KeyS",
+          "altKey": false,
+          "ctrlKey": false,
+          "shiftKey": false,
+          "metaKey": false
+        }
+      ]
+    ]
+  },
+  {
+    "name": "பி",
+    "unlockLesson": 2,
+    "keyMap": [
+      [
+        {
+          "code": "KeyJ",
+          "altKey": false,
+          "ctrlKey": false,
+          "shiftKey": false,
+          "metaKey": false
+        },
+        {
+          "code": "KeyS",
+          "altKey": false,
+          "ctrlKey": false,
+          "shiftKey": false,
+          "metaKey": false
+        }
+      ]
+    ]
+  },
+  {
+    "name": "டி",
+    "unlockLesson": 2,
+    "keyMap": [
+      [
+        {
+          "code": "KeyO",
+          "altKey": false,
+          "ctrlKey": false,
+          "shiftKey": false,
+          "metaKey": false
+        },
+        {
+          "code": "KeyS",
+          "altKey": false,
+          "ctrlKey": false,
+          "shiftKey": false,
+          "metaKey": false
+        }
+      ]
+    ]
+  }
+]

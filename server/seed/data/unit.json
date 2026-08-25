@@ -1,0 +1,120 @@
+[
+  {
+    "unitNumber": 1,
+    "unitNameEnglish": "Tamil Scholars",
+    "unitNameTamil": "தமிழ் \nஅறிஞர்கள்",
+    "unitDescriptionEnglish": "Meet inspiring Tamils cholars who have dedicated their lives to preserving, teaching, and enriching the Tamil language and its rich literary heritage.",
+    "unitDescriptionTamil": "தமிழ் மொழியையும் அதன் செழுமையான இலக்கிய மரபையும் காத்து, கற்பித்து, வளர்த்த சிறந்த தமிழ் அறிஞர்களைப் பற்றி அறிந்து கொள்ளுங்கள்.",
+    "thumbnail": "units/U1/thumbnail.webp",
+    "characters": {
+      "character1": {
+        "nameEnglish": "Tholkappiyar",
+        "nameTamil": "தொல்காப்பியர்",
+        "descriptionEnglish": "Wrote the Tholkappiyam, the oldest surviving Tamil grammar and the foundation of Tamil linguistics.",
+        "descriptionTamil": "தமிழின் மிகப் பழமையானதும், தமிழ் மொழியியலின் அடித்தளமாக அமைந்ததுமான இலக்கண நூலான தொல்காப்பியத்தை இயற்றினார்.",
+        "url": "units/U1/1.webp"
+      },
+      "character2": {
+        "nameEnglish": "Avvaiyar",
+        "nameTamil": "ஔவையார்",
+        "descriptionEnglish": "Authored Aathichudi, Kondrai Vendhan, and other works that have educated Tamil children for centuries.",
+        "descriptionTamil": "பல நூற்றாண்டுகளாகத் தமிழ் குழந்தைகளுக்குக் கல்வியளித்து வரும் ஆத்திசூடி, கொன்றை வேந்தன் மற்றும் பிற படைப்புகளை இயற்றியுள்ளார்.",
+        "url": "units/U1/2.webp"
+      },
+      "character3": {
+        "nameEnglish": "U. V. Swaminatha Iyer",
+        "nameTamil": "உ. வே. சாமிநாதையர்",
+        "descriptionEnglish": "Called Tamil Thatha. Recovered and published ancient palm-leaf manuscripts, preserving classical Tamil literature.",
+        "descriptionTamil": "'தமிழ் தாத்தா' என்று அழைக்கப்பட்டவர். பழந்தமிழ் இலக்கியங்களைப் பாதுகாக்கும் வகையில், பண்டைய ஓலைச்சுவடிகளை மீட்டெடுத்துப் பதிப்பித்தார்.",
+        "url": "units/U1/3.webp"
+      },
+      "character4": {
+        "nameEnglish": "Meenakshisundaram Pillai",
+        "nameTamil": "மீனாட்சிசுந்தரம் பிள்ளை",
+        "descriptionEnglish": "One of the greatest Tamil teachers; mentor of U. V. Swaminatha Iyer and expert in classical Tamil.",
+        "descriptionTamil": "மிகச்சிறந்த தமிழ் ஆசிரியர்களில் ஒருவர்; உ. வே. சாமிநாத ஐயரின் வழிகாட்டி மற்றும் செவ்வியல் தமிழ் அறிஞர்.",
+        "url": "units/U1/4.webp"
+      },
+      "character5": {
+        "nameEnglish": "Maraimalai Adigal",
+        "nameTamil": "மறைமலை அடிகள்",
+        "descriptionEnglish": "Led the Pure Tamil Movement, promoting the use of native Tamil vocabulary and literature.",
+        "descriptionTamil": "தூய தமிழ் இயக்கத்தை முன்னின்று நடத்தி, தனித்தமிழ்ச் சொற்கள் மற்றும் இலக்கியங்களின் பயன்பாட்டை ஊக்குவித்தார்.",
+        "url": "units/U1/5.webp"
+      },
+      "character6": {
+        "nameEnglish": "Parithimar Kalaignar",
+        "nameTamil": "பரிதிமாற் கலைஞர்",
+        "descriptionEnglish": "Early Tamil professor who advocated for Tamil to be recognized as a classical language.",
+        "descriptionTamil": "தமிழைச் செம்மொழியாக அங்கீகரிக்க வேண்டும் என்று வலியுறுத்திய ஆரம்பகாலத் தமிழ்ப் பேராசிரியர்.",
+        "url": "units/U1/6.webp"
+      },
+      "character7": {
+        "nameEnglish": "Devaneya Pavanar",
+        "nameTamil": "தேவநேயப் பாவாணர்",
+        "descriptionEnglish": "Renowned linguist and educator who researched Tamil's origins and wrote extensively on Tamil etymology.",
+        "descriptionTamil": "தமிழ் மொழியின் தோற்றம் குறித்து ஆய்வு செய்து, அதன் சொற்பிறப்பியல் பற்றி விரிவாக எழுதிய புகழ்பெற்ற மொழியியலாளரும் கல்வியாளரும் ஆவார்.",
+        "url": "units/U1/7.webp"
+      }
+    }
+  },
+  {
+    "unitNumber": 2,
+    "unitNameEnglish": "Tamil Poets",
+    "unitNameTamil": "தமிழ் கவிஞர்கள்",
+    "unitDescriptionEnglish": "Discover the legendary poets of Tamil literature whose timeless works have shaped ethics, epics, devotion, patriotism, and social reform across generations.",
+    "unitDescriptionTamil": "அறம், காப்பியம், பக்தி, தேசப்பற்று மற்றும் சமூக சீர்திருத்தம் போன்ற பல துறைகளில் தமிழ் இலக்கியத்தை வளப்படுத்திய புகழ்பெற்ற தமிழ் கவிஞர்களைப் பற்றி அறிந்து கொள்ளுங்கள்.",
+    "thumbnail": "units/U2/thumbnail.webp",
+    "characters": {
+      "character1": {
+        "nameEnglish": "Thiruvalluvar",
+        "nameTamil": "திருவள்ளுவர்",
+        "descriptionEnglish": "Author of the Tirukkural, one of the world's greatest works on ethics and moral philosophy.",
+        "descriptionTamil": "உலகப் புகழ்பெற்ற அறநூலான திருக்குறளை இயற்றி, அறம், பொருள், இன்பம் ஆகியவற்றை எளிமையாக விளக்கிய மாமுனிவர்.",
+        "url": "units/U2/1.webp"
+      },
+      "character2": {
+        "nameEnglish": "Kambar",
+        "nameTamil": "கம்பர்",
+        "descriptionEnglish": "Author of the Kamba Ramayanam and regarded as one of the greatest epic poets in Tamil literature.",
+        "descriptionTamil": "கம்பராமாயணத்தை இயற்றி, தமிழின் தலைசிறந்த காப்பியக் கவிஞர்களில் ஒருவராகப் போற்றப்படுகிறார்.",
+        "url": "units/U2/2.webp"
+      },
+      "character3": {
+        "nameEnglish": "Ilango Adigal",
+        "nameTamil": "இளங்கோ அடிகள்",
+        "descriptionEnglish": "Author of Silappatikaram, one of the Five Great Epics of Tamil literature.",
+        "descriptionTamil": "தமிழின் ஐம்பெரும் காப்பியங்களில் ஒன்றான சிலப்பதிகாரத்தை இயற்றிய புகழ்பெற்ற புலவர்.",
+        "url": "units/U2/3.webp"
+      },
+      "character4": {
+        "nameEnglish": "Kapilar",
+        "nameTamil": "கபிலர்",
+        "descriptionEnglish": "One of the most prolific Sangam poets, celebrated for his literary excellence and friendship with King Pari.",
+        "descriptionTamil": "சங்க காலத்தின் மிகச் சிறந்த புலவர்களில் ஒருவர்; பாரி மன்னனுடனான நட்பிற்கும் இலக்கிய மேன்மைக்கும் புகழ்பெற்றவர்.",
+        "url": "units/U2/4.webp"
+      },
+      "character5": {
+        "nameEnglish": "Nakkeerar",
+        "nameTamil": "நக்கீரர்",
+        "descriptionEnglish": "Renowned Sangam poet, literary critic, and traditionally regarded as the president of the Tamil Sangam.",
+        "descriptionTamil": "புகழ்பெற்ற சங்கப் புலவர், இலக்கிய விமர்சகர் மற்றும் மரபுப்படி தமிழ்ச் சங்கத்தின் தலைவராகக் கருதப்படுபவர்.",
+        "url": "units/U2/5.webp"
+      },
+      "character6": {
+        "nameEnglish": "Subramania Bharati",
+        "nameTamil": "சுப்பிரமணிய பாரதி",
+        "descriptionEnglish": "Mahakavi Bharati revolutionized modern Tamil poetry through themes of freedom, equality, women's rights, and social reform.",
+        "descriptionTamil": "மகாகவி பாரதி சுதந்திரம், சமத்துவம், பெண்கள் உரிமை மற்றும் சமூக சீர்திருத்தக் கருத்துகளால் நவீன தமிழ் கவிதைக்கு புதிய பரிமாணம் அளித்தார்.",
+        "url": "units/U2/6.webp"
+      },
+      "character7": {
+        "nameEnglish": "Bharathidasan",
+        "nameTamil": "பாரதிதாசன்",
+        "descriptionEnglish": "Influential modern poet who championed Tamil identity, rationalism, and social justice through his revolutionary writings.",
+        "descriptionTamil": "தமிழ் அடையாளம், பகுத்தறிவு மற்றும் சமூக நீதியை வலியுறுத்திய புரட்சிகரமான நவீன தமிழ் கவிஞர்.",
+        "url": "units/U2/7.webp"
+      }
+    }
+  }
+]

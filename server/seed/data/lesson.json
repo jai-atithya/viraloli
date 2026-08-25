@@ -1,0 +1,99 @@
+[
+  {
+    "unitNumber": 1,
+    "lessonNumber": 1,
+    "type": "intro",
+    "headingEnglish": "Welcome to Tamil",
+    "headingTamil": "தமிழுக்கு வரவேற்கிறோம்",
+    "descriptionEnglish": "In this lesson you will get an introduction to the Tamil language.",
+    "descriptionTamil": "இந்தப் பாடத்தில் தமிழ் மொழியின் அறிமுகத்தைப் பற்றி அறிந்து கொள்வீர்கள்.",
+    "videoUrlEnglish": "units/U1/introEnglish.mp4",
+    "videoUrlTamil": "units/U1/introTamil.mp4",
+    "game": {
+      "gameId": null,
+      "gameName": ""
+    },
+    "required": false,
+    "requiredParameters": {
+      "wpm": 0,
+      "cpm": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "unitNumber": 1,
+    "lessonNumber": 2,
+    "type": "teach",
+    "headingEnglish": "Meet the letters ப் ப ஃ",
+    "headingTamil": "ப் ப ஃ எழுத்துகளை அறிந்துகொள்வோம்",
+    "descriptionEnglish": "In this lesson, you'll learn the letters ப் ப ஃ that appeared in the previous lesson.",
+    "descriptionTamil": "இந்தப் பாடத்தில், முந்தைய பாடத்தில் வந்த ப் ப ஃ  எழுத்துகளைப் பற்றி கற்றுக்கொள்வோம்.",
+    "game": {
+      "gameId": null,
+      "gameName": ""
+    },
+    "required": false,
+    "requiredParameters": {
+      "wpm": 0,
+      "cpm": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "unitNumber": 1,
+    "lessonNumber": 3,
+    "type": "practise",
+    "headingEnglish": "Practice the Letters ப் ப ஃ",
+    "headingTamil": "ப் ப ஃ எழுத்துகளைப் பயிற்சி செய்வோம்",
+    "descriptionEnglish": "It's time to practice! Strengthen your understanding of the letters ப் ப ஃ through interactive exercises.",
+    "descriptionTamil": "இப்போது பயிற்சி செய்யும் நேரம்! ப் ப ஃ  எழுத்துகளை பல்வேறு செயல்பாடுகள் மூலம் பயிற்சி செய்து உங்கள் திறனை மேம்படுத்துங்கள்",
+    "game": {
+      "gameId": null,
+      "gameName": ""
+    },
+    "required": false,
+    "requiredParameters": {
+      "wpm": 0,
+      "cpm": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "unitNumber": 1,
+    "lessonNumber": 4,
+    "type": "characters",
+    "headingEnglish": "Review & Practice",
+    "headingTamil": "மறுபார்வை மற்றும் பயிற்சி",
+    "descriptionEnglish": "Review all the characters you've unlocked so far and strengthen your skills through engaging practice activities. Recognize, type, and reinforce both previously learned and newly introduced characters to build speed, accuracy, and confidence.",
+    "descriptionTamil": "இதுவரை திறந்துள்ள அனைத்து எழுத்துகளையும் மீண்டும் நினைவுபடுத்தி, சுவாரஸ்யமான பயிற்சிகள் மூலம் உங்கள் திறனை மேம்படுத்துங்கள். முன்பு கற்ற எழுத்துகளையும் புதிய எழுத்துகளையும் ஒன்றாகப் பயிற்சி செய்து, வேகம், துல்லியம் மற்றும் நம்பிக்கையை வளர்த்துக்கொள்ளுங்கள்.",
+    "game": {
+      "gameId": null,
+      "gameName": ""
+    },
+    "required": false,
+    "requiredParameters": {
+      "wpm": 0,
+      "cpm": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "unitNumber": 1,
+    "lessonNumber": 5,
+    "type": "words",
+    "headingEnglish": "Build & Type Words",
+    "headingTamil": "சொற்களை உருவாக்கி தட்டச்சு செய்வோம்ி",
+    "descriptionEnglish": "Put your learning into action by typing words formed using all the characters you've learned so far. Practice recognizing character combinations, improve your typing speed, and build confidence by completing fun word-based exercises.",
+    "descriptionTamil": "இதுவரை கற்றுள்ள அனைத்து எழுத்துகளையும் பயன்படுத்தி உருவாக்கப்பட்ட சொற்களை தட்டச்சு செய்து பயிற்சி செய்யுங்கள். எழுத்துகளின் சேர்க்கைகளை அடையாளம் கண்டு, தட்டச்சு வேகத்தையும் துல்லியத்தையும் மேம்படுத்தி, சொற்கள் மூலம் உங்கள் திறனை மேலும் வலுப்படுத்துங்கள்.",
+    "game": {
+      "gameId": null,
+      "gameName": ""
+    },
+    "required": false,
+    "requiredParameters": {
+      "wpm": 0,
+      "cpm": 0,
+      "accuracy": 0
+    }
+  }
+]
